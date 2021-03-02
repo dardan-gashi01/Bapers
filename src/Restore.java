@@ -4,9 +4,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.JButton;
 
 public class Restore extends JFrame {
 
@@ -39,21 +39,23 @@ public class Restore extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JLabel lblNewLabel = new JLabel("Restore");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(10, 10, 664, 14);
+		contentPane.add(lblNewLabel);
+		
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.setBounds(10, 327, 89, 23);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("confirm Restore");
+		JButton btnNewButton_1 = new JButton("Confirm Restore");
 		btnNewButton_1.setBounds(585, 327, 89, 23);
 		contentPane.add(btnNewButton_1);
 		
-		JLabel lblNewLabel = new JLabel("Restore");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(10, 11, 664, 14);
-		contentPane.add(lblNewLabel);
-		
 		JPanel panel = new JPanel();
-		panel.setBounds(150, 85, 401, 179);
+		panel.setBounds(100, 50, 478, 243);
 		contentPane.add(panel);
+		
+		
 	}
 }

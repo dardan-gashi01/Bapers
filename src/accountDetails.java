@@ -9,7 +9,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
-public class accountDetails extends JFrame {
+public class AccountDetails extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -23,7 +23,7 @@ public class accountDetails extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					accountDetails frame = new accountDetails();
+					AccountDetails frame = new AccountDetails();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +35,7 @@ public class accountDetails extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public accountDetails() {
+	public AccountDetails() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 400);
 		contentPane = new JPanel();
