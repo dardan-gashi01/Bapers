@@ -72,50 +72,134 @@ public class Menu extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Place Job");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				NewJob newjobFrame = new NewJob();
+				newjobFrame.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton_1.setBounds(549, 85, 125, 23);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Take Payment");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Payment paymentFrame = new Payment();
+				paymentFrame.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton_2.setBounds(549, 135, 125, 23);
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Create Customer");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CreateCustomer CCFrame = new CreateCustomer();
+				CCFrame.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton_3.setBounds(549, 185, 125, 23);
 		contentPane.add(btnNewButton_3);
 		
 		JButton btnNewButton_4 = new JButton("Reports");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Reports reportsFrame = new Reports();
+				reportsFrame.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton_4.setBounds(199, 85, 125, 23);
 		contentPane.add(btnNewButton_4);
 		
 		JButton btnNewButton_5 = new JButton("View Active Jobs");
-		btnNewButton_5.setBounds(376, 85, 125, 23);
+		btnNewButton_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ActiveJobList activejobsFrame = new ActiveJobList();
+				activejobsFrame.setVisible(true);
+				dispose();
+			}
+		});
+		btnNewButton_5.setBounds(352, 85, 149, 23);
 		contentPane.add(btnNewButton_5);
 		
 		JButton btnNewButton_6 = new JButton("Create Account");
+		btnNewButton_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CreateAccount createaccountFrame = new CreateAccount();
+				createaccountFrame.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton_6.setBounds(25, 85, 125, 23);
 		contentPane.add(btnNewButton_6);
 		
 		JButton btnNewButton_7 = new JButton("Update Account");
+		btnNewButton_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AccountDetails accountdetailsFrame = new AccountDetails();
+				accountdetailsFrame.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton_7.setBounds(25, 135, 125, 23);
 		contentPane.add(btnNewButton_7);
 		
 		JButton btnNewButton_8 = new JButton("Manage Customers");
+		btnNewButton_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CustomerSearch customersearchFrame = new CustomerSearch();
+				customersearchFrame.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton_8.setBounds(25, 185, 125, 23);
 		contentPane.add(btnNewButton_8);
 		
 		JButton btnNewButton_9 = new JButton("View All Jobs");
-		btnNewButton_9.setBounds(376, 135, 125, 23);
+		btnNewButton_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JobList alljobFrame = new JobList();
+				alljobFrame.setVisible(true);
+				dispose();
+			}
+		});
+		btnNewButton_9.setBounds(352, 135, 149, 23);
 		contentPane.add(btnNewButton_9);
 		
 		JButton btnNewButton_10 = new JButton("Update Job Status");
-		btnNewButton_10.setBounds(376, 185, 125, 23);
+		btnNewButton_10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				UpdateJobStatus updatestatusFrame = new UpdateJobStatus();
+				updatestatusFrame.setVisible(true);
+				dispose();
+			}
+		});
+		btnNewButton_10.setBounds(352, 185, 149, 23);
 		contentPane.add(btnNewButton_10);
 		
 		JButton btnNewButton_11 = new JButton("Create Backup");
+		btnNewButton_11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Backup backupFrame = new Backup();
+				backupFrame.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton_11.setBounds(25, 244, 125, 23);
 		contentPane.add(btnNewButton_11);
 		
 		JButton btnNewButton_12 = new JButton("Restore Database");
+		btnNewButton_12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Restore restoreFrame = new Restore();
+				restoreFrame.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton_12.setBounds(25, 300, 125, 23);
 		contentPane.add(btnNewButton_12);
 	}

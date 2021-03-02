@@ -7,6 +7,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Payment extends JFrame {
 
@@ -53,8 +55,16 @@ public class Payment extends JFrame {
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Cancel");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Menu menuFrame = new Menu();
+				menuFrame.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton_2.setBounds(294, 327, 89, 23);
 		contentPane.add(btnNewButton_2);
 	}
 
 }
+

@@ -8,6 +8,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class AccountSearch extends JFrame {
 
@@ -73,6 +75,13 @@ public class AccountSearch extends JFrame {
 		contentPane.add(btnNewButton_1);
 		
 		btnNewButton_2 = new JButton("Cancel");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Menu menuFrame = new Menu();
+				menuFrame.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton_2.setBounds(10, 327, 89, 23);
 		contentPane.add(btnNewButton_2);
 		

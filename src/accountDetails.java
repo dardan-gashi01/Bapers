@@ -8,8 +8,10 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class accountDetails extends JFrame {
+public class AccountDetails extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -23,7 +25,7 @@ public class accountDetails extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					accountDetails frame = new accountDetails();
+					AccountDetails frame = new AccountDetails();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +37,7 @@ public class accountDetails extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public accountDetails() {
+	public AccountDetails() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 400);
 		contentPane = new JPanel();
@@ -71,6 +73,13 @@ public class accountDetails extends JFrame {
 		textField_2.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Menu menuFrame = new Menu();
+				menuFrame.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton.setBounds(10, 327, 89, 23);
 		contentPane.add(btnNewButton);
 		
