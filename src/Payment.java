@@ -1,5 +1,7 @@
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -34,6 +36,11 @@ public class Payment extends JFrame {
 	 * Create the frame.
 	 */
 	public Payment() {
+		
+		Toolkit toolkit = getToolkit();
+		Dimension size = toolkit.getScreenSize();
+		setLocation(size.width/2-getWidth()/2, size.height/2 - getHeight()/2);
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 400);
 		contentPane = new JPanel();

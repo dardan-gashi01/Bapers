@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -8,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -39,6 +41,11 @@ public class AccountSearch extends JFrame {
 	 * Create the frame.
 	 */
 	public AccountSearch() {
+		
+		Toolkit toolkit = getToolkit();
+		Dimension size = toolkit.getScreenSize();
+		setLocation(size.width/2-getWidth()/2, size.height/2 - getHeight()/2);
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 400);
 		contentPane = new JPanel();
