@@ -7,21 +7,35 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.UUID;
 import java.awt.event.ActionEvent;
 
 public class CreateCustomer extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	private JTextField name;
+	private JTextField cname;
+	private JTextField address;
+	private JTextField phone;
+	private JTextField discount;
+	private JRadioButton regularCustomer;
+	private JRadioButton valuedCustomer;
+	private JRadioButton flexibleDiscount;
+	private JRadioButton fixedDiscount;
+	private JRadioButton variableDiscount;
+	private String status;
+	private String agreedDiscount;
+	
 
 	/**
 	 * Launch the application.
@@ -38,10 +52,12 @@ public class CreateCustomer extends JFrame {
 			}
 		});
 	}
-
+		
 	/**
 	 * Create the frame.
 	 */
+	
+	
 	public CreateCustomer() {
 		
 		Toolkit toolkit = getToolkit();
@@ -72,6 +88,32 @@ public class CreateCustomer extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Confirm Details");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					//String AccountNo = UUID.randomUUID().toString();
+					Class.forName("com.mysql.jdbc.Driver");
+					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bapers", "root", "");
+					String query = "INSERT INTO `customer`(`customer_id`, `customer_name`, `contact_name`, `phone`, `address`, `status`, `agreed_discount`, `discount_rate`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+					PreparedStatement pst = con.prepareStatement(query);
+					//pst.setString(1, AccountNo);
+					pst.setString(2,name.getText());
+					pst.setString(3,cname.getText());
+					pst.setString(4,phone.getText());
+					pst.setString(5,address.getText());
+					pst.setString(6, status);
+					pst.setString(7, agreedDiscount);
+					pst.setString(8,discount.getText());
+					pst.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Customer registered");
+					
+					}
+				catch(Exception E) {
+					JOptionPane.showMessageDialog(null,E);
+				}
+				
+			}
+		});
 		btnNewButton_1.setBounds(550, 327, 124, 23);
 		contentPane.add(btnNewButton_1);
 		
@@ -83,10 +125,10 @@ public class CreateCustomer extends JFrame {
 		lblNewLabel_2.setBounds(117, 100, 89, 14);
 		contentPane.add(lblNewLabel_2);
 		
-		textField = new JTextField();
-		textField.setBounds(230, 67, 194, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		name = new JTextField();
+		name.setBounds(230, 67, 194, 20);
+		contentPane.add(name);
+		name.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("Address");
 		lblNewLabel_3.setBounds(117, 130, 89, 14);
@@ -108,44 +150,87 @@ public class CreateCustomer extends JFrame {
 		lblNewLabel_7.setBounds(117, 250, 89, 14);
 		contentPane.add(lblNewLabel_7);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(230, 97, 194, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		cname = new JTextField();
+		cname.setBounds(230, 97, 194, 20);
+		contentPane.add(cname);
+		cname.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(230, 127, 194, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		address = new JTextField();
+		address.setBounds(230, 127, 194, 20);
+		contentPane.add(address);
+		address.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(230, 157, 194, 20);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
+		phone = new JTextField();
+		phone.setBounds(230, 157, 194, 20);
+		contentPane.add(phone);
+		phone.setColumns(10);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Regular");
-		rdbtnNewRadioButton.setBounds(229, 186, 109, 23);
-		contentPane.add(rdbtnNewRadioButton);
+		regularCustomer = new JRadioButton("Regular");
+		regularCustomer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(regularCustomer.isSelected()) {
+					valuedCustomer.setSelected(false);
+					status = "Regular";
+				}
+			}
+		});
+		regularCustomer.setBounds(229, 186, 109, 23);
+		contentPane.add(regularCustomer);
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Valued");
-		rdbtnNewRadioButton_1.setBounds(362, 186, 109, 23);
-		contentPane.add(rdbtnNewRadioButton_1);
+		valuedCustomer = new JRadioButton("Valued");
+		valuedCustomer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(valuedCustomer.isSelected()) {
+					regularCustomer.setSelected(false);
+					status = "Valued";
+				}
+			}
+		});
+		valuedCustomer.setBounds(362, 186, 109, 23);
+		contentPane.add(valuedCustomer);
 		
-		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Flexible");
-		rdbtnNewRadioButton_2.setBounds(230, 216, 109, 23);
-		contentPane.add(rdbtnNewRadioButton_2);
+		flexibleDiscount = new JRadioButton("Flexible");
+		flexibleDiscount.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(flexibleDiscount.isSelected()) {
+					fixedDiscount.setSelected(false);
+					variableDiscount.setSelected(false);
+					agreedDiscount = "Flexible";
+				}
+			}
+		});
+		flexibleDiscount.setBounds(230, 216, 109, 23);
+		contentPane.add(flexibleDiscount);
 		
-		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("Fixed");
-		rdbtnNewRadioButton_3.setBounds(362, 216, 109, 23);
-		contentPane.add(rdbtnNewRadioButton_3);
+		fixedDiscount = new JRadioButton("Fixed");
+		fixedDiscount.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(fixedDiscount.isSelected()) {
+					flexibleDiscount.setSelected(false);
+					variableDiscount.setSelected(false);
+					agreedDiscount = "Fixed";
+				}
+			}
+		});
+		fixedDiscount.setBounds(362, 216, 109, 23);
+		contentPane.add(fixedDiscount);
 		
-		JRadioButton rdbtnNewRadioButton_4 = new JRadioButton("Variable");
-		rdbtnNewRadioButton_4.setBounds(473, 216, 109, 23);
-		contentPane.add(rdbtnNewRadioButton_4);
+		variableDiscount = new JRadioButton("Variable");
+		variableDiscount.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(variableDiscount.isSelected()) {
+					fixedDiscount.setSelected(false);
+					flexibleDiscount.setSelected(false);
+					agreedDiscount = "Variable";
+				}
+			}
+		});
+		variableDiscount.setBounds(473, 216, 109, 23);
+		contentPane.add(variableDiscount);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(230, 247, 86, 20);
-		contentPane.add(textField_4);
-		textField_4.setColumns(10);
+		discount = new JTextField();
+		discount.setBounds(230, 247, 86, 20);
+		contentPane.add(discount);
+		discount.setColumns(10);
 	}
 }
