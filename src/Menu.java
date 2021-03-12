@@ -56,11 +56,11 @@ public class Menu extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Shift Manager");
-		lblNewLabel_2.setBounds(225, 60, 89, 14);
+		lblNewLabel_2.setBounds(211, 60, 89, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Technician");
-		lblNewLabel_3.setBounds(413, 60, 67, 14);
+		lblNewLabel_3.setBounds(382, 60, 67, 14);
 		contentPane.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Receptionist");
@@ -75,7 +75,7 @@ public class Menu extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton.setBounds(549, 327, 125, 23);
+		btnNewButton.setBounds(505, 327, 169, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Place Job");
@@ -86,7 +86,7 @@ public class Menu extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_1.setBounds(549, 85, 125, 23);
+		btnNewButton_1.setBounds(505, 85, 169, 23);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Take Payment");
@@ -97,7 +97,7 @@ public class Menu extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_2.setBounds(549, 135, 125, 23);
+		btnNewButton_2.setBounds(505, 135, 169, 23);
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Create Customer");
@@ -108,7 +108,7 @@ public class Menu extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_3.setBounds(549, 185, 125, 23);
+		btnNewButton_3.setBounds(505, 185, 169, 23);
 		contentPane.add(btnNewButton_3);
 		
 		JButton btnNewButton_4 = new JButton("Reports");
@@ -119,7 +119,7 @@ public class Menu extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_4.setBounds(199, 85, 125, 23);
+		btnNewButton_4.setBounds(186, 85, 125, 23);
 		contentPane.add(btnNewButton_4);
 		
 		JButton btnNewButton_5 = new JButton("View Active Jobs");
@@ -130,7 +130,7 @@ public class Menu extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_5.setBounds(352, 85, 149, 23);
+		btnNewButton_5.setBounds(331, 85, 149, 23);
 		contentPane.add(btnNewButton_5);
 		
 		JButton btnNewButton_6 = new JButton("Create Account");
@@ -174,7 +174,7 @@ public class Menu extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_9.setBounds(352, 135, 149, 23);
+		btnNewButton_9.setBounds(331, 135, 149, 23);
 		contentPane.add(btnNewButton_9);
 		
 		JButton btnNewButton_10 = new JButton("Update Job Status");
@@ -185,7 +185,7 @@ public class Menu extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_10.setBounds(352, 185, 149, 23);
+		btnNewButton_10.setBounds(331, 185, 149, 23);
 		contentPane.add(btnNewButton_10);
 		
 		JButton btnNewButton_11 = new JButton("Create Backup");
@@ -209,5 +209,16 @@ public class Menu extends JFrame {
 		});
 		btnNewButton_12.setBounds(25, 300, 125, 23);
 		contentPane.add(btnNewButton_12);
+		
+		JButton btnNewButton_13 = new JButton("Update Customer Account");
+		btnNewButton_13.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				UpdateCustomer updateCustomerFrame = new UpdateCustomer();
+				updateCustomerFrame.setVisible(true);
+				dispose();
+			}
+		});
+		btnNewButton_13.setBounds(505, 244, 169, 23);
+		contentPane.add(btnNewButton_13);
 	}
 }

@@ -91,22 +91,23 @@ public class CreateCustomer extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					//String AccountNo = UUID.randomUUID().toString();
+					
 					Class.forName("com.mysql.jdbc.Driver");
-					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bapers", "root", "");
-					String query = "INSERT INTO `customer`(`customer_id`, `customer_name`, `contact_name`, `phone`, `address`, `status`, `agreed_discount`, `discount_rate`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bapersdb", "root", "");
+					String query = "INSERT INTO `customer`(`customer_name`, `contact_name`, `phone`, `address`, `status`, `agreed_discount`, `discount_rate`) VALUES (?, ?, ?, ?, ?, ?, ?)";
 					PreparedStatement pst = con.prepareStatement(query);
-					//pst.setString(1, AccountNo);
-					pst.setString(2,name.getText());
-					pst.setString(3,cname.getText());
-					pst.setString(4,phone.getText());
-					pst.setString(5,address.getText());
-					pst.setString(6, status);
-					pst.setString(7, agreedDiscount);
-					pst.setString(8,discount.getText());
+					pst.setString(1,name.getText());
+					pst.setString(2,cname.getText());
+					pst.setString(3,phone.getText());
+					pst.setString(4,address.getText());
+					pst.setString(5, status);
+					pst.setString(6, agreedDiscount);
+					pst.setString(7,discount.getText());
 					pst.executeUpdate();
 					JOptionPane.showMessageDialog(null, "Customer registered");
-					
+					CreateCustomer thisframe = new CreateCustomer();
+					thisframe.setVisible(true);
+					dispose();
 					}
 				catch(Exception E) {
 					JOptionPane.showMessageDialog(null,E);
