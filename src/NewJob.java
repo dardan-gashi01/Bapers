@@ -1,25 +1,39 @@
 import java.awt.BorderLayout;
+import java.util.Date;
+
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
-
+import java.sql.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
+import com.toedter.calendar.JDateChooser;
 
 public class NewJob extends JFrame {
-
+	java.util.Date date;
+	java.sql.Date sqldate;
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField specialInstruction;
+	private String payment = "Null";
+	private String urgency;
+	private JRadioButton normalButton;
+	private JRadioButton urgentButton;
+	private JDateChooser Date;
+	private String Status = "Null";
 
 	/**
 	 * Launch the application.
@@ -41,6 +55,8 @@ public class NewJob extends JFrame {
 	 * Create the frame.
 	 */
 	public NewJob() {
+		
+		
 		
 		Toolkit toolkit = getToolkit();
 		Dimension size = toolkit.getScreenSize();
@@ -70,6 +86,36 @@ public class NewJob extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Confirm Job");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Date currentDate = new Date();
+					java.sql.Date sqlDate = new java.sql.Date(currentDate.getTime());
+					date = Date.getDate();
+					sqldate = new java.sql.Date(date.getTime());
+					Class.forName("com.mysql.jdbc.Driver");
+					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bapersdb", "root", "");
+					String query = "INSERT INTO `job`(`job_id` , `customer_id`,`payment_id`, `date_created`, `deadline`, `urgency`, `status`, `special_instructions`) VALUES (?, ?, ?,?,?, ?, ?,?)";
+					PreparedStatement pst = con.prepareStatement(query);
+					pst.setString(1,"abcd");
+					pst.setInt(2,7);
+					pst.setInt(3,1001);
+					pst.setDate(4,sqlDate);
+					pst.setDate(5, sqldate);
+					pst.setString(6, urgency);
+					pst.setString(7, Status);
+					pst.setString(8,specialInstruction.getText());
+					pst.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Job Created");
+					NewJob thisframe = new NewJob();
+					thisframe.setVisible(true);
+					dispose();
+					}
+				catch(Exception E) {
+					JOptionPane.showMessageDialog(null,E);
+				}
+			}
+		});
 		btnNewButton_1.setBounds(585, 327, 89, 23);
 		contentPane.add(btnNewButton_1);
 	
@@ -77,51 +123,53 @@ public class NewJob extends JFrame {
 		lblNewLabel_1.setBounds(99, 70, 107, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("Job ID");
-		lblNewLabel_2.setBounds(99, 100, 107, 14);
-		contentPane.add(lblNewLabel_2);
-		
 		JLabel lblNewLabel_3 = new JLabel("Deadline");
-		lblNewLabel_3.setBounds(99, 130, 107, 14);
+		lblNewLabel_3.setBounds(99, 95, 107, 14);
 		contentPane.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Urgency Level");
-		lblNewLabel_4.setBounds(99, 160, 107, 14);
+		lblNewLabel_4.setBounds(99, 120, 107, 14);
 		contentPane.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("Special Instructions");
-		lblNewLabel_5.setBounds(99, 190, 107, 14);
+		lblNewLabel_5.setBounds(99, 145, 107, 14);
 		contentPane.add(lblNewLabel_5);
 		
 		JLabel nameLabel = new JLabel("");
 		nameLabel.setBounds(238, 70, 68, 14);
 		contentPane.add(nameLabel);
 		
-		textField = new JTextField();
-		textField.setBounds(238, 97, 253, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		specialInstruction = new JTextField();
+		specialInstruction.setBounds(238, 142, 253, 20);
+		contentPane.add(specialInstruction);
+		specialInstruction.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(238, 187, 253, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		normalButton = new JRadioButton("Normal");
+		normalButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(normalButton.isSelected()) {
+					urgentButton.setSelected(false);
+					urgency = "normal";
+				}
+			}
+		});
+		normalButton.setBounds(238, 116, 109, 23);
+		contentPane.add(normalButton);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Normal");
-		rdbtnNewRadioButton.setBounds(238, 156, 109, 23);
-		contentPane.add(rdbtnNewRadioButton);
+		urgentButton = new JRadioButton("Urgent");
+		urgentButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(urgentButton.isSelected()) {
+					normalButton.setSelected(false);
+					urgency = "urgent";
+				}
+			}
+		});
+		urgentButton.setBounds(382, 116, 109, 23);
+		contentPane.add(urgentButton);
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Urgent");
-		rdbtnNewRadioButton_1.setBounds(382, 156, 109, 23);
-		contentPane.add(rdbtnNewRadioButton_1);
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(238, 126, 109, 22);
-		contentPane.add(comboBox);
-		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(382, 126, 109, 22);
-		contentPane.add(comboBox_1);
+		Date = new JDateChooser();
+		Date.setBounds(238, 89, 94, 20);
+		contentPane.add(Date);
 	}
-
 }
