@@ -22,6 +22,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
@@ -43,7 +45,8 @@ public class CustomerSearch extends JFrame {
 	private int CustomerID;
 	private String Status = "Null";
 	private JTextField SpecialInstruction;
-
+	Connection connection = null;
+	int getValue;
 	/**
 	 * Launch the application.
 	 */
@@ -59,6 +62,39 @@ public class CustomerSearch extends JFrame {
 			}
 		});
 	}
+	
+	public void generateInvoiceno(String passQuery) {
+		connection = sqlConnection.getConnection();
+		try {
+			
+			Statement st = connection.createStatement();
+			ResultSet set = st.executeQuery(passQuery);
+			
+			if(set.next()) {
+				getValue = Integer.parseInt(set.getString(1));
+			}
+			
+		}catch(Exception E) {
+			
+		}	
+	}
+	
+	/*public void insertSerialNo() {
+		generateInvoiceno("SELECT COUNT(`job_id`)+1 FROM `job`");
+		String insertData = "INSERT INTO `job`(`job_id`) VALUES (?)";
+		connection = sqlConnection.getConnection();
+		
+		String JNumber = "JOB" + new SimpleDateFormat("ddMMyyyy").format(new Date())+getValue;
+		
+		try {
+			PreparedStatement ps = connection.prepareStatement(insertData);
+			ps.setString(1, JNumber);
+			ps.execute();
+		}catch(Exception E) {
+			
+		}
+	}
+	*/
 
 	/**
 	 * Create the frame.
@@ -137,17 +173,7 @@ public class CustomerSearch extends JFrame {
 			));
 		
 		
-		JButton btnNewButton_1 = new JButton("Select Customer");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				NewJob NewFrame = new NewJob();
-				NewFrame.setVisible(true);
-				dispose();
-			}
-		});
-		btnNewButton_1.setBounds(536, 327, 138, 23);
-		contentPane.add(btnNewButton_1);
+		
 		
 		JLabel lblNewLabel_2 = new JLabel("Customer_ID");
 		lblNewLabel_2.setBounds(744, 75, 76, 14);
@@ -216,6 +242,8 @@ public class CustomerSearch extends JFrame {
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					generateInvoiceno("SELECT COUNT(`job_id`)+1 FROM `job`");
+					String JNumber = new SimpleDateFormat("ddMMyyyy").format(new Date())+getValue;
 					Date currentDate = new Date();
 					java.sql.Date sqlDate = new java.sql.Date(currentDate.getTime());
 					date = Date.getDate();
@@ -224,9 +252,8 @@ public class CustomerSearch extends JFrame {
 					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bapersdb", "root", "");
 					String query = "INSERT INTO `job`(`job_id` , `customer_id`, `date_created`, `deadline`, `urgency`, `status`, `special_instructions`) VALUES (?, ?,?,?, ?, ?,?)";
 					PreparedStatement pst = con.prepareStatement(query);
-					pst.setString(1,"bbcd");
+					pst.setString(1,JNumber);
 					pst.setInt(2,CustomerID);
-					//pst.setInt(3,1001);
 					pst.setDate(3,sqlDate);
 					pst.setDate(4, sqldate);
 					pst.setString(5, urgency);
@@ -234,8 +261,8 @@ public class CustomerSearch extends JFrame {
 					pst.setString(7,SpecialInstruction.getText());
 					pst.executeUpdate();
 					JOptionPane.showMessageDialog(null, "Job Created");
-					NewJob thisframe = new NewJob();
-					thisframe.setVisible(true);
+					CustomerSearch csFrame = new CustomerSearch();
+					csFrame.setVisible(true);
 					dispose();
 					}
 				catch(Exception E) {
