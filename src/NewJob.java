@@ -57,7 +57,7 @@ public class NewJob extends JFrame {
 	public NewJob() {
 		
 		
-		
+		CustomerSearch cs = new CustomerSearch();
 		Toolkit toolkit = getToolkit();
 		Dimension size = toolkit.getScreenSize();
 		setLocation(size.width/2-getWidth()/2, size.height/2 - getHeight()/2);
@@ -138,6 +138,7 @@ public class NewJob extends JFrame {
 		JLabel nameLabel = new JLabel("");
 		nameLabel.setBounds(238, 70, 68, 14);
 		contentPane.add(nameLabel);
+		//nameLabel.setText(cs.getCustomerName());
 		
 		specialInstruction = new JTextField();
 		specialInstruction.setBounds(238, 142, 253, 20);
@@ -171,5 +172,11 @@ public class NewJob extends JFrame {
 		Date = new JDateChooser();
 		Date.setBounds(238, 89, 94, 20);
 		contentPane.add(Date);
+		
+		
+		
+		
+		
+		
 	}
 }

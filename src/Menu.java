@@ -81,7 +81,7 @@ public class Menu extends JFrame {
 		JButton btnNewButton_1 = new JButton("Place Job");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				NewJob newjobFrame = new NewJob();
+				CustomerSearch newjobFrame = new CustomerSearch();
 				newjobFrame.setVisible(true);
 				dispose();
 			}
