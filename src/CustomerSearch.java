@@ -63,7 +63,7 @@ public class CustomerSearch extends JFrame {
 		});
 	}
 	
-	public void generateInvoiceno(String passQuery) {
+	public void generateJobno(String passQuery) {
 		connection = sqlConnection.getConnection();
 		try {
 			
@@ -79,22 +79,7 @@ public class CustomerSearch extends JFrame {
 		}	
 	}
 	
-	/*public void insertSerialNo() {
-		generateInvoiceno("SELECT COUNT(`job_id`)+1 FROM `job`");
-		String insertData = "INSERT INTO `job`(`job_id`) VALUES (?)";
-		connection = sqlConnection.getConnection();
-		
-		String JNumber = "JOB" + new SimpleDateFormat("ddMMyyyy").format(new Date())+getValue;
-		
-		try {
-			PreparedStatement ps = connection.prepareStatement(insertData);
-			ps.setString(1, JNumber);
-			ps.execute();
-		}catch(Exception E) {
-			
-		}
-	}
-	*/
+	
 
 	/**
 	 * Create the frame.
@@ -242,8 +227,9 @@ public class CustomerSearch extends JFrame {
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					generateInvoiceno("SELECT COUNT(`job_id`)+1 FROM `job`");
-					String JNumber = new SimpleDateFormat("ddMMyyyy").format(new Date())+getValue;
+					generateJobno("SELECT COUNT(`job_id`)+1 FROM `job`");
+					String JNumber = new SimpleDateFormat("ddMM").format(new Date())+getValue;
+					//String JNumber = new SimpleDateFormat("0000").format(new Date())+getValue;
 					Date currentDate = new Date();
 					java.sql.Date sqlDate = new java.sql.Date(currentDate.getTime());
 					date = Date.getDate();

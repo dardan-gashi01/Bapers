@@ -16,7 +16,11 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 import java.awt.event.ActionEvent;
 
@@ -35,6 +39,7 @@ public class CreateCustomer extends JFrame {
 	private JRadioButton variableDiscount;
 	private String status;
 	private String agreedDiscount;
+	Connection connection = null;
 	
 
 	/**
@@ -52,11 +57,10 @@ public class CreateCustomer extends JFrame {
 			}
 		});
 	}
-		
-	/**
-	 * Create the frame.
-	 */
 	
+	
+		
+		
 	
 	public CreateCustomer() {
 		
@@ -94,15 +98,16 @@ public class CreateCustomer extends JFrame {
 					
 					Class.forName("com.mysql.jdbc.Driver");
 					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bapersdb", "root", "");
-					String query = "INSERT INTO `customer`(`customer_name`, `contact_name`, `phone`, `address`, `status`, `agreed_discount`, `discount_rate`) VALUES (?, ?, ?, ?, ?, ?, ?)";
+					String query = "INSERT INTO `customer`(,`customer_name`, `contact_name`, `phone`, `address`, `status`, `agreed_discount`, `discount_rate`) VALUES (?, ?, ?, ?, ?, ?, ?)";
 					PreparedStatement pst = con.prepareStatement(query);
-					pst.setString(1,name.getText());
-					pst.setString(2,cname.getText());
-					pst.setString(3,phone.getText());
-					pst.setString(4,address.getText());
-					pst.setString(5, status);
-					pst.setString(6, agreedDiscount);
-					pst.setString(7,discount.getText());
+					
+					pst.setString(2,name.getText());
+					pst.setString(3,cname.getText());
+					pst.setString(4,phone.getText());
+					pst.setString(5,address.getText());
+					pst.setString(6, status);
+					pst.setString(7, agreedDiscount);
+					pst.setString(8,discount.getText());
 					pst.executeUpdate();
 					JOptionPane.showMessageDialog(null, "Customer registered");
 					CreateCustomer thisframe = new CreateCustomer();

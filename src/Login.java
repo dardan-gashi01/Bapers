@@ -79,21 +79,10 @@ public class Login extends JFrame {
 		JButton btnNewButton = new JButton("Login");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				/*String user = username.getText();
-				String pas = pass.getText();
-				
-				if(user.equals("user") & pas.equals("12345")) {
-					Menu menuFrame = new Menu();
-					menuFrame.setVisible(true);
-					dispose();
-				}else {
-					
-					
-				}*/
 				
 				try {
 					Class.forName("com.mysql.jdbc.Driver");
-					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bapers", "root", "");
+					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bapersdb", "root", "");
 					String sql = "Select * from account where account_id=? and pin=?";
 					PreparedStatement pst = con.prepareStatement(sql);
 					pst.setString(1, username.getText());
