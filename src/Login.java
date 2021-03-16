@@ -79,30 +79,25 @@ public class Login extends JFrame {
 		JButton btnNewButton = new JButton("Login");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				/*String user = username.getText();
-				String pas = pass.getText();
-				
-				if(user.equals("user") & pas.equals("12345")) {
-					Menu menuFrame = new Menu();
-					menuFrame.setVisible(true);
-					dispose();
-				}else {
-					
-					
-				}*/
 				
 				try {
 					Class.forName("com.mysql.jdbc.Driver");
-					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bapers", "root", "");
-					String sql = "Select * from account where account_id=? and pin=?";
+					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bapersdb", "root", "");
+					String sql = "Select role from account where name=? and password=?";
 					PreparedStatement pst = con.prepareStatement(sql);
 					pst.setString(1, username.getText());
 					pst.setString(2, pin.getText());
 					ResultSet rs = pst.executeQuery();
+					
+					
+					//PreparedStatement pst2 = con.prepareStatement(role);
+					//ResultSet rs2 = pst.executeQuery();
+					
 					if(rs.next()) {
 						Menu menuFrame = new Menu();
 						menuFrame.setVisible(true);
 						dispose();
+						menuFrame.AssignMenu(rs.getString(1));
 					}
 					else {
 						JOptionPane.showMessageDialog(null, "Username and Pin dont match");
@@ -130,7 +125,6 @@ public class Login extends JFrame {
 		JButton btnNewButton_1 = new JButton("Cancel");
 		btnNewButton_1.setBounds(10, 327, 89, 23);
 		contentPane.add(btnNewButton_1);
-		
 		
 	}
 }
