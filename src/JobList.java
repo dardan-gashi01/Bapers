@@ -6,14 +6,26 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import net.proteanit.sql.DbUtils;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.awt.event.ActionEvent;
+import javax.swing.JTable;
+import javax.swing.JScrollPane;
 
 public class JobList extends JFrame {
 
 	private JPanel contentPane;
+	private JTable table;
+	Connection connection = null;
 
 	/**
 	 * Launch the application.
@@ -66,26 +78,38 @@ public class JobList extends JFrame {
 		btnNewButton_1.setBounds(550, 327, 124, 23);
 		contentPane.add(btnNewButton_1);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(89, 60, 506, 244);
-		contentPane.add(panel);
-		panel.setLayout(null);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 40, 648, 276);
+		contentPane.add(scrollPane);
 		
-		JLabel lblNewLabel_1 = new JLabel("Job ID");
-		lblNewLabel_1.setBounds(45, 27, 46, 14);
-		panel.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("Customer Name");
-		lblNewLabel_2.setBounds(112, 27, 110, 14);
-		panel.add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("Status");
-		lblNewLabel_3.setBounds(427, 27, 46, 14);
-		panel.add(lblNewLabel_3);
+		table = new JTable();
+		scrollPane.setViewportView(table);
+		table.setModel(new DefaultTableModel(
+				new Object[][] {
+				},
+				new String[] {
+					"job_id", "customer_id", "payment_id", "date_created", "deadline", "urgency", "status", "special_instructions"
+				}
+			));
 		
-		JLabel lblNewLabel_4 = new JLabel("Number Of Tasks");
-		lblNewLabel_4.setBounds(250, 27, 117, 14);
-		panel.add(lblNewLabel_4);
+		JButton btnNewButton_2 = new JButton("Refresh");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				connection = sqlConnection.getConnection();
+				try {
+					String query = "SELECT * FROM job";
+					PreparedStatement pst = connection.prepareStatement(query);
+					ResultSet rs = pst.executeQuery();
+					table.setModel(DbUtils.resultSetToTableModel(rs));
+				}catch(Exception E) {
+					JOptionPane.showMessageDialog(null,E);
+				}
+			}
+		});
+		btnNewButton_2.setBounds(294, 327, 89, 23);
+		contentPane.add(btnNewButton_2);
+		
 	}
-
 }

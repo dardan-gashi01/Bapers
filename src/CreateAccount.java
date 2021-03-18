@@ -7,18 +7,29 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.awt.event.ActionEvent;
+import javax.swing.JRadioButton;
+import javax.swing.JPasswordField;
 
 public class CreateAccount extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField NameTextField;
+	private JTextField EmailTextField;
+	private JRadioButton ReceptionistBTN;
+	private JRadioButton ShiftManagerBTN;
+	private JRadioButton TechnicianBTN;
+	private JRadioButton OfficeManagerBTN;
+	String role;
+	private JPasswordField passwordField;
+	Connection connection = null;
 
 	/**
 	 * Launch the application.
@@ -58,7 +69,7 @@ public class CreateAccount extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Name");
-		lblNewLabel_1.setBounds(60, 70, 46, 14);
+		lblNewLabel_1.setBounds(138, 70, 46, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JButton btnNewButton = new JButton("Cancel");
@@ -73,31 +84,109 @@ public class CreateAccount extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Confirm Details");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				connection = sqlConnection.getConnection();
+				try {
+					String query = "INSERT INTO `account`(`name`, `email`, `role`, `password`) VALUES (?,?,?,?)";
+					PreparedStatement pst = connection.prepareStatement(query);
+					pst.setString(1,NameTextField.getText());
+					pst.setString(2,EmailTextField.getText());
+					pst.setString(3,role);
+					pst.setString(4,passwordField.getText());
+					pst.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Customer registered");
+					CreateAccount thisframe = new CreateAccount();
+					thisframe.setVisible(true);
+					dispose();
+				}catch(Exception E) {
+					JOptionPane.showMessageDialog(null,E);
+				}
+			}
+		});
 		btnNewButton_1.setBounds(549, 327, 125, 23);
 		contentPane.add(btnNewButton_1);
 		
-		textField = new JTextField();
-		textField.setBounds(132, 67, 322, 23);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		NameTextField = new JTextField();
+		NameTextField.setBounds(194, 66, 322, 23);
+		contentPane.add(NameTextField);
+		NameTextField.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("Email");
-		lblNewLabel_2.setBounds(60, 127, 46, 14);
+		lblNewLabel_2.setBounds(138, 127, 46, 14);
 		contentPane.add(lblNewLabel_2);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(132, 124, 322, 23);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		EmailTextField = new JTextField();
+		EmailTextField.setBounds(194, 123, 322, 23);
+		contentPane.add(EmailTextField);
+		EmailTextField.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("Role");
-		lblNewLabel_3.setBounds(60, 184, 46, 14);
+		lblNewLabel_3.setBounds(138, 184, 46, 14);
 		contentPane.add(lblNewLabel_3);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(132, 181, 322, 23);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		JLabel lblNewLabel_4 = new JLabel("Password");
+		lblNewLabel_4.setBounds(138, 246, 46, 14);
+		contentPane.add(lblNewLabel_4);
+		
+		ReceptionistBTN = new JRadioButton("Receptionist");
+		ReceptionistBTN.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(ReceptionistBTN.isSelected()) {
+					TechnicianBTN.setSelected(false);
+					ShiftManagerBTN.setSelected(false);
+					OfficeManagerBTN.setSelected(false);
+					role = "Receptionist";
+				}
+			}
+		});
+		ReceptionistBTN.setBounds(194, 180, 109, 23);
+		contentPane.add(ReceptionistBTN);
+		
+		TechnicianBTN = new JRadioButton("Technician");
+		TechnicianBTN.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(TechnicianBTN.isSelected()) {
+					ReceptionistBTN.setSelected(false);
+					ShiftManagerBTN.setSelected(false);
+					OfficeManagerBTN.setSelected(false);
+					role = "Technician";
+				}
+			}
+		});
+		TechnicianBTN.setBounds(305, 180, 94, 23);
+		contentPane.add(TechnicianBTN);
+		
+		ShiftManagerBTN = new JRadioButton("Shift Manager");
+		ShiftManagerBTN.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(ShiftManagerBTN.isSelected()) {
+					OfficeManagerBTN.setSelected(false);
+					TechnicianBTN.setSelected(false);
+					ReceptionistBTN.setSelected(false);
+					role = "Shift Manager";
+				}
+			}
+		});
+		ShiftManagerBTN.setBounds(407, 180, 109, 23);
+		contentPane.add(ShiftManagerBTN);
+		
+		OfficeManagerBTN = new JRadioButton("Office Manager");
+		OfficeManagerBTN.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(OfficeManagerBTN.isSelected()) {
+					TechnicianBTN.setSelected(false);
+					ReceptionistBTN.setSelected(false);
+					ShiftManagerBTN.setSelected(false);
+					role = "Office Manager";
+				}
+			}
+		});
+		OfficeManagerBTN.setBounds(518, 180, 109, 23);
+		contentPane.add(OfficeManagerBTN);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(194, 243, 322, 20);
+		contentPane.add(passwordField);
 	}
-
 }

@@ -26,6 +26,8 @@ public class Login extends JFrame {
 	private JPanel contentPane;
 	private JTextField username;
 	private JPasswordField pin;
+	Connection connection = null;
+
 
 	/**
 	 * Launch the application.
@@ -79,12 +81,10 @@ public class Login extends JFrame {
 		JButton btnNewButton = new JButton("Login");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				connection = sqlConnection.getConnection();
 				try {
-					Class.forName("com.mysql.jdbc.Driver");
-					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bapersdb", "root", "");
 					String sql = "Select role from account where name=? and password=?";
-					PreparedStatement pst = con.prepareStatement(sql);
+					PreparedStatement pst = connection.prepareStatement(sql);
 					pst.setString(1, username.getText());
 					pst.setString(2, pin.getText());
 					ResultSet rs = pst.executeQuery();
@@ -104,7 +104,7 @@ public class Login extends JFrame {
 						username.setText("");
 						pin.setText("");
 					}
-					con.close();
+					connection.close();
 				}
 				catch(Exception E) {
 					JOptionPane.showMessageDialog(null,E);

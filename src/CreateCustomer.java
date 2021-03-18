@@ -94,12 +94,10 @@ public class CreateCustomer extends JFrame {
 		JButton btnNewButton_1 = new JButton("Confirm Details");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				connection = sqlConnection.getConnection();
 				try {
-					
-					Class.forName("com.mysql.jdbc.Driver");
-					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bapersdb", "root", "");
 					String query = "INSERT INTO `customer`(`customer_name`, `contact_name`, `phone`, `address`, `status`, `agreed_discount`, `discount_rate`) VALUES (?, ?, ?, ?, ?, ?, ?)";
-					PreparedStatement pst = con.prepareStatement(query);
+					PreparedStatement pst = connection.prepareStatement(query);
 					pst.setString(1,name.getText());
 					pst.setString(2,cname.getText());
 					pst.setString(3,phone.getText());

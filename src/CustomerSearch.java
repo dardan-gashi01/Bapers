@@ -43,7 +43,7 @@ public class CustomerSearch extends JFrame {
 	private JDateChooser Date;
 	private String urgency;
 	private int CustomerID;
-	private String Status = "Null";
+	private String Status = "In Progress";
 	private JTextField SpecialInstruction;
 	Connection connection = null;
 	int getValue;
@@ -127,12 +127,11 @@ public class CustomerSearch extends JFrame {
 		JButton btnNewButton_2 = new JButton("Search Customer");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				connection = sqlConnection.getConnection();
 				try {
-					Class.forName("com.mysql.jdbc.Driver");
-					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bapersdb", "root", "");
 					String name = NameSearch.getText();
 					String query = "SELECT * FROM customer WHERE `customer_name` = '" +name + "'";
-					PreparedStatement pst = con.prepareStatement(query);
+					PreparedStatement pst = connection.prepareStatement(query);
 					ResultSet rs = pst.executeQuery();
 					table.setModel(DbUtils.resultSetToTableModel(rs));
 				}catch(Exception E) {
@@ -177,7 +176,7 @@ public class CustomerSearch extends JFrame {
 		contentPane.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("Speical requests");
-		lblNewLabel_6.setBounds(744, 216, 89, 14);
+		lblNewLabel_6.setBounds(744, 213, 89, 14);
 		contentPane.add(lblNewLabel_6);
 		
 		Date = new JDateChooser();
@@ -209,7 +208,7 @@ public class CustomerSearch extends JFrame {
 		contentPane.add(Urgent);
 		
 		SpecialInstruction = new JTextField();
-		SpecialInstruction.setBounds(832, 213, 148, 20);
+		SpecialInstruction.setBounds(829, 210, 148, 20);
 		contentPane.add(SpecialInstruction);
 		SpecialInstruction.setColumns(10);
 		
@@ -226,6 +225,7 @@ public class CustomerSearch extends JFrame {
 		JButton btnNewButton_3 = new JButton("CreateJob");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				connection = sqlConnection.getConnection();
 				try {
 					generateJobno("SELECT COUNT(`job_id`)+1 FROM `job`");
 					String JNumber = new SimpleDateFormat("ddMM").format(new Date())+getValue;
@@ -234,10 +234,8 @@ public class CustomerSearch extends JFrame {
 					java.sql.Date sqlDate = new java.sql.Date(currentDate.getTime());
 					date = Date.getDate();
 					sqldate = new java.sql.Date(date.getTime());
-					Class.forName("com.mysql.jdbc.Driver");
-					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bapersdb", "root", "");
 					String query = "INSERT INTO `job`(`job_id` , `customer_id`, `date_created`, `deadline`, `urgency`, `status`, `special_instructions`) VALUES (?, ?,?,?, ?, ?,?)";
-					PreparedStatement pst = con.prepareStatement(query);
+					PreparedStatement pst = connection.prepareStatement(query);
 					pst.setString(1,JNumber);
 					pst.setInt(2,CustomerID);
 					pst.setDate(3,sqlDate);

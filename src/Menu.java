@@ -188,7 +188,7 @@ public class Menu extends JFrame {
 		UpdateAccountBTN = new JButton("Update Account");
 		UpdateAccountBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AccountDetails accountdetailsFrame = new AccountDetails();
+				UpdateAccount accountdetailsFrame = new UpdateAccount();
 				accountdetailsFrame.setVisible(true);
 				dispose();
 			}
@@ -199,7 +199,7 @@ public class Menu extends JFrame {
 		ManageCustomersBTN = new JButton("Manage Customers");
 		ManageCustomersBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CustomerSearch customersearchFrame = new CustomerSearch();
+				UpdateCustomer customersearchFrame = new UpdateCustomer();
 				customersearchFrame.setVisible(true);
 				dispose();
 			}
@@ -217,17 +217,6 @@ public class Menu extends JFrame {
 		});
 		viewAllJobsBTN.setBounds(331, 135, 149, 23);
 		contentPane.add(viewAllJobsBTN);
-		
-		UpdateJobStatusBTN = new JButton("Update Job Status");
-		UpdateJobStatusBTN.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				UpdateJobStatus updatestatusFrame = new UpdateJobStatus();
-				updatestatusFrame.setVisible(true);
-				dispose();
-			}
-		});
-		UpdateJobStatusBTN.setBounds(331, 185, 149, 23);
-		contentPane.add(UpdateJobStatusBTN);
 		
 		CreateBackupBTN = new JButton("Create Backup");
 		CreateBackupBTN.addActionListener(new ActionListener() {
