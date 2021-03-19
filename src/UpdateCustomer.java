@@ -47,7 +47,8 @@ public class UpdateCustomer extends JFrame {
 	private JRadioButton VariableButton;
 	private String status;
 	private String agreedDiscount;
- 
+	Connection connection = null;
+
 	/**
 	 * Launch the application.
 	 */
@@ -80,7 +81,7 @@ public class UpdateCustomer extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
- 
+		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -91,10 +92,6 @@ public class UpdateCustomer extends JFrame {
 		});
 		btnNewButton.setBounds(10, 327, 89, 23);
 		contentPane.add(btnNewButton);
- 
-		JButton btnNewButton_1 = new JButton("Confirm Update");
-		btnNewButton_1.setBounds(848, 327, 126, 23);
-		contentPane.add(btnNewButton_1);
  
 		JLabel lblNewLabel = new JLabel("Update Customer Details");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -157,15 +154,14 @@ public class UpdateCustomer extends JFrame {
 				discountField.setText(tDiscountRate);
 	        }
 	    });
- 
+		//creating a button
 		JButton btnNewButton_2 = new JButton("Refresh");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				connection = sqlConnection.getConnection();
 				try {
-					Class.forName("com.mysql.jdbc.Driver");
-					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bapersdb", "root", "");
 					String query = "SELECT * FROM customer";
-					PreparedStatement pst = con.prepareStatement(query);
+					PreparedStatement pst = connection.prepareStatement(query);
 					ResultSet rs = pst.executeQuery();
 					table.setModel(DbUtils.resultSetToTableModel(rs));
 				}catch(Exception E) {
@@ -228,7 +224,7 @@ public class UpdateCustomer extends JFrame {
 		discountField.setBounds(115, 267, 86, 20);
 		contentPane.add(discountField);
 		discountField.setColumns(10);
- 
+		//creating a button
 		RegularButton = new JRadioButton("Regular");
 		RegularButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -240,7 +236,7 @@ public class UpdateCustomer extends JFrame {
 		});
 		RegularButton.setBounds(117, 186, 109, 23);
 		contentPane.add(RegularButton);
- 
+		//creating a button
 		ValuedButton = new JRadioButton("Valued");
 		ValuedButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -252,7 +248,7 @@ public class UpdateCustomer extends JFrame {
 		});
 		ValuedButton.setBounds(228, 186, 109, 23);
 		contentPane.add(ValuedButton);
- 
+		//creating a button
 		FlexibleButton = new JRadioButton("Flexible");
 		FlexibleButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -265,7 +261,7 @@ public class UpdateCustomer extends JFrame {
 		});
 		FlexibleButton.setBounds(117, 226, 109, 23);
 		contentPane.add(FlexibleButton);
- 
+		//creating a button
 		FixedButton = new JRadioButton("Fixed");
 		FixedButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -278,7 +274,7 @@ public class UpdateCustomer extends JFrame {
 		});
 		FixedButton.setBounds(228, 226, 86, 23);
 		contentPane.add(FixedButton);
- 
+		//creating a button
 		VariableButton = new JRadioButton("Variable");
 		VariableButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -291,10 +287,11 @@ public class UpdateCustomer extends JFrame {
 		});
 		VariableButton.setBounds(319, 226, 109, 23);
 		contentPane.add(VariableButton);
-		
+		//creating a button
 		JButton btnNewButton_3 = new JButton("Update Details");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				connection = sqlConnection.getConnection();
 			try {
 				DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
 	        	String tcustomerid = tblModel.getValueAt(table.getSelectedRow(), 0).toString();
@@ -306,9 +303,7 @@ public class UpdateCustomer extends JFrame {
 				String AgreedDiscount = agreedDiscount;
 				String DiscountRate = discountField.getText();
 				String sql = "UPDATE `customer` SET `customer_name`= '" + custName + "' ,`contact_name`= '" + contactName + "', `phone` = '" + phone + "', `address` = '" + address +"', `status` = '"+ Status +"', `agreed_discount` = '" + AgreedDiscount +"', `discount_rate`= '"+ DiscountRate +"' WHERE `customer_id` = '" + tcustomerid + "'";
-				Class.forName("com.mysql.jdbc.Driver");
-				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bapersdb", "root", "");
-				PreparedStatement pst = con.prepareStatement(sql);
+				PreparedStatement pst = connection.prepareStatement(sql);
 				pst.execute();
 				JOptionPane.showMessageDialog(null, "Updated");
 			}catch(Exception E) {
@@ -316,7 +311,7 @@ public class UpdateCustomer extends JFrame {
 			}
 			}
 		});
-		btnNewButton_3.setBounds(192, 327, 109, 23);
+		btnNewButton_3.setBounds(865, 327, 109, 23);
 		contentPane.add(btnNewButton_3);
 	}
 }

@@ -52,7 +52,7 @@ public class Restore extends JFrame {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(10, 10, 664, 14);
 		contentPane.add(lblNewLabel);
-		
+		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -63,7 +63,7 @@ public class Restore extends JFrame {
 		});
 		btnNewButton.setBounds(10, 327, 89, 23);
 		contentPane.add(btnNewButton);
-		
+		//creating a button
 		JButton btnNewButton_1 = new JButton("Confirm Restore");
 		btnNewButton_1.setBounds(585, 327, 89, 23);
 		contentPane.add(btnNewButton_1);

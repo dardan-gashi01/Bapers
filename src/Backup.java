@@ -47,7 +47,7 @@ public class Backup extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -58,7 +58,7 @@ public class Backup extends JFrame {
 		});
 		btnNewButton.setBounds(294, 327, 89, 23);
 		contentPane.add(btnNewButton);
-		
+		//creating a button
 		JButton btnNewButton_1 = new JButton("Confirm Backup");
 		btnNewButton_1.setBounds(262, 277, 145, 23);
 		contentPane.add(btnNewButton_1);

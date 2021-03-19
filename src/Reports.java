@@ -49,7 +49,7 @@ public class Reports extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -60,15 +60,15 @@ public class Reports extends JFrame {
 		});
 		btnNewButton.setBounds(10, 327, 89, 23);
 		contentPane.add(btnNewButton);
-		
+		//creating a button
 		JButton btnNewButton_1 = new JButton("Create Report");
 		btnNewButton_1.setBounds(559, 327, 115, 23);
 		contentPane.add(btnNewButton_1);
-		
+		//creating a button
 		JButton btnNewButton_2 = new JButton("Configure Report");
 		btnNewButton_2.setBounds(174, 327, 115, 23);
 		contentPane.add(btnNewButton_2);
-		
+		//creating a button
 		JButton btnNewButton_3 = new JButton("Print Report");
 		btnNewButton_3.setBounds(379, 327, 124, 23);
 		contentPane.add(btnNewButton_3);
@@ -97,15 +97,15 @@ public class Reports extends JFrame {
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setBounds(233, 196, 103, 22);
 		contentPane.add(comboBox_1);
-		
+		//creating a button
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("Individual Performance Report");
 		rdbtnNewRadioButton.setBounds(227, 61, 179, 23);
 		contentPane.add(rdbtnNewRadioButton);
-		
+		//creating a button
 		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Summary Performance Report");
 		rdbtnNewRadioButton_1.setBounds(227, 93, 179, 23);
 		contentPane.add(rdbtnNewRadioButton_1);
-		
+		//creating a button
 		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Individual Customer Report");
 		rdbtnNewRadioButton_2.setBounds(227, 121, 179, 23);
 		contentPane.add(rdbtnNewRadioButton_2);

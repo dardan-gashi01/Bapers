@@ -52,7 +52,7 @@ public class CustomerJobList extends JFrame {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(10, 11, 664, 14);
 		contentPane.add(lblNewLabel);
-		
+		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -63,11 +63,11 @@ public class CustomerJobList extends JFrame {
 		});
 		btnNewButton.setBounds(10, 327, 89, 23);
 		contentPane.add(btnNewButton);
-		
+		//creating a button
 		JButton btnNewButton_1 = new JButton("Add Job");
 		btnNewButton_1.setBounds(585, 327, 89, 23);
 		contentPane.add(btnNewButton_1);
-		
+		//creating a button
 		JButton btnNewButton_2 = new JButton("Pay For Job");
 		btnNewButton_2.setBounds(300, 327, 89, 23);
 		contentPane.add(btnNewButton_2);

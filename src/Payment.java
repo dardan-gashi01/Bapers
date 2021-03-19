@@ -52,15 +52,15 @@ public class Payment extends JFrame {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(10, 11, 664, 14);
 		contentPane.add(lblNewLabel);
-		
+		//creating a button
 		JButton btnNewButton = new JButton("Cash");
 		btnNewButton.setBounds(276, 126, 128, 23);
 		contentPane.add(btnNewButton);
-		
+		//creating a button
 		JButton btnNewButton_1 = new JButton("Card");
 		btnNewButton_1.setBounds(276, 182, 128, 23);
 		contentPane.add(btnNewButton_1);
-		
+		//creating a button
 		JButton btnNewButton_2 = new JButton("Cancel");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

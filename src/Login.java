@@ -26,6 +26,8 @@ public class Login extends JFrame {
 	private JPanel contentPane;
 	private JTextField username;
 	private JPasswordField pin;
+	Connection connection = null;
+
 
 	/**
 	 * Launch the application.
@@ -75,16 +77,14 @@ public class Login extends JFrame {
 		pin = new JPasswordField();
 		pin.setBounds(298, 176, 136, 20);
 		contentPane.add(pin);
-		
+		//creating a button that logs the user in and checks for their details in the database to check if it is correct
 		JButton btnNewButton = new JButton("Login");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				connection = sqlConnection.getConnection();
 				try {
-					Class.forName("com.mysql.jdbc.Driver");
-					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bapersdb", "root", "");
 					String sql = "Select role from account where name=? and password=?";
-					PreparedStatement pst = con.prepareStatement(sql);
+					PreparedStatement pst = connection.prepareStatement(sql);
 					pst.setString(1, username.getText());
 					pst.setString(2, pin.getText());
 					ResultSet rs = pst.executeQuery();
@@ -104,7 +104,7 @@ public class Login extends JFrame {
 						username.setText("");
 						pin.setText("");
 					}
-					con.close();
+					connection.close();
 				}
 				catch(Exception E) {
 					JOptionPane.showMessageDialog(null,E);
@@ -121,8 +121,13 @@ public class Login extends JFrame {
 		JLabel lblNewLabel_2_1 = new JLabel(":");
 		lblNewLabel_2_1.setBounds(257, 180, 46, 14);
 		contentPane.add(lblNewLabel_2_1);
-		
-		JButton btnNewButton_1 = new JButton("Cancel");
+		//creating a button that closes the whole application
+		JButton btnNewButton_1 = new JButton("Close");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		btnNewButton_1.setBounds(10, 327, 89, 23);
 		contentPane.add(btnNewButton_1);
 		

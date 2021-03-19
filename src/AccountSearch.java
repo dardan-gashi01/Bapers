@@ -72,15 +72,15 @@ public class AccountSearch extends JFrame {
 		textField_1.setBounds(304, 108, 181, 17);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
-		
+		//creating a button
 		JButton btnNewButton = new JButton("Search Account");
 		btnNewButton.setBounds(538, 109, 136, 20);
 		contentPane.add(btnNewButton);
-		
+		//creating a button
 		btnNewButton_1 = new JButton("Select Account");
 		btnNewButton_1.setBounds(538, 296, 136, 20);
 		contentPane.add(btnNewButton_1);
-		
+		//creating a button
 		btnNewButton_2 = new JButton("Cancel");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
