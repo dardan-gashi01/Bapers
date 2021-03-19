@@ -81,7 +81,7 @@ public class UpdateCustomer extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
- 
+		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -154,7 +154,7 @@ public class UpdateCustomer extends JFrame {
 				discountField.setText(tDiscountRate);
 	        }
 	    });
- 
+		//creating a button
 		JButton btnNewButton_2 = new JButton("Refresh");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -224,7 +224,7 @@ public class UpdateCustomer extends JFrame {
 		discountField.setBounds(115, 267, 86, 20);
 		contentPane.add(discountField);
 		discountField.setColumns(10);
- 
+		//creating a button
 		RegularButton = new JRadioButton("Regular");
 		RegularButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -236,7 +236,7 @@ public class UpdateCustomer extends JFrame {
 		});
 		RegularButton.setBounds(117, 186, 109, 23);
 		contentPane.add(RegularButton);
- 
+		//creating a button
 		ValuedButton = new JRadioButton("Valued");
 		ValuedButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -248,7 +248,7 @@ public class UpdateCustomer extends JFrame {
 		});
 		ValuedButton.setBounds(228, 186, 109, 23);
 		contentPane.add(ValuedButton);
- 
+		//creating a button
 		FlexibleButton = new JRadioButton("Flexible");
 		FlexibleButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -261,7 +261,7 @@ public class UpdateCustomer extends JFrame {
 		});
 		FlexibleButton.setBounds(117, 226, 109, 23);
 		contentPane.add(FlexibleButton);
- 
+		//creating a button
 		FixedButton = new JRadioButton("Fixed");
 		FixedButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -274,7 +274,7 @@ public class UpdateCustomer extends JFrame {
 		});
 		FixedButton.setBounds(228, 226, 86, 23);
 		contentPane.add(FixedButton);
- 
+		//creating a button
 		VariableButton = new JRadioButton("Variable");
 		VariableButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -287,7 +287,7 @@ public class UpdateCustomer extends JFrame {
 		});
 		VariableButton.setBounds(319, 226, 109, 23);
 		contentPane.add(VariableButton);
-		
+		//creating a button
 		JButton btnNewButton_3 = new JButton("Update Details");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

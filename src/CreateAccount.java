@@ -71,7 +71,7 @@ public class CreateAccount extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("Name");
 		lblNewLabel_1.setBounds(138, 70, 46, 14);
 		contentPane.add(lblNewLabel_1);
-		
+		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -82,7 +82,7 @@ public class CreateAccount extends JFrame {
 		});
 		btnNewButton.setBounds(10, 327, 89, 23);
 		contentPane.add(btnNewButton);
-		
+		//creating a button
 		JButton btnNewButton_1 = new JButton("Confirm Details");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -128,7 +128,7 @@ public class CreateAccount extends JFrame {
 		JLabel lblNewLabel_4 = new JLabel("Password");
 		lblNewLabel_4.setBounds(138, 246, 46, 14);
 		contentPane.add(lblNewLabel_4);
-		
+		//creating a button
 		ReceptionistBTN = new JRadioButton("Receptionist");
 		ReceptionistBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -142,7 +142,7 @@ public class CreateAccount extends JFrame {
 		});
 		ReceptionistBTN.setBounds(194, 180, 109, 23);
 		contentPane.add(ReceptionistBTN);
-		
+		//creating a button
 		TechnicianBTN = new JRadioButton("Technician");
 		TechnicianBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -156,7 +156,7 @@ public class CreateAccount extends JFrame {
 		});
 		TechnicianBTN.setBounds(305, 180, 94, 23);
 		contentPane.add(TechnicianBTN);
-		
+		//creating a button
 		ShiftManagerBTN = new JRadioButton("Shift Manager");
 		ShiftManagerBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -170,7 +170,7 @@ public class CreateAccount extends JFrame {
 		});
 		ShiftManagerBTN.setBounds(407, 180, 109, 23);
 		contentPane.add(ShiftManagerBTN);
-		
+		//creating a button
 		OfficeManagerBTN = new JRadioButton("Office Manager");
 		OfficeManagerBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

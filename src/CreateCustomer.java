@@ -79,7 +79,7 @@ public class CreateCustomer extends JFrame {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(10, 11, 664, 14);
 		contentPane.add(lblNewLabel);
-		
+		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -90,7 +90,7 @@ public class CreateCustomer extends JFrame {
 		});
 		btnNewButton.setBounds(10, 327, 89, 23);
 		contentPane.add(btnNewButton);
-		
+		//creating a button
 		JButton btnNewButton_1 = new JButton("Confirm Details");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -167,7 +167,7 @@ public class CreateCustomer extends JFrame {
 		phone.setBounds(230, 157, 194, 20);
 		contentPane.add(phone);
 		phone.setColumns(10);
-		
+		//creating a button
 		regularCustomer = new JRadioButton("Regular");
 		regularCustomer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -179,7 +179,7 @@ public class CreateCustomer extends JFrame {
 		});
 		regularCustomer.setBounds(229, 186, 109, 23);
 		contentPane.add(regularCustomer);
-		
+		//creating a button
 		valuedCustomer = new JRadioButton("Valued");
 		valuedCustomer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -191,7 +191,7 @@ public class CreateCustomer extends JFrame {
 		});
 		valuedCustomer.setBounds(362, 186, 109, 23);
 		contentPane.add(valuedCustomer);
-		
+		//creating a button
 		flexibleDiscount = new JRadioButton("Flexible");
 		flexibleDiscount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -204,7 +204,7 @@ public class CreateCustomer extends JFrame {
 		});
 		flexibleDiscount.setBounds(230, 216, 109, 23);
 		contentPane.add(flexibleDiscount);
-		
+		//creating a button
 		fixedDiscount = new JRadioButton("Fixed");
 		fixedDiscount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -217,7 +217,7 @@ public class CreateCustomer extends JFrame {
 		});
 		fixedDiscount.setBounds(362, 216, 109, 23);
 		contentPane.add(fixedDiscount);
-		
+		//creating a button
 		variableDiscount = new JRadioButton("Variable");
 		variableDiscount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

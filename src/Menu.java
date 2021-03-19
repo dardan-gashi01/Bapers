@@ -27,6 +27,7 @@ public class Menu extends JFrame {
 	private JButton ManageCustomersBTN;
 	private JButton CreateBackupBTN;
 	private JButton RestoreDatabaseBTN;
+	private JButton EditTasksBTN;
 
 	/**
 	 * Launch the application.
@@ -55,6 +56,7 @@ public class Menu extends JFrame {
 			viewActiveJobBTN.setVisible(false);
 			viewAllJobsBTN.setVisible(false);
 			UpdateJobStatusBTN.setVisible(false);
+			EditTasksBTN.setVisible(false);
 		}else if(role.equals("Shift Manager")) {
 			CreateAccountBTN.setVisible(false);
 			UpdateAccountBTN.setVisible(false);
@@ -68,6 +70,7 @@ public class Menu extends JFrame {
 			RestoreDatabaseBTN.setVisible(false);
 			ManageCustomersBTN.setVisible(false);
 			ReportsBTN.setVisible(false);
+			EditTasksBTN.setVisible(false);
 		}
 	}
 	
@@ -107,7 +110,7 @@ public class Menu extends JFrame {
 		JLabel lblNewLabel_4 = new JLabel("Receptionist");
 		lblNewLabel_4.setBounds(575, 60, 68, 14);
 		contentPane.add(lblNewLabel_4);
-		
+		//creating a button
 		JButton btnNewButton = new JButton("Logout");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -118,7 +121,7 @@ public class Menu extends JFrame {
 		});
 		btnNewButton.setBounds(505, 327, 169, 23);
 		contentPane.add(btnNewButton);
-		
+		//creating a button
 		PlaceJobBTN = new JButton("Place Job");
 		PlaceJobBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -129,7 +132,7 @@ public class Menu extends JFrame {
 		});
 		PlaceJobBTN.setBounds(505, 85, 169, 23);
 		contentPane.add(PlaceJobBTN);
-		
+		//creating a button
 		TakePaymentBTN = new JButton("Take Payment");
 		TakePaymentBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -140,7 +143,7 @@ public class Menu extends JFrame {
 		});
 		TakePaymentBTN.setBounds(505, 135, 169, 23);
 		contentPane.add(TakePaymentBTN);
-		
+		//creating a button
 		CreateCustBTN = new JButton("Create Customer");
 		CreateCustBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -151,7 +154,7 @@ public class Menu extends JFrame {
 		});
 		CreateCustBTN.setBounds(505, 185, 169, 23);
 		contentPane.add(CreateCustBTN);
-		
+		//creating a button
 		ReportsBTN = new JButton("Reports");
 		ReportsBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -162,7 +165,7 @@ public class Menu extends JFrame {
 		});
 		ReportsBTN.setBounds(185, 85, 125, 23);
 		contentPane.add(ReportsBTN);
-		
+		//creating a button
 		viewActiveJobBTN = new JButton("View Active Jobs");
 		viewActiveJobBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -173,7 +176,7 @@ public class Menu extends JFrame {
 		});
 		viewActiveJobBTN.setBounds(331, 85, 149, 23);
 		contentPane.add(viewActiveJobBTN);
-		
+		//creating a button
 		CreateAccountBTN = new JButton("Create Account");
 		CreateAccountBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -184,7 +187,7 @@ public class Menu extends JFrame {
 		});
 		CreateAccountBTN.setBounds(25, 85, 125, 23);
 		contentPane.add(CreateAccountBTN);
-		
+		//creating a button
 		UpdateAccountBTN = new JButton("Update Account");
 		UpdateAccountBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -195,7 +198,7 @@ public class Menu extends JFrame {
 		});
 		UpdateAccountBTN.setBounds(25, 135, 125, 23);
 		contentPane.add(UpdateAccountBTN);
-		
+		//creating a button
 		ManageCustomersBTN = new JButton("Manage Customers");
 		ManageCustomersBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -206,7 +209,7 @@ public class Menu extends JFrame {
 		});
 		ManageCustomersBTN.setBounds(25, 185, 125, 23);
 		contentPane.add(ManageCustomersBTN);
-		
+		//creating a button
 		viewAllJobsBTN = new JButton("View All Jobs");
 		viewAllJobsBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -217,7 +220,7 @@ public class Menu extends JFrame {
 		});
 		viewAllJobsBTN.setBounds(331, 135, 149, 23);
 		contentPane.add(viewAllJobsBTN);
-		
+		//creating a button
 		CreateBackupBTN = new JButton("Create Backup");
 		CreateBackupBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -228,7 +231,7 @@ public class Menu extends JFrame {
 		});
 		CreateBackupBTN.setBounds(25, 244, 125, 23);
 		contentPane.add(CreateBackupBTN);
-		
+		//creating a button
 		RestoreDatabaseBTN = new JButton("Restore Database");
 		RestoreDatabaseBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -239,7 +242,7 @@ public class Menu extends JFrame {
 		});
 		RestoreDatabaseBTN.setBounds(25, 300, 125, 23);
 		contentPane.add(RestoreDatabaseBTN);
-		
+		//creating a button
 		UpdateCustBTN = new JButton("Update Customer Account");
 		UpdateCustBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -250,5 +253,16 @@ public class Menu extends JFrame {
 		});
 		UpdateCustBTN.setBounds(505, 244, 169, 23);
 		contentPane.add(UpdateCustBTN);
+		//creating a button
+		EditTasksBTN = new JButton("Edit Tasks");
+		EditTasksBTN.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CreateDeleteTask tasksFrame = new CreateDeleteTask();
+				tasksFrame.setVisible(true);
+				dispose();
+			}
+		});
+		EditTasksBTN.setBounds(185, 135, 125, 23);
+		contentPane.add(EditTasksBTN);
 	}
 }

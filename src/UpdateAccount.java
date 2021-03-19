@@ -71,7 +71,7 @@ public class UpdateAccount extends JFrame {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(10, 11, 964, 14);
 		contentPane.add(lblNewLabel);
-		
+		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -133,7 +133,7 @@ public class UpdateAccount extends JFrame {
 				
 	        }
 	    });
-		
+		//creating a button
 		JButton btnNewButton_1 = new JButton("Refresh");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -150,7 +150,7 @@ public class UpdateAccount extends JFrame {
 		});
 		btnNewButton_1.setBounds(398, 327, 89, 23);
 		contentPane.add(btnNewButton_1);
-		
+		//creating a button
 		JButton UpdateDetailsBTN = new JButton("Update Details");
 		UpdateDetailsBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -191,7 +191,7 @@ public class UpdateAccount extends JFrame {
 		JLabel lblNewLabel_2 = new JLabel("Email");
 		lblNewLabel_2.setBounds(30, 113, 46, 14);
 		contentPane.add(lblNewLabel_2);
-		
+		//creating a button
 		ReceptionistBTN = new JRadioButton("Receptionist");
 		ReceptionistBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -205,7 +205,7 @@ public class UpdateAccount extends JFrame {
 		});
 		ReceptionistBTN.setBounds(127, 157, 109, 23);
 		contentPane.add(ReceptionistBTN);
-		
+		//creating a button
 		TechnicianBTN = new JRadioButton("Technician");
 		TechnicianBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -219,7 +219,7 @@ public class UpdateAccount extends JFrame {
 		});
 		TechnicianBTN.setBounds(127, 183, 109, 23);
 		contentPane.add(TechnicianBTN);
-		
+		//creating a button
 		OfficeManagerBTN = new JRadioButton("Office Manager");
 		OfficeManagerBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -233,7 +233,7 @@ public class UpdateAccount extends JFrame {
 		});
 		OfficeManagerBTN.setBounds(235, 157, 109, 23);
 		contentPane.add(OfficeManagerBTN);
-		
+		//creating a button
 		ShiftManagerBTN = new JRadioButton("Shift Manager");
 		ShiftManagerBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -260,7 +260,7 @@ public class UpdateAccount extends JFrame {
 		lblNewLabel_4 = new JLabel("Role");
 		lblNewLabel_4.setBounds(30, 161, 46, 14);
 		contentPane.add(lblNewLabel_4);
-		
+		//creating a button
 		DeleteBTN = new JButton("Delete User");
 		DeleteBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

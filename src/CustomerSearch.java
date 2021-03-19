@@ -30,6 +30,7 @@ import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JRadioButton;
+import java.util.Calendar;
 
 public class CustomerSearch extends JFrame {
 	java.util.Date date;
@@ -43,10 +44,11 @@ public class CustomerSearch extends JFrame {
 	private JDateChooser Date;
 	private String urgency;
 	private int CustomerID;
-	private String Status = "In Progress";
+	private String Status = "Progress";
 	private JTextField SpecialInstruction;
 	Connection connection = null;
 	int getValue;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -86,6 +88,10 @@ public class CustomerSearch extends JFrame {
 	 */
 	public CustomerSearch() {
 		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Calendar cal = Calendar.getInstance(); // creates calendar
+	    cal.setTime(new Date());               // sets calendar time/date
+		
 		Toolkit toolkit = getToolkit();
 		Dimension size = toolkit.getScreenSize();
 		setLocation(size.width/2-getWidth()/2, size.height/2 - getHeight()/2);
@@ -101,7 +107,7 @@ public class CustomerSearch extends JFrame {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(10, 11, 664, 14);
 		contentPane.add(lblNewLabel);
-		
+		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -123,7 +129,7 @@ public class CustomerSearch extends JFrame {
 		NameSearch.setBounds(154, 72, 155, 20);
 		contentPane.add(NameSearch);
 		NameSearch.setColumns(10);
-		
+		//creating a button
 		JButton btnNewButton_2 = new JButton("Search Customer");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -167,48 +173,47 @@ public class CustomerSearch extends JFrame {
 		IDLabel.setBounds(863, 75, 46, 14);
 		contentPane.add(IDLabel);
 		
-		JLabel lblNewLabel_4 = new JLabel("Date");
-		lblNewLabel_4.setBounds(744, 117, 59, 14);
-		contentPane.add(lblNewLabel_4);
-		
 		JLabel lblNewLabel_5 = new JLabel("Urgency");
-		lblNewLabel_5.setBounds(744, 165, 59, 14);
+		lblNewLabel_5.setBounds(744, 140, 59, 14);
 		contentPane.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("Speical requests");
-		lblNewLabel_6.setBounds(744, 213, 89, 14);
+		lblNewLabel_6.setBounds(744, 183, 89, 14);
 		contentPane.add(lblNewLabel_6);
 		
-		Date = new JDateChooser();
-		Date.setBounds(813, 111, 96, 20);
-		contentPane.add(Date);
-		
+		//Date = new JDateChooser();
+		//Date.setBounds(813, 111, 96, 20);
+		//contentPane.add(Date);
+		//creating a button
 		Normal = new JRadioButton("Normal");
 		Normal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Normal.isSelected()) {
 					Urgent.setSelected(false);
 					urgency = "normal";
+					cal.add(Calendar.HOUR_OF_DAY, 24);
+					
 				}
 			}
 		});
-		Normal.setBounds(809, 161, 109, 23);
+		Normal.setBounds(809, 136, 109, 23);
 		contentPane.add(Normal);
-		
+		//creating a button
 		Urgent = new JRadioButton("Urgent");
 		Urgent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Urgent.isSelected()) {
 					Normal.setSelected(false);
 					urgency = "urgent";
+					cal.add(Calendar.HOUR_OF_DAY, 6);
 				}
 			}
 		});
-		Urgent.setBounds(943, 161, 109, 23);
+		Urgent.setBounds(901, 136, 109, 23);
 		contentPane.add(Urgent);
 		
 		SpecialInstruction = new JTextField();
-		SpecialInstruction.setBounds(829, 210, 148, 20);
+		SpecialInstruction.setBounds(824, 180, 148, 20);
 		contentPane.add(SpecialInstruction);
 		SpecialInstruction.setColumns(10);
 		
@@ -221,28 +226,24 @@ public class CustomerSearch extends JFrame {
 				IDLabel.setText(CustomerName);
 	        }
 	    });
-		
+		//creating a button
 		JButton btnNewButton_3 = new JButton("CreateJob");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
+				//java.sql.Date date = (java.sql.Date) cal.getTime();
+				
 				try {
 					generateJobno("SELECT COUNT(`job_id`)+1 FROM `job`");
 					String JNumber = new SimpleDateFormat("ddMM").format(new Date())+getValue;
-					//String JNumber = new SimpleDateFormat("0000").format(new Date())+getValue;
-					Date currentDate = new Date();
-					java.sql.Date sqlDate = new java.sql.Date(currentDate.getTime());
-					date = Date.getDate();
-					sqldate = new java.sql.Date(date.getTime());
-					String query = "INSERT INTO `job`(`job_id` , `customer_id`, `date_created`, `deadline`, `urgency`, `status`, `special_instructions`) VALUES (?, ?,?,?, ?, ?,?)";
+					String query = "INSERT INTO `job`(`job_id` , `customer_id`,`deadline`, `urgency`, `status`, `special_instructions`) VALUES (?, ?,?, ?, ?,?)";
 					PreparedStatement pst = connection.prepareStatement(query);
 					pst.setString(1,JNumber);
 					pst.setInt(2,CustomerID);
-					pst.setDate(3,sqlDate);
-					pst.setDate(4, sqldate);
-					pst.setString(5, urgency);
-					pst.setString(6, Status);
-					pst.setString(7,SpecialInstruction.getText());
+					pst.setString(3, sdf.format(cal.getTime()));
+					pst.setString(4, urgency);
+					pst.setString(5, Status);
+					pst.setString(6,SpecialInstruction.getText());
 					pst.executeUpdate();
 					JOptionPane.showMessageDialog(null, "Job Created");
 					CustomerSearch csFrame = new CustomerSearch();
