@@ -31,6 +31,7 @@ import javax.swing.JScrollPane;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JRadioButton;
 import java.util.Calendar;
+import javax.swing.JComboBox;
 
 public class CustomerSearch extends JFrame {
 	java.util.Date date;
@@ -48,6 +49,7 @@ public class CustomerSearch extends JFrame {
 	private JTextField SpecialInstruction;
 	Connection connection = null;
 	int getValue;
+	private JComboBox comboBox;
 	
 	/**
 	 * Launch the application.
@@ -80,6 +82,8 @@ public class CustomerSearch extends JFrame {
 			
 		}	
 	}
+	
+	
 	
 	
 
@@ -246,8 +250,8 @@ public class CustomerSearch extends JFrame {
 					pst.setString(6,SpecialInstruction.getText());
 					pst.executeUpdate();
 					JOptionPane.showMessageDialog(null, "Job Created");
-					CustomerSearch csFrame = new CustomerSearch();
-					csFrame.setVisible(true);
+					addTasks tasksFrame = new addTasks();
+					tasksFrame.setVisible(true);
 					dispose();
 					}
 				catch(Exception E) {
@@ -257,6 +261,8 @@ public class CustomerSearch extends JFrame {
 		});
 		btnNewButton_3.setBounds(1059, 327, 89, 23);
 		contentPane.add(btnNewButton_3);
+		
+		
 		
 		
 		
