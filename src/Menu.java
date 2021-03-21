@@ -28,6 +28,7 @@ public class Menu extends JFrame {
 	private JButton CreateBackupBTN;
 	private JButton RestoreDatabaseBTN;
 	private JButton EditTasksBTN;
+	private JButton UpdateTasksBTN;
 
 	/**
 	 * Launch the application.
@@ -57,6 +58,7 @@ public class Menu extends JFrame {
 			viewAllJobsBTN.setVisible(false);
 			UpdateJobStatusBTN.setVisible(false);
 			EditTasksBTN.setVisible(false);
+			UpdateTasksBTN.setVisible(false);
 		}else if(role.equals("Shift Manager")) {
 			CreateAccountBTN.setVisible(false);
 			UpdateAccountBTN.setVisible(false);
@@ -264,5 +266,16 @@ public class Menu extends JFrame {
 		});
 		EditTasksBTN.setBounds(185, 135, 125, 23);
 		contentPane.add(EditTasksBTN);
+		
+		UpdateTasksBTN = new JButton("Update Tasks");
+		UpdateTasksBTN.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				UpdateTask updatetaskFrame = new UpdateTask();
+				updatetaskFrame.setVisible(true);
+				dispose();
+			}
+		});
+		UpdateTasksBTN.setBounds(331, 185, 149, 23);
+		contentPane.add(UpdateTasksBTN);
 	}
 }

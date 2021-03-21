@@ -105,7 +105,7 @@ public class ActiveJobList extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
 				try {
-					String query = "SELECT * FROM job WHERE status = 'NULL'";
+					String query = "SELECT * FROM job WHERE status = 'Progress'";
 					PreparedStatement pst = connection.prepareStatement(query);
 					ResultSet rs = pst.executeQuery();
 					table.setModel(DbUtils.resultSetToTableModel(rs));

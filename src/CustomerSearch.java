@@ -31,6 +31,7 @@ import javax.swing.JScrollPane;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JRadioButton;
 import java.util.Calendar;
+import javax.swing.JComboBox;
 
 public class CustomerSearch extends JFrame {
 	java.util.Date date;
@@ -48,6 +49,7 @@ public class CustomerSearch extends JFrame {
 	private JTextField SpecialInstruction;
 	Connection connection = null;
 	int getValue;
+	private JComboBox comboBox;
 	
 	/**
 	 * Launch the application.
@@ -80,6 +82,8 @@ public class CustomerSearch extends JFrame {
 			
 		}	
 	}
+	
+	
 	
 	
 
@@ -178,7 +182,7 @@ public class CustomerSearch extends JFrame {
 		contentPane.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("Speical requests");
-		lblNewLabel_6.setBounds(744, 183, 89, 14);
+		lblNewLabel_6.setBounds(744, 183, 108, 14);
 		contentPane.add(lblNewLabel_6);
 		
 		//Date = new JDateChooser();
@@ -213,7 +217,7 @@ public class CustomerSearch extends JFrame {
 		contentPane.add(Urgent);
 		
 		SpecialInstruction = new JTextField();
-		SpecialInstruction.setBounds(824, 180, 148, 20);
+		SpecialInstruction.setBounds(862, 180, 148, 20);
 		contentPane.add(SpecialInstruction);
 		SpecialInstruction.setColumns(10);
 		
@@ -246,8 +250,8 @@ public class CustomerSearch extends JFrame {
 					pst.setString(6,SpecialInstruction.getText());
 					pst.executeUpdate();
 					JOptionPane.showMessageDialog(null, "Job Created");
-					CustomerSearch csFrame = new CustomerSearch();
-					csFrame.setVisible(true);
+					addTasks tasksFrame = new addTasks();
+					tasksFrame.setVisible(true);
 					dispose();
 					}
 				catch(Exception E) {
@@ -257,6 +261,25 @@ public class CustomerSearch extends JFrame {
 		});
 		btnNewButton_3.setBounds(1059, 327, 89, 23);
 		contentPane.add(btnNewButton_3);
+		
+		JButton btnNewButton_1 = new JButton("All Customers");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				connection = sqlConnection.getConnection();
+				try {
+					String query = "SELECT * FROM customer";
+					PreparedStatement pst = connection.prepareStatement(query);
+					ResultSet rs = pst.executeQuery();
+					table.setModel(DbUtils.resultSetToTableModel(rs));
+				}catch(Exception E) {
+					JOptionPane.showMessageDialog(null,E);
+				}
+			}
+		});
+		btnNewButton_1.setBounds(585, 327, 89, 23);
+		contentPane.add(btnNewButton_1);
+		
+		
 		
 		
 		
