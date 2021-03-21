@@ -125,7 +125,7 @@ public class UpdateTask extends JFrame {
 		btnNewButton.setBounds(10, 327, 89, 23);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Task Complete");
+		JButton btnNewButton_1 = new JButton("Start Task");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -217,6 +217,23 @@ public class UpdateTask extends JFrame {
 		});
 		btnNewButton_3.setBounds(567, 327, 89, 23);
 		contentPane.add(btnNewButton_3);
+		
+		JButton btnNewButton_4 = new JButton("active tasks left");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				connection = sqlConnection.getConnection();
+				try {
+					String query = "SELECT * FROM task_job WHERE status =  'incomplete'";
+					PreparedStatement pst = connection.prepareStatement(query);
+					ResultSet rs = pst.executeQuery();
+					table.setModel(DbUtils.resultSetToTableModel(rs));
+				}catch(Exception E) {
+					JOptionPane.showMessageDialog(null,E);
+				}
+			}
+		});
+		btnNewButton_4.setBounds(353, 327, 123, 23);
+		contentPane.add(btnNewButton_4);
 		
 		
 		
