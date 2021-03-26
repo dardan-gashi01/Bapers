@@ -230,6 +230,16 @@ public class UpdateCustomer extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(RegularButton.isSelected()) {
 					ValuedButton.setSelected(false);
+					FlexibleButton.setVisible(false);
+					FixedButton.setVisible(false);
+					VariableButton.setVisible(false);
+					lblNewLabel_6.setVisible(false);
+					lblNewLabel_7.setVisible(false);
+					discountField.setVisible(false);
+					discountField.setText(null);
+					FixedButton.setSelected(false);
+					FlexibleButton.setSelected(false);
+					VariableButton.setSelected(false);
 					status = "Regular";
 				}
 			}
@@ -242,6 +252,12 @@ public class UpdateCustomer extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(ValuedButton.isSelected()) {
 					RegularButton.setSelected(false);
+					FlexibleButton.setVisible(true);
+					FixedButton.setVisible(true);
+					VariableButton.setVisible(true);
+					lblNewLabel_6.setVisible(true);
+					lblNewLabel_7.setVisible(true);
+					discountField.setVisible(true);
 					status = "Valued";
 				}
 			}
@@ -305,6 +321,9 @@ public class UpdateCustomer extends JFrame {
 				String sql = "UPDATE `customer` SET `customer_name`= '" + custName + "' ,`contact_name`= '" + contactName + "', `phone` = '" + phone + "', `address` = '" + address +"', `status` = '"+ Status +"', `agreed_discount` = '" + AgreedDiscount +"', `discount_rate`= '"+ DiscountRate +"' WHERE `customer_id` = '" + tcustomerid + "'";
 				PreparedStatement pst = connection.prepareStatement(sql);
 				pst.execute();
+				UpdateCustomer thisFrame = new UpdateCustomer();
+				thisFrame.setVisible(true);
+				dispose();
 				JOptionPane.showMessageDialog(null, "Updated");
 			}catch(Exception E) {
 				JOptionPane.showMessageDialog(null,E);

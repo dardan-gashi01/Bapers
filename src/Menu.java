@@ -29,6 +29,7 @@ public class Menu extends JFrame {
 	private JButton RestoreDatabaseBTN;
 	private JButton EditTasksBTN;
 	private JButton UpdateTasksBTN;
+	private JButton btnNewButton_1;
 
 	/**
 	 * Launch the application.
@@ -138,7 +139,7 @@ public class Menu extends JFrame {
 		TakePaymentBTN = new JButton("Take Payment");
 		TakePaymentBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Payment paymentFrame = new Payment();
+				PaySystem paymentFrame = new PaySystem();
 				paymentFrame.setVisible(true);
 				dispose();
 			}
@@ -277,5 +278,16 @@ public class Menu extends JFrame {
 		});
 		UpdateTasksBTN.setBounds(331, 185, 149, 23);
 		contentPane.add(UpdateTasksBTN);
+		
+		btnNewButton_1 = new JButton("Generate Invoice");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				GenerateInvoice invoiceFrame = new GenerateInvoice();
+				invoiceFrame.setVisible(true);
+				dispose();
+			}
+		});
+		btnNewButton_1.setBounds(505, 300, 169, 23);
+		contentPane.add(btnNewButton_1);
 	}
 }

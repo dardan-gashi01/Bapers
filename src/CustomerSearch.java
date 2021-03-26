@@ -240,7 +240,7 @@ public class CustomerSearch extends JFrame {
 				try {
 					generateJobno("SELECT COUNT(`job_id`)+1 FROM `job`");
 					String JNumber = new SimpleDateFormat("ddMM").format(new Date())+getValue;
-					String query = "INSERT INTO `job`(`job_id` , `customer_id`,`deadline`, `urgency`, `status`, `special_instructions`) VALUES (?, ?,?, ?, ?,?)";
+					String query = "INSERT INTO `job`(`job_id` , `customer_id`,`deadline`, `urgency`, `status`, `special_instructions`, `Price`) VALUES (?, ?,?, ?, ?,?,?)";
 					PreparedStatement pst = connection.prepareStatement(query);
 					pst.setString(1,JNumber);
 					pst.setInt(2,CustomerID);
@@ -248,6 +248,7 @@ public class CustomerSearch extends JFrame {
 					pst.setString(4, urgency);
 					pst.setString(5, Status);
 					pst.setString(6,SpecialInstruction.getText());
+					pst.setFloat(7, 0);
 					pst.executeUpdate();
 					JOptionPane.showMessageDialog(null, "Job Created");
 					addTasks tasksFrame = new addTasks();

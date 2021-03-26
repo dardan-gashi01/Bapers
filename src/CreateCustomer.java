@@ -173,6 +173,16 @@ public class CreateCustomer extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(regularCustomer.isSelected()) {
 					valuedCustomer.setSelected(false);
+					flexibleDiscount.setVisible(false);
+					fixedDiscount.setVisible(false);
+					variableDiscount.setVisible(false);
+					flexibleDiscount.setSelected(false);
+					fixedDiscount.setSelected(false);
+					variableDiscount.setSelected(false);
+					lblNewLabel_6.setVisible(false);
+					discount.setVisible(false);
+					discount.setText(null);
+					lblNewLabel_7.setVisible(false);
 					status = "Regular";
 				}
 			}
@@ -185,6 +195,12 @@ public class CreateCustomer extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(valuedCustomer.isSelected()) {
 					regularCustomer.setSelected(false);
+					flexibleDiscount.setVisible(true);
+					fixedDiscount.setVisible(true);
+					variableDiscount.setVisible(true);
+					lblNewLabel_6.setVisible(true);
+					discount.setVisible(true);
+					lblNewLabel_7.setVisible(true);
 					status = "Valued";
 				}
 			}

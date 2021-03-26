@@ -90,7 +90,7 @@ public class JobList extends JFrame {
 				new Object[][] {
 				},
 				new String[] {
-					"job_id", "customer_id", "payment_id", "date_created", "deadline", "urgency", "status", "special_instructions"
+					"job_id", "customer_id", "date_created", "deadline", "urgency", "status", "special_instructions"
 				}
 			));
 		//creating a button

@@ -93,7 +93,7 @@ public class addTasks extends JFrame {
 				new Object[][] {
 				},
 				new String[] {
-					"job_id","customer_id","payment_id","urgency","status","special_instructions", "date_created", "deadline"
+					"job_id","customer_id","urgency","status","special_instructions", "date_created", "deadline"
 				}
 			));
 		
@@ -102,7 +102,7 @@ public class addTasks extends JFrame {
 	        	DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
 	        
 				job_id = tblModel.getValueAt(table.getSelectedRow(), 0).toString();
-				//CustomerID = (int) tblModel.getValueAt(table.getSelectedRow(), 0);
+				//int CustomerID = (int) tblModel.getValueAt(table.getSelectedRow(), 0);
 				id_label.setText(job_id);
 	        }
 	    });
@@ -198,15 +198,40 @@ public class addTasks extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
 				try {
+					DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
+					String tprice = tblModel.getValueAt(table.getSelectedRow(), 7).toString();
+		        	float Price = Float.parseFloat(tprice);
 					String myString = comboBox.getSelectedItem().toString();
 					int taskID = Integer.parseInt(myString);
-					//Integer taskID = (Integer) comboBox.getSelectedItem();
+					String tJobId = tblModel.getValueAt(table.getSelectedRow(), 0).toString();
+		        	int JobID = Integer.parseInt(tJobId);
+					if(taskID == 1) {
+						Price += 19;
+					}else if(taskID == 2) {
+						Price += 49.5;
+					}else if(taskID == 3) {
+						Price += 20;
+					}else if(taskID == 4) {
+						Price += 80;
+					}else if(taskID == 5) {
+						Price += 110.30;
+					}else if(taskID == 6) {
+						Price += 8.30;
+					}else if(taskID == 7) {
+						Price += 55.50;
+					}
 					String query = "INSERT INTO `task_job`(`job_id`, `task_id`, `status`) VALUES (?,?,?)";
+					String query2 = "UPDATE job SET Price = '" + Price + "' WHERE job_id = '" + JobID +"'";
 					PreparedStatement pst = connection.prepareStatement(query);
 					pst.setString(1, job_id);
 					pst.setInt(2, taskID);
 					pst.setString(3, status);
+					PreparedStatement pst2 = connection.prepareStatement(query2);
 					pst.executeUpdate();
+					pst2.executeUpdate();
+					addTasks thisFrame = new addTasks();
+					thisFrame.setVisible(true);
+					dispose();
 					JOptionPane.showMessageDialog(null, "task added");
 				}catch(Exception E) {
 					JOptionPane.showMessageDialog(null,E);

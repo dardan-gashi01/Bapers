@@ -95,7 +95,7 @@ public class CreateAccount extends JFrame {
 					pst.setString(3,role);
 					pst.setString(4,passwordField.getText());
 					pst.executeUpdate();
-					JOptionPane.showMessageDialog(null, "Customer registered");
+					JOptionPane.showMessageDialog(null, "Account registered");
 					CreateAccount thisframe = new CreateAccount();
 					thisframe.setVisible(true);
 					dispose();

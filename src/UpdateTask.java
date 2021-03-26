@@ -32,8 +32,10 @@ public class UpdateTask extends JFrame {
 	private JTable table;
 	private JTextField JobIDField;
 	String job_id;
+	//String name;
 	Connection connection = null;
 	String newStatus = "Complete";
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -52,27 +54,6 @@ public class UpdateTask extends JFrame {
 		});
 	}
 
-	public void setTime(int x) {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		Calendar cal = Calendar.getInstance(); // creates calendar
-	    cal.setTime(new Date());
-	   
-		if(x == 1) {
-			cal.add(Calendar.HOUR_OF_DAY, 2);
-		}else if(x == 2) {
-			cal.add(Calendar.HOUR_OF_DAY, 1);
-		}else if(x == 3) {
-			cal.add(Calendar.HOUR_OF_DAY, (int) 0.5);
-		}else if(x == 4) {
-			cal.add(Calendar.HOUR_OF_DAY, (int) 1.5);
-		}else if(x == 5) {
-			cal.add(Calendar.HOUR_OF_DAY, 3);
-		}else if(x == 6) {
-			cal.add(Calendar.HOUR_OF_DAY, (int) 1.25);
-		}else if(x == 7) {
-			cal.add(Calendar.HOUR_OF_DAY, (int) 0.75);
-		}
-	}
 	
 	/**
 	 * Create the frame.
@@ -92,7 +73,7 @@ public class UpdateTask extends JFrame {
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(30, 57, 830, 236);
+		scrollPane.setBounds(30, 57, 799, 236);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -136,7 +117,7 @@ public class UpdateTask extends JFrame {
 		        	int JobID = Integer.parseInt(tJobId);
 		        	String tTaskId = tblModel.getValueAt(table.getSelectedRow(), 1).toString();
 		        	int TaskID = Integer.parseInt(tTaskId);
-		        	System.out.println(TaskID);
+		        	//System.out.println(accountName);
 		        	switch(TaskID) {
 		        	case 1:
 		        		cal.add(Calendar.MINUTE, 120);
@@ -160,7 +141,7 @@ public class UpdateTask extends JFrame {
 		        		cal.add(Calendar.MINUTE, 45);
 		        		break;
 		        	}
-					String sql = "UPDATE task_job SET status = '"+ newStatus +"', finish = '"+ sdf.format(cal.getTime()) +"', start = '"+sdf.format(current.getTime()) +"' WHERE job_id = '"+ JobID +"' AND task_id = '"+ TaskID +"'";
+					String sql = "UPDATE task_job SET status = '"+ newStatus +"', finish = '"+ sdf.format(cal.getTime()) +"', start = '"+sdf.format(current.getTime()) +"', completed_by = '" + textField.getText() +"' WHERE job_id = '"+ JobID +"' AND task_id = '"+ TaskID +"'";
 					PreparedStatement pst = connection.prepareStatement(sql);
 					pst.execute();
 					UpdateTask thisFrame = new UpdateTask();
@@ -207,6 +188,7 @@ public class UpdateTask extends JFrame {
 				connection = sqlConnection.getConnection();
 				try {
 					String query = "SELECT * FROM task_job ";
+					
 					PreparedStatement pst = connection.prepareStatement(query);
 					ResultSet rs = pst.executeQuery();
 					table.setModel(DbUtils.resultSetToTableModel(rs));
@@ -235,7 +217,14 @@ public class UpdateTask extends JFrame {
 		btnNewButton_4.setBounds(353, 327, 123, 23);
 		contentPane.add(btnNewButton_4);
 		
+		textField = new JTextField();
+		textField.setBounds(646, 26, 183, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
 		
+		JLabel lblNewLabel_1 = new JLabel("Completed by");
+		lblNewLabel_1.setBounds(524, 29, 95, 14);
+		contentPane.add(lblNewLabel_1);
 		
 		
 	}
