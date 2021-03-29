@@ -52,6 +52,7 @@ public class UpdateCustomer extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	//this is for test purposes 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -76,7 +77,7 @@ public class UpdateCustomer extends JFrame {
 		//show_user();
  
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1000, 400);
+		setBounds(100, 100, 1100, 400);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -99,7 +100,7 @@ public class UpdateCustomer extends JFrame {
 		contentPane.add(lblNewLabel);
  
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(413, 36, 561, 285);
+		scrollPane.setBounds(413, 36, 661, 285);
 		contentPane.add(scrollPane);
  
 		table = new JTable();
@@ -330,7 +331,7 @@ public class UpdateCustomer extends JFrame {
 			}
 			}
 		});
-		btnNewButton_3.setBounds(865, 327, 109, 23);
+		btnNewButton_3.setBounds(943, 327, 131, 23);
 		contentPane.add(btnNewButton_3);
 	}
 }

@@ -33,10 +33,6 @@ public class GenerateInvoice extends JFrame {
 	int customer_id;
 	float amount;
 	String job_completed;
-	private JLabel id_label;
-	private JLabel CUSTOMERIDLABEL;
-	private JLabel AMOUNTLABEL;
-	private JLabel COMPLETEDLABEL;
 	double discount;
 	String discount_type;
 	double discount_price;
@@ -85,6 +81,7 @@ public class GenerateInvoice extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	//this is for test purposes 
 	public GenerateInvoice() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Calendar cal = Calendar.getInstance(); // creates calendar
@@ -98,7 +95,7 @@ public class GenerateInvoice extends JFrame {
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 35, 618, 280);
+		scrollPane.setBounds(10, 35, 864, 280);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -151,38 +148,6 @@ public class GenerateInvoice extends JFrame {
 	    });
 		btnNewButton_1.setBounds(539, 326, 89, 23);
 		contentPane.add(btnNewButton_1);
-		
-		JLabel lblNewLabel = new JLabel("Job ID");
-		lblNewLabel.setBounds(666, 42, 46, 14);
-		contentPane.add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel("Customer ID");
-		lblNewLabel_1.setBounds(666, 73, 46, 14);
-		contentPane.add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_2 = new JLabel("Amount");
-		lblNewLabel_2.setBounds(666, 108, 46, 14);
-		contentPane.add(lblNewLabel_2);
-		
-		JLabel lblNewLabel_3 = new JLabel("Date Finished");
-		lblNewLabel_3.setBounds(666, 145, 46, 14);
-		contentPane.add(lblNewLabel_3);
-		
-		id_label = new JLabel();
-		id_label.setBounds(750, 42, 46, 14);
-		contentPane.add(id_label);
-		
-		CUSTOMERIDLABEL = new JLabel();
-		CUSTOMERIDLABEL.setBounds(750, 73, 46, 14);
-		contentPane.add(CUSTOMERIDLABEL);
-		
-		AMOUNTLABEL = new JLabel();
-		AMOUNTLABEL.setBounds(750, 108, 46, 14);
-		contentPane.add(AMOUNTLABEL);
-		
-		COMPLETEDLABEL = new JLabel();
-		COMPLETEDLABEL.setBounds(750, 145, 46, 14);
-		contentPane.add(COMPLETEDLABEL);
 		
 		JButton btnNewButton_2 = new JButton("Generate");
 		btnNewButton_2.addActionListener(new ActionListener() {

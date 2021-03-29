@@ -43,6 +43,7 @@ public class UpdateAccount extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	//this is for test purposes 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -171,7 +172,7 @@ public class UpdateAccount extends JFrame {
 				}
 			}
 		});
-		UpdateDetailsBTN.setBounds(864, 327, 110, 23);
+		UpdateDetailsBTN.setBounds(823, 327, 151, 23);
 		contentPane.add(UpdateDetailsBTN);
 		
 		JLabel lblNewLabel_1 = new JLabel("Name");
@@ -231,7 +232,7 @@ public class UpdateAccount extends JFrame {
 				}
 			}
 		});
-		OfficeManagerBTN.setBounds(235, 157, 109, 23);
+		OfficeManagerBTN.setBounds(235, 157, 131, 23);
 		contentPane.add(OfficeManagerBTN);
 		//creating a button
 		ShiftManagerBTN = new JRadioButton("Shift Manager");
@@ -277,7 +278,7 @@ public class UpdateAccount extends JFrame {
 				}
 			}
 		});
-		DeleteBTN.setBounds(631, 327, 89, 23);
+		DeleteBTN.setBounds(631, 327, 110, 23);
 		contentPane.add(DeleteBTN);
 	}
 }

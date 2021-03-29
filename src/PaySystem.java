@@ -52,6 +52,7 @@ public class PaySystem extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	//this is for test purposes 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -72,7 +73,7 @@ public class PaySystem extends JFrame {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 900, 400);
+		setBounds(100, 100, 950, 400);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -117,11 +118,11 @@ public class PaySystem extends JFrame {
 				}
 			}
 		});
-		btnNewButton_1.setBounds(785, 327, 89, 23);
+		btnNewButton_1.setBounds(785, 327, 139, 23);
 		contentPane.add(btnNewButton_1);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(30, 30, 568, 286);
+		scrollPane.setBounds(30, 30, 618, 286);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -134,7 +135,7 @@ public class PaySystem extends JFrame {
 				}
 			));
 		
-		JButton btnNewButton_2 = new JButton("New button");
+		JButton btnNewButton_2 = new JButton("Show invoice");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -148,7 +149,7 @@ public class PaySystem extends JFrame {
 				}
 			}
 		});
-		btnNewButton_2.setBounds(509, 327, 89, 23);
+		btnNewButton_2.setBounds(444, 327, 154, 23);
 		contentPane.add(btnNewButton_2);
 		
 		CashBTN = new JRadioButton("Cash");
@@ -176,7 +177,7 @@ public class PaySystem extends JFrame {
 				}
 			}
 		});
-		CashBTN.setBounds(628, 33, 109, 23);
+		CashBTN.setBounds(690, 33, 109, 23);
 		contentPane.add(CashBTN);
 		
 		CardBTN = new JRadioButton("Card");
@@ -199,7 +200,7 @@ public class PaySystem extends JFrame {
 				}
 			}
 		});
-		CardBTN.setBounds(749, 33, 109, 23);
+		CardBTN.setBounds(801, 33, 109, 23);
 		contentPane.add(CardBTN);
 		
 		DebitBTN = new JRadioButton("Debit");
@@ -211,7 +212,7 @@ public class PaySystem extends JFrame {
 				}
 			}
 		});
-		DebitBTN.setBounds(628, 67, 109, 23);
+		DebitBTN.setBounds(676, 67, 109, 23);
 		contentPane.add(DebitBTN);
 		
 		CreditBTN = new JRadioButton("Credit");
@@ -223,43 +224,43 @@ public class PaySystem extends JFrame {
 				}
 			}
 		});
-		CreditBTN.setBounds(739, 67, 109, 23);
+		CreditBTN.setBounds(815, 67, 109, 23);
 		contentPane.add(CreditBTN);
 		
 		CardNumberField = new JTextField();
-		CardNumberField.setBounds(704, 111, 154, 20);
+		CardNumberField.setBounds(770, 111, 154, 20);
 		contentPane.add(CardNumberField);
 		CardNumberField.setColumns(10);
 		
 		CVCField = new JTextField();
-		CVCField.setBounds(704, 142, 86, 20);
+		CVCField.setBounds(838, 142, 86, 20);
 		contentPane.add(CVCField);
 		CVCField.setColumns(10);
 		
 		lblNewLabel = new JLabel("Card Number");
-		lblNewLabel.setBounds(628, 114, 46, 14);
+		lblNewLabel.setBounds(658, 114, 102, 14);
 		contentPane.add(lblNewLabel);
 		
 		lblNewLabel_1 = new JLabel("CVC");
-		lblNewLabel_1.setBounds(628, 145, 46, 14);
+		lblNewLabel_1.setBounds(714, 145, 117, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		DateField = new JTextField();
-		DateField.setBounds(704, 184, 86, 20);
+		DateField.setBounds(838, 184, 86, 20);
 		contentPane.add(DateField);
 		DateField.setColumns(10);
 		
 		lblNewLabel_2 = new JLabel("Expiry Date");
-		lblNewLabel_2.setBounds(628, 187, 46, 14);
+		lblNewLabel_2.setBounds(714, 187, 117, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		AmountField = new JTextField();
-		AmountField.setBounds(704, 227, 86, 20);
+		AmountField.setBounds(838, 227, 86, 20);
 		contentPane.add(AmountField);
 		AmountField.setColumns(10);
 		
 		lblNewLabel_3 = new JLabel("Amount paid in cash");
-		lblNewLabel_3.setBounds(628, 230, 46, 14);
+		lblNewLabel_3.setBounds(714, 230, 117, 14);
 		contentPane.add(lblNewLabel_3);
 		
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){

@@ -42,6 +42,7 @@ public class addTasks extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	//this is for test purposes 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -84,7 +85,7 @@ public class addTasks extends JFrame {
 		contentPane.setLayout(null);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(40, 60, 667, 249);
+		scrollPane.setBounds(40, 60, 735, 249);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -108,25 +109,25 @@ public class addTasks extends JFrame {
 	    });
 		
 		jobidField = new JTextField();
-		jobidField.setBounds(111, 29, 86, 20);
+		jobidField.setBounds(144, 29, 86, 20);
 		contentPane.add(jobidField);
 		jobidField.setColumns(10);
 		
 		customeridField = new JTextField();
-		customeridField.setBounds(464, 29, 86, 20);
+		customeridField.setBounds(539, 29, 86, 20);
 		contentPane.add(customeridField);
 		customeridField.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("job id search");
-		lblNewLabel.setBounds(40, 32, 61, 14);
+		lblNewLabel.setBounds(40, 32, 94, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("customer id search");
-		lblNewLabel_1.setBounds(362, 35, 92, 14);
+		lblNewLabel_1.setBounds(415, 32, 114, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		comboBox = new JComboBox();
-		comboBox.setBounds(758, 85, 80, 22);
+		comboBox.setBounds(785, 63, 80, 22);
 		contentPane.add(comboBox);
 		
 		JButton btnNewButton = new JButton("search job_id");
@@ -144,7 +145,7 @@ public class addTasks extends JFrame {
 				}
 			}
 		});
-		btnNewButton.setBounds(207, 26, 106, 23);
+		btnNewButton.setBounds(240, 28, 124, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("search cutomer_id");
@@ -162,7 +163,7 @@ public class addTasks extends JFrame {
 				}
 			}
 		});
-		btnNewButton_1.setBounds(561, 28, 121, 23);
+		btnNewButton_1.setBounds(635, 28, 140, 23);
 		contentPane.add(btnNewButton_1);
 		
 		alljobs = new JButton("All jobs");
@@ -179,7 +180,7 @@ public class addTasks extends JFrame {
 				}
 			}
 		});
-		alljobs.setBounds(618, 327, 89, 23);
+		alljobs.setBounds(686, 327, 89, 23);
 		contentPane.add(alljobs);
 		
 		btnNewButton_2 = new JButton("finish");

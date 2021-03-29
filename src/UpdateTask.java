@@ -36,10 +36,12 @@ public class UpdateTask extends JFrame {
 	Connection connection = null;
 	String newStatus = "Complete";
 	private JTextField textField;
+	int timeTaken;
 
 	/**
 	 * Launch the application.
 	 */
+	//this is for test purposes 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -60,6 +62,8 @@ public class UpdateTask extends JFrame {
 	 */
 	public UpdateTask() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm:ss");
+		SimpleDateFormat sdf3 = new SimpleDateFormat("yyyy-MM-dd");
 		Calendar cal = Calendar.getInstance(); // creates calendar
 	    cal.setTime(new Date());
 	    Calendar current = Calendar.getInstance(); // creates calendar
@@ -112,36 +116,44 @@ public class UpdateTask extends JFrame {
 				connection = sqlConnection.getConnection();
 				
 				try {
+					
 					DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
 		        	String tJobId = tblModel.getValueAt(table.getSelectedRow(), 0).toString();
 		        	int JobID = Integer.parseInt(tJobId);
 		        	String tTaskId = tblModel.getValueAt(table.getSelectedRow(), 1).toString();
 		        	int TaskID = Integer.parseInt(tTaskId);
-		        	//System.out.println(accountName);
+		        	
 		        	switch(TaskID) {
 		        	case 1:
 		        		cal.add(Calendar.MINUTE, 120);
+		        		timeTaken = 120;
 		        		break;
 		        	case 2:
 		        		cal.add(Calendar.MINUTE, 60);
+		        		timeTaken = 60;
 		        		break;
 		        	case 3:
 		        		cal.add(Calendar.MINUTE, 30);
+		        		timeTaken = 30;
 		        		break;
 		        	case 4:
 		        		cal.add(Calendar.MINUTE, 90);
+		        		timeTaken = 90;
 		        		break;
 		        	case 5:
 		        		cal.add(Calendar.MINUTE, 180);
+		        		timeTaken = 180;
 		        		break;
 		        	case 6:
 		        		cal.add(Calendar.MINUTE, 75);
+		        		timeTaken = 75;
 		        		break;
 		        	case 7:
 		        		cal.add(Calendar.MINUTE, 45);
+		        		timeTaken = 45;
 		        		break;
 		        	}
-					String sql = "UPDATE task_job SET status = '"+ newStatus +"', finish = '"+ sdf.format(cal.getTime()) +"', start = '"+sdf.format(current.getTime()) +"', completed_by = '" + textField.getText() +"' WHERE job_id = '"+ JobID +"' AND task_id = '"+ TaskID +"'";
+					String sql = "UPDATE task_job SET status = '"+ newStatus +"', start_time = '"+sdf2.format(current.getTime()) +"', completed_by = '" + textField.getText() +"', time_taken = '"+ timeTaken +"', task_date = '" + sdf3.format(current.getTime())+"' WHERE job_id = '"+ JobID +"' AND task_id = '"+ TaskID +"'";
 					PreparedStatement pst = connection.prepareStatement(sql);
 					pst.execute();
 					UpdateTask thisFrame = new UpdateTask();
@@ -214,7 +226,7 @@ public class UpdateTask extends JFrame {
 				}
 			}
 		});
-		btnNewButton_4.setBounds(353, 327, 123, 23);
+		btnNewButton_4.setBounds(325, 327, 151, 23);
 		contentPane.add(btnNewButton_4);
 		
 		textField = new JTextField();

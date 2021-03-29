@@ -45,6 +45,7 @@ public class CreateCustomer extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	//this is for test purposes 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -121,11 +122,11 @@ public class CreateCustomer extends JFrame {
 		contentPane.add(btnNewButton_1);
 		
 		JLabel lblNewLabel_1 = new JLabel("Name");
-		lblNewLabel_1.setBounds(117, 70, 89, 14);
+		lblNewLabel_1.setBounds(102, 70, 104, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Contact Name");
-		lblNewLabel_2.setBounds(117, 100, 89, 14);
+		lblNewLabel_2.setBounds(102, 100, 104, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		name = new JTextField();
@@ -134,23 +135,23 @@ public class CreateCustomer extends JFrame {
 		name.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("Address");
-		lblNewLabel_3.setBounds(117, 130, 89, 14);
+		lblNewLabel_3.setBounds(102, 130, 104, 14);
 		contentPane.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Phone");
-		lblNewLabel_4.setBounds(117, 160, 89, 14);
+		lblNewLabel_4.setBounds(102, 160, 104, 14);
 		contentPane.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("Status");
-		lblNewLabel_5.setBounds(117, 190, 89, 14);
+		lblNewLabel_5.setBounds(102, 190, 104, 14);
 		contentPane.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("Agreed Discount");
-		lblNewLabel_6.setBounds(117, 220, 89, 14);
+		lblNewLabel_6.setBounds(102, 220, 104, 14);
 		contentPane.add(lblNewLabel_6);
 		
 		JLabel lblNewLabel_7 = new JLabel("Discount Rate");
-		lblNewLabel_7.setBounds(117, 250, 89, 14);
+		lblNewLabel_7.setBounds(102, 250, 104, 14);
 		contentPane.add(lblNewLabel_7);
 		
 		cname = new JTextField();

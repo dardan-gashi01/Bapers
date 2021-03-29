@@ -46,6 +46,7 @@ public class JobList extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	//this is for test purposes 
 	public JobList() {
 		
 		Toolkit toolkit = getToolkit();
@@ -53,7 +54,7 @@ public class JobList extends JFrame {
 		setLocation(size.width/2-getWidth()/2, size.height/2 - getHeight()/2);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 700, 400);
+		setBounds(100, 100, 798, 400);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -73,13 +74,9 @@ public class JobList extends JFrame {
 		});
 		btnNewButton.setBounds(10, 327, 89, 23);
 		contentPane.add(btnNewButton);
-		//creating a button
-		JButton btnNewButton_1 = new JButton("Select Job");
-		btnNewButton_1.setBounds(550, 327, 124, 23);
-		contentPane.add(btnNewButton_1);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 40, 648, 276);
+		scrollPane.setBounds(10, 40, 762, 276);
 		contentPane.add(scrollPane);
 		
 		
@@ -108,7 +105,7 @@ public class JobList extends JFrame {
 				}
 			}
 		});
-		btnNewButton_2.setBounds(294, 327, 89, 23);
+		btnNewButton_2.setBounds(683, 327, 89, 23);
 		contentPane.add(btnNewButton_2);
 		
 	}

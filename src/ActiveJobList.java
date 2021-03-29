@@ -35,6 +35,7 @@ public class ActiveJobList extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	//this is for test purposes 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -97,7 +98,7 @@ public class ActiveJobList extends JFrame {
 				}
 			}
 		});
-		btnNewButton_1.setBounds(953, 327, 121, 23);
+		btnNewButton_1.setBounds(911, 327, 163, 23);
 		contentPane.add(btnNewButton_1);
 		//creating a button
 		JButton RefreshJobs = new JButton("RefreshJobs");
@@ -114,11 +115,11 @@ public class ActiveJobList extends JFrame {
 				}
 			}
 		});
-		RefreshJobs.setBounds(166, 327, 103, 23);
+		RefreshJobs.setBounds(132, 327, 137, 23);
 		contentPane.add(RefreshJobs);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 55, 832, 261);
+		scrollPane.setBounds(10, 55, 950, 261);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -139,7 +140,7 @@ public class ActiveJobList extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_2.setBounds(854, 327, 89, 23);
+		btnNewButton_2.setBounds(812, 327, 89, 23);
 		contentPane.add(btnNewButton_2);
 		
 		

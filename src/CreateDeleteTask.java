@@ -34,6 +34,7 @@ public class CreateDeleteTask extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	//this is for test purposes 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -148,15 +149,15 @@ public class CreateDeleteTask extends JFrame {
 		contentPane.add(btnNewButton_3);
 		
 		JLabel lblNewLabel = new JLabel("Price");
-		lblNewLabel.setBounds(53, 60, 46, 14);
+		lblNewLabel.setBounds(41, 60, 58, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Department");
-		lblNewLabel_1.setBounds(53, 109, 66, 14);
+		lblNewLabel_1.setBounds(41, 109, 78, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Duration");
-		lblNewLabel_2.setBounds(53, 162, 66, 14);
+		lblNewLabel_2.setBounds(41, 162, 78, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		PriceField = new JTextField();

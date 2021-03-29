@@ -34,6 +34,7 @@ public class CreateAccount extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	//this is for test purposes 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -69,7 +70,7 @@ public class CreateAccount extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Name");
-		lblNewLabel_1.setBounds(138, 70, 46, 14);
+		lblNewLabel_1.setBounds(120, 70, 64, 14);
 		contentPane.add(lblNewLabel_1);
 		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
@@ -113,7 +114,7 @@ public class CreateAccount extends JFrame {
 		NameTextField.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("Email");
-		lblNewLabel_2.setBounds(138, 127, 46, 14);
+		lblNewLabel_2.setBounds(120, 127, 64, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		EmailTextField = new JTextField();
@@ -122,11 +123,11 @@ public class CreateAccount extends JFrame {
 		EmailTextField.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("Role");
-		lblNewLabel_3.setBounds(138, 184, 46, 14);
+		lblNewLabel_3.setBounds(120, 184, 64, 14);
 		contentPane.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Password");
-		lblNewLabel_4.setBounds(138, 246, 46, 14);
+		lblNewLabel_4.setBounds(120, 246, 64, 14);
 		contentPane.add(lblNewLabel_4);
 		//creating a button
 		ReceptionistBTN = new JRadioButton("Receptionist");
@@ -182,7 +183,7 @@ public class CreateAccount extends JFrame {
 				}
 			}
 		});
-		OfficeManagerBTN.setBounds(518, 180, 109, 23);
+		OfficeManagerBTN.setBounds(518, 180, 125, 23);
 		contentPane.add(OfficeManagerBTN);
 		
 		passwordField = new JPasswordField();

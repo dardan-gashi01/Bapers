@@ -54,6 +54,7 @@ public class CustomerSearch extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	//this is for test purposes 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -153,7 +154,7 @@ public class CustomerSearch extends JFrame {
 		contentPane.add(btnNewButton_2);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 110, 664, 206);
+		scrollPane.setBounds(10, 110, 724, 206);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -213,7 +214,7 @@ public class CustomerSearch extends JFrame {
 				}
 			}
 		});
-		Urgent.setBounds(901, 136, 109, 23);
+		Urgent.setBounds(918, 136, 109, 23);
 		contentPane.add(Urgent);
 		
 		SpecialInstruction = new JTextField();
@@ -260,7 +261,7 @@ public class CustomerSearch extends JFrame {
 				}
 			}
 		});
-		btnNewButton_3.setBounds(1059, 327, 89, 23);
+		btnNewButton_3.setBounds(1059, 327, 115, 23);
 		contentPane.add(btnNewButton_3);
 		
 		JButton btnNewButton_1 = new JButton("All Customers");
@@ -277,7 +278,7 @@ public class CustomerSearch extends JFrame {
 				}
 			}
 		});
-		btnNewButton_1.setBounds(585, 327, 89, 23);
+		btnNewButton_1.setBounds(585, 327, 149, 23);
 		contentPane.add(btnNewButton_1);
 		
 		
