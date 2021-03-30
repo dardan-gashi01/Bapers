@@ -133,7 +133,7 @@ public class Menu extends JFrame {
 		contentPane.add(lblNewLabel_4);
 		//creating a button
 		JButton btnNewButton = new JButton("Logout");
-		btnNewButton.setBackground(new Color(0, 0, 255));
+		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Login LoginFrame = new Login();
@@ -145,7 +145,7 @@ public class Menu extends JFrame {
 		contentPane.add(btnNewButton);
 		//creating a button
 		PlaceJobBTN = new JButton("Place Job");
-		PlaceJobBTN.setBackground(new Color(0, 0, 255));
+		PlaceJobBTN.setBackground(new Color(192, 192, 192));
 		PlaceJobBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CustomerSearch newjobFrame = new CustomerSearch();
@@ -157,7 +157,7 @@ public class Menu extends JFrame {
 		contentPane.add(PlaceJobBTN);
 		//creating a button
 		TakePaymentBTN = new JButton("Take Payment");
-		TakePaymentBTN.setBackground(new Color(0, 0, 255));
+		TakePaymentBTN.setBackground(new Color(192, 192, 192));
 		TakePaymentBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PaySystem paymentFrame = new PaySystem();
@@ -169,7 +169,7 @@ public class Menu extends JFrame {
 		contentPane.add(TakePaymentBTN);
 		//creating a button
 		CreateCustBTN = new JButton("Create Customer");
-		CreateCustBTN.setBackground(new Color(0, 0, 255));
+		CreateCustBTN.setBackground(new Color(192, 192, 192));
 		CreateCustBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CreateCustomer CCFrame = new CreateCustomer();
@@ -181,7 +181,7 @@ public class Menu extends JFrame {
 		contentPane.add(CreateCustBTN);
 		//creating a button
 		ReportsBTN = new JButton("Reports");
-		ReportsBTN.setBackground(new Color(0, 0, 255));
+		ReportsBTN.setBackground(new Color(192, 192, 192));
 		ReportsBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Reports reportsFrame = new Reports();
@@ -193,7 +193,7 @@ public class Menu extends JFrame {
 		contentPane.add(ReportsBTN);
 		//creating a button
 		viewActiveJobBTN = new JButton("View Active Jobs");
-		viewActiveJobBTN.setBackground(new Color(0, 0, 255));
+		viewActiveJobBTN.setBackground(new Color(192, 192, 192));
 		viewActiveJobBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ActiveJobList activejobsFrame = new ActiveJobList();
@@ -205,7 +205,7 @@ public class Menu extends JFrame {
 		contentPane.add(viewActiveJobBTN);
 		//creating a button
 		CreateAccountBTN = new JButton("Create Account");
-		CreateAccountBTN.setBackground(new Color(0, 0, 255));
+		CreateAccountBTN.setBackground(new Color(192, 192, 192));
 		CreateAccountBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CreateAccount createaccountFrame = new CreateAccount();
@@ -217,7 +217,7 @@ public class Menu extends JFrame {
 		contentPane.add(CreateAccountBTN);
 		//creating a button
 		UpdateAccountBTN = new JButton("Update Account");
-		UpdateAccountBTN.setBackground(new Color(0, 0, 255));
+		UpdateAccountBTN.setBackground(new Color(192, 192, 192));
 		UpdateAccountBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				UpdateAccount accountdetailsFrame = new UpdateAccount();
@@ -229,7 +229,7 @@ public class Menu extends JFrame {
 		contentPane.add(UpdateAccountBTN);
 		//creating a button
 		ManageCustomersBTN = new JButton("Manage Customers");
-		ManageCustomersBTN.setBackground(new Color(0, 0, 255));
+		ManageCustomersBTN.setBackground(new Color(192, 192, 192));
 		ManageCustomersBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				UpdateCustomer customersearchFrame = new UpdateCustomer();
@@ -241,7 +241,7 @@ public class Menu extends JFrame {
 		contentPane.add(ManageCustomersBTN);
 		//creating a button
 		viewAllJobsBTN = new JButton("View All Jobs");
-		viewAllJobsBTN.setBackground(new Color(0, 0, 255));
+		viewAllJobsBTN.setBackground(new Color(192, 192, 192));
 		viewAllJobsBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JobList alljobFrame = new JobList();
@@ -253,7 +253,7 @@ public class Menu extends JFrame {
 		contentPane.add(viewAllJobsBTN);
 		//creating a button
 		CreateBackupBTN = new JButton("Create Backup");
-		CreateBackupBTN.setBackground(new Color(0, 0, 255));
+		CreateBackupBTN.setBackground(new Color(192, 192, 192));
 		CreateBackupBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				BackupDB bdb = new BackupDB();
@@ -264,7 +264,7 @@ public class Menu extends JFrame {
 		contentPane.add(CreateBackupBTN);
 		//creating a button
 		RestoreDatabaseBTN = new JButton("Restore Database");
-		RestoreDatabaseBTN.setBackground(new Color(0, 0, 255));
+		RestoreDatabaseBTN.setBackground(new Color(192, 192, 192));
 		RestoreDatabaseBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Restore restoreFrame = new Restore();
@@ -276,7 +276,7 @@ public class Menu extends JFrame {
 		contentPane.add(RestoreDatabaseBTN);
 		//creating a button
 		UpdateCustBTN = new JButton("Update Customer Account");
-		UpdateCustBTN.setBackground(new Color(0, 0, 255));
+		UpdateCustBTN.setBackground(new Color(192, 192, 192));
 		UpdateCustBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				UpdateCustomer updateCustomerFrame = new UpdateCustomer();
@@ -288,7 +288,7 @@ public class Menu extends JFrame {
 		contentPane.add(UpdateCustBTN);
 		//creating a button
 		EditTasksBTN = new JButton("Edit Tasks");
-		EditTasksBTN.setBackground(new Color(0, 0, 255));
+		EditTasksBTN.setBackground(new Color(192, 192, 192));
 		EditTasksBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CreateDeleteTask tasksFrame = new CreateDeleteTask();
@@ -300,7 +300,7 @@ public class Menu extends JFrame {
 		contentPane.add(EditTasksBTN);
 		
 		UpdateTasksBTN = new JButton("Update Tasks");
-		UpdateTasksBTN.setBackground(new Color(0, 0, 255));
+		UpdateTasksBTN.setBackground(new Color(192, 192, 192));
 		UpdateTasksBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				UpdateTask updatetaskFrame = new UpdateTask();
@@ -312,7 +312,7 @@ public class Menu extends JFrame {
 		contentPane.add(UpdateTasksBTN);
 		
 		btnNewButton_1 = new JButton("Generate Invoice");
-		btnNewButton_1.setBackground(new Color(0, 0, 255));
+		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				GenerateInvoice invoiceFrame = new GenerateInvoice();

@@ -86,7 +86,7 @@ public class UpdateCustomer extends JFrame {
 		contentPane.setLayout(null);
 		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
-		btnNewButton.setBackground(new Color(0, 0, 255));
+		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Menu menuFrame = new Menu();
@@ -143,7 +143,7 @@ public class UpdateCustomer extends JFrame {
 		
 		//creating a button
 		JButton btnNewButton_2 = new JButton("Refresh");
-		btnNewButton_2.setBackground(new Color(0, 0, 255));
+		btnNewButton_2.setBackground(new Color(192, 192, 192));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -310,7 +310,7 @@ public class UpdateCustomer extends JFrame {
 		contentPane.add(VariableButton);
 		//creating a button
 		JButton btnNewButton_3 = new JButton("Update Details");
-		btnNewButton_3.setBackground(new Color(0, 0, 255));
+		btnNewButton_3.setBackground(new Color(192, 192, 192));
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();

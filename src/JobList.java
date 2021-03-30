@@ -71,7 +71,7 @@ public class JobList extends JFrame {
 		contentPane.add(lblNewLabel);
 		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
-		btnNewButton.setBackground(new Color(0, 0, 255));
+		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Menu menuFrame = new Menu();
@@ -99,7 +99,7 @@ public class JobList extends JFrame {
 			));
 		//creating a button
 		JButton btnNewButton_2 = new JButton("Refresh");
-		btnNewButton_2.setBackground(new Color(0, 0, 255));
+		btnNewButton_2.setBackground(new Color(192, 192, 192));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -117,7 +117,7 @@ public class JobList extends JFrame {
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_1 = new JButton("Delete");
-		btnNewButton_1.setBackground(new Color(0, 0, 255));
+		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();

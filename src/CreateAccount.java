@@ -79,7 +79,7 @@ public class CreateAccount extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
-		btnNewButton.setBackground(new Color(0, 0, 255));
+		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Menu menuFrame = new Menu();
@@ -91,7 +91,7 @@ public class CreateAccount extends JFrame {
 		contentPane.add(btnNewButton);
 		//creating a button
 		JButton btnNewButton_1 = new JButton("Confirm Details");
-		btnNewButton_1.setBackground(new Color(0, 0, 255));
+		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();

@@ -88,7 +88,7 @@ public class Login extends JFrame {
 		contentPane.add(pin);
 		//creating a button that logs the user in and checks for their details in the database to check if it is correct
 		JButton btnNewButton = new JButton("Login");
-		btnNewButton.setBackground(new Color(0, 0, 255));
+		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -133,7 +133,7 @@ public class Login extends JFrame {
 		contentPane.add(lblNewLabel_2_1);
 		//creating a button that closes the whole application
 		JButton btnNewButton_1 = new JButton("Close");
-		btnNewButton_1.setBackground(new Color(0, 0, 255));
+		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);

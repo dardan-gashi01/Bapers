@@ -118,7 +118,7 @@ public class CustomerSearch extends JFrame {
 		contentPane.add(lblNewLabel);
 		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
-		btnNewButton.setBackground(new Color(0, 0, 255));
+		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Menu menuFrame = new Menu();
@@ -143,7 +143,7 @@ public class CustomerSearch extends JFrame {
 		NameSearch.setColumns(10);
 		//creating a button
 		JButton btnNewButton_2 = new JButton("Search Customer");
-		btnNewButton_2.setBackground(new Color(0, 0, 255));
+		btnNewButton_2.setBackground(new Color(192, 192, 192));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -245,7 +245,7 @@ public class CustomerSearch extends JFrame {
 	    });
 		//creating a button
 		JButton btnNewButton_3 = new JButton("CreateJob");
-		btnNewButton_3.setBackground(new Color(0, 0, 255));
+		btnNewButton_3.setBackground(new Color(192, 192, 192));
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -278,7 +278,7 @@ public class CustomerSearch extends JFrame {
 		contentPane.add(btnNewButton_3);
 		
 		JButton btnNewButton_1 = new JButton("All Customers");
-		btnNewButton_1.setBackground(new Color(0, 0, 255));
+		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();

@@ -74,7 +74,7 @@ public class ActiveJobList extends JFrame {
 		contentPane.add(lblNewLabel);
 		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
-		btnNewButton.setBackground(new Color(0, 0, 255));
+		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Menu menuFrame = new Menu();
@@ -87,7 +87,7 @@ public class ActiveJobList extends JFrame {
 		
 		//creating a button
 		JButton btnNewButton_1 = new JButton("Update Job Status");
-		btnNewButton_1.setBackground(new Color(0, 0, 255));
+		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -111,7 +111,7 @@ public class ActiveJobList extends JFrame {
 		contentPane.add(btnNewButton_1);
 		//creating a button
 		JButton RefreshJobs = new JButton("RefreshJobs");
-		RefreshJobs.setBackground(new Color(0, 0, 255));
+		RefreshJobs.setBackground(new Color(192, 192, 192));
 		RefreshJobs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -143,7 +143,7 @@ public class ActiveJobList extends JFrame {
 			));
 		//creating a button
 		JButton btnNewButton_2 = new JButton("New Job");
-		btnNewButton_2.setBackground(new Color(0, 0, 255));
+		btnNewButton_2.setBackground(new Color(192, 192, 192));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CustomerSearch csFrame = new CustomerSearch();

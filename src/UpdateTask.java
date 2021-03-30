@@ -103,7 +103,7 @@ public class UpdateTask extends JFrame {
 	    });
 		
 		JButton btnNewButton = new JButton("Cancel");
-		btnNewButton.setBackground(new Color(0, 0, 255));
+		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Menu menuFrame = new Menu();
@@ -115,7 +115,7 @@ public class UpdateTask extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Start Task");
-		btnNewButton_1.setBackground(new Color(0, 0, 255));
+		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -184,7 +184,7 @@ public class UpdateTask extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton_2 = new JButton("Search");
-		btnNewButton_2.setBackground(new Color(0, 0, 255));
+		btnNewButton_2.setBackground(new Color(192, 192, 192));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -203,7 +203,7 @@ public class UpdateTask extends JFrame {
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("All jobs");
-		btnNewButton_3.setBackground(new Color(0, 0, 255));
+		btnNewButton_3.setBackground(new Color(192, 192, 192));
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -222,7 +222,7 @@ public class UpdateTask extends JFrame {
 		contentPane.add(btnNewButton_3);
 		
 		JButton btnNewButton_4 = new JButton("active tasks left");
-		btnNewButton_4.setBackground(new Color(0, 0, 255));
+		btnNewButton_4.setBackground(new Color(192, 192, 192));
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();

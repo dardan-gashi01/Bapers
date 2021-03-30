@@ -78,7 +78,7 @@ public class UpdateAccount extends JFrame {
 		contentPane.add(lblNewLabel);
 		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
-		btnNewButton.setBackground(new Color(0, 0, 255));
+		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Menu menuFrame = new Menu();
@@ -141,7 +141,7 @@ public class UpdateAccount extends JFrame {
 	    });
 		//creating a button
 		JButton btnNewButton_1 = new JButton("Refresh");
-		btnNewButton_1.setBackground(new Color(0, 0, 255));
+		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -159,7 +159,7 @@ public class UpdateAccount extends JFrame {
 		contentPane.add(btnNewButton_1);
 		//creating a button
 		JButton UpdateDetailsBTN = new JButton("Update Details");
-		UpdateDetailsBTN.setBackground(new Color(0, 0, 255));
+		UpdateDetailsBTN.setBackground(new Color(192, 192, 192));
 		UpdateDetailsBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -281,7 +281,7 @@ public class UpdateAccount extends JFrame {
 		contentPane.add(lblNewLabel_4);
 		//creating a button
 		DeleteBTN = new JButton("Delete User");
-		DeleteBTN.setBackground(new Color(0, 0, 255));
+		DeleteBTN.setBackground(new Color(192, 192, 192));
 		DeleteBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
