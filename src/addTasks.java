@@ -22,6 +22,8 @@ import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.Font;
 
 public class addTasks extends JFrame {
 
@@ -35,7 +37,6 @@ public class addTasks extends JFrame {
 	private JButton alljobs;
 	private JButton btnNewButton_2;
 	private JButton btnNewButton_3;
-	private JLabel id_label;
 	String job_id;
 	String status = "incomplete";
 
@@ -78,14 +79,15 @@ public class addTasks extends JFrame {
 	 */
 	public addTasks() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 900, 400);
+		setBounds(100, 100, 1050, 400);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(40, 60, 735, 249);
+		scrollPane.setBounds(40, 60, 894, 249);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -103,8 +105,7 @@ public class addTasks extends JFrame {
 	        	DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
 	        
 				job_id = tblModel.getValueAt(table.getSelectedRow(), 0).toString();
-				//int CustomerID = (int) tblModel.getValueAt(table.getSelectedRow(), 0);
-				id_label.setText(job_id);
+				
 	        }
 	    });
 		
@@ -119,18 +120,22 @@ public class addTasks extends JFrame {
 		customeridField.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("job id search");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel.setBounds(40, 32, 94, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("customer id search");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_1.setBounds(415, 32, 114, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		comboBox = new JComboBox();
-		comboBox.setBounds(785, 63, 80, 22);
+		comboBox.setBackground(new Color(0, 0, 255));
+		comboBox.setBounds(944, 63, 80, 22);
 		contentPane.add(comboBox);
 		
 		JButton btnNewButton = new JButton("search job_id");
+		btnNewButton.setBackground(new Color(0, 0, 255));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -149,6 +154,7 @@ public class addTasks extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("search cutomer_id");
+		btnNewButton_1.setBackground(new Color(0, 0, 255));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -167,6 +173,7 @@ public class addTasks extends JFrame {
 		contentPane.add(btnNewButton_1);
 		
 		alljobs = new JButton("All jobs");
+		alljobs.setBackground(new Color(0, 0, 255));
 		alljobs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -184,6 +191,7 @@ public class addTasks extends JFrame {
 		contentPane.add(alljobs);
 		
 		btnNewButton_2 = new JButton("finish");
+		btnNewButton_2.setBackground(new Color(0, 0, 255));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Menu menuFrame = new Menu();
@@ -195,6 +203,7 @@ public class addTasks extends JFrame {
 		contentPane.add(btnNewButton_2);
 		
 		btnNewButton_3 = new JButton("Add Task");
+		btnNewButton_3.setBackground(new Color(0, 0, 255));
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -239,12 +248,8 @@ public class addTasks extends JFrame {
 				}
 			}
 		});
-		btnNewButton_3.setBounds(785, 327, 89, 23);
+		btnNewButton_3.setBounds(935, 327, 89, 23);
 		contentPane.add(btnNewButton_3);
-		
-		id_label = new JLabel();
-		id_label.setBounds(775, 60, 46, 14);
-		contentPane.add(id_label);
 		Fillcombo();
 	}
 }

@@ -25,6 +25,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.Font;
 
 public class UpdateTask extends JFrame {
 
@@ -72,6 +74,7 @@ public class UpdateTask extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 900, 400);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -100,6 +103,7 @@ public class UpdateTask extends JFrame {
 	    });
 		
 		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.setBackground(new Color(0, 0, 255));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Menu menuFrame = new Menu();
@@ -111,6 +115,7 @@ public class UpdateTask extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Start Task");
+		btnNewButton_1.setBackground(new Color(0, 0, 255));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -118,9 +123,9 @@ public class UpdateTask extends JFrame {
 				try {
 					
 					DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
-		        	String tJobId = tblModel.getValueAt(table.getSelectedRow(), 0).toString();
+		        	String tJobId = tblModel.getValueAt(table.getSelectedRow(), 1).toString();
 		        	int JobID = Integer.parseInt(tJobId);
-		        	String tTaskId = tblModel.getValueAt(table.getSelectedRow(), 1).toString();
+		        	String tTaskId = tblModel.getValueAt(table.getSelectedRow(), 2).toString();
 		        	int TaskID = Integer.parseInt(tTaskId);
 		        	
 		        	switch(TaskID) {
@@ -168,15 +173,18 @@ public class UpdateTask extends JFrame {
 		contentPane.add(btnNewButton_1);
 		
 		JobIDField = new JTextField();
+		JobIDField.setBackground(new Color(192, 192, 192));
 		JobIDField.setBounds(135, 26, 86, 20);
 		contentPane.add(JobIDField);
 		JobIDField.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("jobID search");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel.setBounds(30, 29, 86, 14);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton_2 = new JButton("Search");
+		btnNewButton_2.setBackground(new Color(0, 0, 255));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -195,6 +203,7 @@ public class UpdateTask extends JFrame {
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("All jobs");
+		btnNewButton_3.setBackground(new Color(0, 0, 255));
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -213,6 +222,7 @@ public class UpdateTask extends JFrame {
 		contentPane.add(btnNewButton_3);
 		
 		JButton btnNewButton_4 = new JButton("active tasks left");
+		btnNewButton_4.setBackground(new Color(0, 0, 255));
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -230,11 +240,13 @@ public class UpdateTask extends JFrame {
 		contentPane.add(btnNewButton_4);
 		
 		textField = new JTextField();
+		textField.setBackground(new Color(192, 192, 192));
 		textField.setBounds(646, 26, 183, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("Completed by");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_1.setBounds(524, 29, 95, 14);
 		contentPane.add(lblNewLabel_1);
 		

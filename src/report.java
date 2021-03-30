@@ -40,10 +40,9 @@ public class report {
                     "ORDER BY tj.job_id, start_time";
             ps = conn.prepareStatement(sqlIndividualCustomerReport);
             // set the parameters
-            ps.setString(1, custID
-            		);
-            ps.setString(2, "2021-03-25");
-            ps.setString(3, "2021-03-28");
+            ps.setString(1, custID);
+            ps.setString(2, StartDate);
+            ps.setString(3, EndDate);
             // execute SQL query
             rs = ps.executeQuery();
             // display the result set
@@ -90,8 +89,8 @@ public class report {
                     "ORDER BY completed_by;";
             ps = conn.prepareStatement(sqlIndividualPerformanceReport1);
             // set the parameters
-            ps.setString(1, "Dardan");
-            ps.setString(2, "2021-03-28");
+            ps.setString(1, Name);
+            ps.setString(2, Date);
             // execute SQL query
             ps.executeUpdate();
 
@@ -174,10 +173,10 @@ public class report {
                     "GROUP BY task_date, department, time_taken;";
             ps = conn.prepareStatement(sqlSummaryPerformanceReport);
             // set the parameters
-            ps.setString(1, "12:00:00");
-            ps.setString(2, "14:00:00");
-            ps.setString(3, "2021-03-24");
-            ps.setString(4, "2021-03-28");
+            ps.setString(1, startTime);
+            ps.setString(2, endTime);
+            ps.setString(3, startDate);
+            ps.setString(4, endDate);
             // execute SQL query
             rs = ps.executeQuery();
             // display the result set

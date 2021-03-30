@@ -24,6 +24,8 @@ import java.sql.ResultSet;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
+import java.awt.Color;
+import java.awt.Font;
 
 public class ActiveJobList extends JFrame {
 
@@ -60,16 +62,19 @@ public class ActiveJobList extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1100, 400);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Active Jobs List");
+		lblNewLabel.setFont(new Font("Arial Black", Font.BOLD | Font.ITALIC, 12));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(10, 11, 664, 14);
+		lblNewLabel.setBounds(10, 11, 1064, 14);
 		contentPane.add(lblNewLabel);
 		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.setBackground(new Color(0, 0, 255));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Menu menuFrame = new Menu();
@@ -82,6 +87,7 @@ public class ActiveJobList extends JFrame {
 		
 		//creating a button
 		JButton btnNewButton_1 = new JButton("Update Job Status");
+		btnNewButton_1.setBackground(new Color(0, 0, 255));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -93,6 +99,9 @@ public class ActiveJobList extends JFrame {
 					PreparedStatement pst = connection.prepareStatement(sql);
 					pst.execute();
 					JOptionPane.showMessageDialog(null, "Updated");
+					ActiveJobList thisFrame = new ActiveJobList();
+					thisFrame.setVisible(true);
+					dispose();
 				}catch(Exception E) {
 					JOptionPane.showMessageDialog(null,E);
 				}
@@ -102,6 +111,7 @@ public class ActiveJobList extends JFrame {
 		contentPane.add(btnNewButton_1);
 		//creating a button
 		JButton RefreshJobs = new JButton("RefreshJobs");
+		RefreshJobs.setBackground(new Color(0, 0, 255));
 		RefreshJobs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -119,7 +129,7 @@ public class ActiveJobList extends JFrame {
 		contentPane.add(RefreshJobs);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 55, 950, 261);
+		scrollPane.setBounds(10, 55, 1064, 261);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -133,6 +143,7 @@ public class ActiveJobList extends JFrame {
 			));
 		//creating a button
 		JButton btnNewButton_2 = new JButton("New Job");
+		btnNewButton_2.setBackground(new Color(0, 0, 255));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CustomerSearch csFrame = new CustomerSearch();

@@ -21,6 +21,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import java.awt.Color;
+import java.awt.Font;
 
 public class CreateDeleteTask extends JFrame {
 
@@ -55,15 +57,25 @@ public class CreateDeleteTask extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1000, 400);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.setBackground(new Color(0, 0, 255));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Menu menuFrame = new Menu();
+				menuFrame.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton.setBounds(10, 327, 89, 23);
 		contentPane.add(btnNewButton);
 		//creating a button
 		JButton btnNewButton_1 = new JButton("Create new Task");
+		btnNewButton_1.setBackground(new Color(0, 0, 255));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -84,10 +96,11 @@ public class CreateDeleteTask extends JFrame {
 			}
 			}
 		});
-		btnNewButton_1.setBounds(275, 327, 129, 23);
+		btnNewButton_1.setBounds(275, 327, 151, 23);
 		contentPane.add(btnNewButton_1);
 		//creating a button
 		JButton btnNewButton_2 = new JButton("Delete Task");
+		btnNewButton_2.setBackground(new Color(0, 0, 255));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -98,6 +111,9 @@ public class CreateDeleteTask extends JFrame {
 					PreparedStatement pst = connection.prepareStatement(sql);
 					pst.execute();
 					JOptionPane.showMessageDialog(null, "Deleted");
+					CreateDeleteTask thisFrame = new CreateDeleteTask();
+					thisFrame.setVisible(true);
+					dispose();
 				}catch(Exception E) {
 					JOptionPane.showMessageDialog(null,E);
 				}
@@ -132,6 +148,7 @@ public class CreateDeleteTask extends JFrame {
 	    });
 		//creating a button
 		JButton btnNewButton_3 = new JButton("Refresh");
+		btnNewButton_3.setBackground(new Color(0, 0, 255));
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -149,28 +166,34 @@ public class CreateDeleteTask extends JFrame {
 		contentPane.add(btnNewButton_3);
 		
 		JLabel lblNewLabel = new JLabel("Price");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel.setBounds(41, 60, 58, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Department");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_1.setBounds(41, 109, 78, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Duration");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_2.setBounds(41, 162, 78, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		PriceField = new JTextField();
+		PriceField.setBackground(new Color(192, 192, 192));
 		PriceField.setBounds(146, 57, 153, 20);
 		contentPane.add(PriceField);
 		PriceField.setColumns(10);
 		
 		Department = new JTextField();
+		Department.setBackground(new Color(192, 192, 192));
 		Department.setBounds(146, 106, 153, 20);
 		contentPane.add(Department);
 		Department.setColumns(10);
 		
 		DurationField = new JTextField();
+		DurationField.setBackground(new Color(192, 192, 192));
 		DurationField.setBounds(146, 159, 153, 20);
 		contentPane.add(DurationField);
 		DurationField.setColumns(10);
@@ -180,6 +203,7 @@ public class CreateDeleteTask extends JFrame {
 		contentPane.add(lblNewLabel_3);
 		//creating a button
 		JButton btnNewButton_4 = new JButton("Update Task");
+		btnNewButton_4.setBackground(new Color(0, 0, 255));
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -193,6 +217,9 @@ public class CreateDeleteTask extends JFrame {
 					PreparedStatement pst = connection.prepareStatement(sql);
 					pst.execute();
 					JOptionPane.showMessageDialog(null, "Updated");
+					CreateDeleteTask thisFrame = new CreateDeleteTask();
+					thisFrame.setVisible(true);
+					dispose();
 				}catch(Exception E) {
 					JOptionPane.showMessageDialog(null,E);
 				}

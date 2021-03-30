@@ -10,6 +10,10 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import java.awt.SystemColor;
 
 public class Menu extends JFrame {
 
@@ -92,31 +96,44 @@ public class Menu extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 731, 400);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.GRAY);
+		contentPane.setForeground(Color.BLACK);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("BAPERS");
-		lblNewLabel.setBounds(305, 11, 68, 14);
+		JLabel lblNewLabel = new JLabel("BAPERS MENU");
+		lblNewLabel.setFont(new Font("Arial Black", Font.BOLD | Font.ITALIC, 13));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(10, 11, 695, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Office Manager");
-		lblNewLabel_1.setBounds(48, 60, 89, 14);
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel_1.setBounds(21, 60, 116, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Shift Manager");
-		lblNewLabel_2.setBounds(211, 60, 89, 14);
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel_2.setBounds(185, 60, 115, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Technician");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_3.setBounds(382, 60, 67, 14);
 		contentPane.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Receptionist");
-		lblNewLabel_4.setBounds(575, 60, 97, 14);
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_4.setBounds(546, 60, 97, 14);
 		contentPane.add(lblNewLabel_4);
 		//creating a button
 		JButton btnNewButton = new JButton("Logout");
+		btnNewButton.setBackground(new Color(0, 0, 255));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Login LoginFrame = new Login();
@@ -128,6 +145,7 @@ public class Menu extends JFrame {
 		contentPane.add(btnNewButton);
 		//creating a button
 		PlaceJobBTN = new JButton("Place Job");
+		PlaceJobBTN.setBackground(new Color(0, 0, 255));
 		PlaceJobBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CustomerSearch newjobFrame = new CustomerSearch();
@@ -139,6 +157,7 @@ public class Menu extends JFrame {
 		contentPane.add(PlaceJobBTN);
 		//creating a button
 		TakePaymentBTN = new JButton("Take Payment");
+		TakePaymentBTN.setBackground(new Color(0, 0, 255));
 		TakePaymentBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PaySystem paymentFrame = new PaySystem();
@@ -150,6 +169,7 @@ public class Menu extends JFrame {
 		contentPane.add(TakePaymentBTN);
 		//creating a button
 		CreateCustBTN = new JButton("Create Customer");
+		CreateCustBTN.setBackground(new Color(0, 0, 255));
 		CreateCustBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CreateCustomer CCFrame = new CreateCustomer();
@@ -161,6 +181,7 @@ public class Menu extends JFrame {
 		contentPane.add(CreateCustBTN);
 		//creating a button
 		ReportsBTN = new JButton("Reports");
+		ReportsBTN.setBackground(new Color(0, 0, 255));
 		ReportsBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Reports reportsFrame = new Reports();
@@ -172,6 +193,7 @@ public class Menu extends JFrame {
 		contentPane.add(ReportsBTN);
 		//creating a button
 		viewActiveJobBTN = new JButton("View Active Jobs");
+		viewActiveJobBTN.setBackground(new Color(0, 0, 255));
 		viewActiveJobBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ActiveJobList activejobsFrame = new ActiveJobList();
@@ -183,6 +205,7 @@ public class Menu extends JFrame {
 		contentPane.add(viewActiveJobBTN);
 		//creating a button
 		CreateAccountBTN = new JButton("Create Account");
+		CreateAccountBTN.setBackground(new Color(0, 0, 255));
 		CreateAccountBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CreateAccount createaccountFrame = new CreateAccount();
@@ -194,6 +217,7 @@ public class Menu extends JFrame {
 		contentPane.add(CreateAccountBTN);
 		//creating a button
 		UpdateAccountBTN = new JButton("Update Account");
+		UpdateAccountBTN.setBackground(new Color(0, 0, 255));
 		UpdateAccountBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				UpdateAccount accountdetailsFrame = new UpdateAccount();
@@ -205,6 +229,7 @@ public class Menu extends JFrame {
 		contentPane.add(UpdateAccountBTN);
 		//creating a button
 		ManageCustomersBTN = new JButton("Manage Customers");
+		ManageCustomersBTN.setBackground(new Color(0, 0, 255));
 		ManageCustomersBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				UpdateCustomer customersearchFrame = new UpdateCustomer();
@@ -216,6 +241,7 @@ public class Menu extends JFrame {
 		contentPane.add(ManageCustomersBTN);
 		//creating a button
 		viewAllJobsBTN = new JButton("View All Jobs");
+		viewAllJobsBTN.setBackground(new Color(0, 0, 255));
 		viewAllJobsBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JobList alljobFrame = new JobList();
@@ -227,6 +253,7 @@ public class Menu extends JFrame {
 		contentPane.add(viewAllJobsBTN);
 		//creating a button
 		CreateBackupBTN = new JButton("Create Backup");
+		CreateBackupBTN.setBackground(new Color(0, 0, 255));
 		CreateBackupBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				BackupDB bdb = new BackupDB();
@@ -237,6 +264,7 @@ public class Menu extends JFrame {
 		contentPane.add(CreateBackupBTN);
 		//creating a button
 		RestoreDatabaseBTN = new JButton("Restore Database");
+		RestoreDatabaseBTN.setBackground(new Color(0, 0, 255));
 		RestoreDatabaseBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Restore restoreFrame = new Restore();
@@ -248,6 +276,7 @@ public class Menu extends JFrame {
 		contentPane.add(RestoreDatabaseBTN);
 		//creating a button
 		UpdateCustBTN = new JButton("Update Customer Account");
+		UpdateCustBTN.setBackground(new Color(0, 0, 255));
 		UpdateCustBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				UpdateCustomer updateCustomerFrame = new UpdateCustomer();
@@ -259,6 +288,7 @@ public class Menu extends JFrame {
 		contentPane.add(UpdateCustBTN);
 		//creating a button
 		EditTasksBTN = new JButton("Edit Tasks");
+		EditTasksBTN.setBackground(new Color(0, 0, 255));
 		EditTasksBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CreateDeleteTask tasksFrame = new CreateDeleteTask();
@@ -270,6 +300,7 @@ public class Menu extends JFrame {
 		contentPane.add(EditTasksBTN);
 		
 		UpdateTasksBTN = new JButton("Update Tasks");
+		UpdateTasksBTN.setBackground(new Color(0, 0, 255));
 		UpdateTasksBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				UpdateTask updatetaskFrame = new UpdateTask();
@@ -281,6 +312,7 @@ public class Menu extends JFrame {
 		contentPane.add(UpdateTasksBTN);
 		
 		btnNewButton_1 = new JButton("Generate Invoice");
+		btnNewButton_1.setBackground(new Color(0, 0, 255));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				GenerateInvoice invoiceFrame = new GenerateInvoice();

@@ -20,6 +20,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+import java.awt.Color;
+import java.awt.Font;
 
 public class Reports extends JFrame {
 
@@ -68,11 +70,13 @@ public class Reports extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 400);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.setBackground(new Color(0, 0, 255));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Menu menuFrame = new Menu();
@@ -84,11 +88,13 @@ public class Reports extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("Reports");
+		lblNewLabel.setFont(new Font("Arial Black", Font.BOLD | Font.ITALIC, 12));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(10, 11, 664, 14);
 		contentPane.add(lblNewLabel);
 		
 		CustomerReportBTN = new JRadioButton("Customer Report");
+		CustomerReportBTN.setBackground(new Color(192, 192, 192));
 		CustomerReportBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(CustomerReportBTN.isSelected()) {
@@ -108,6 +114,7 @@ public class Reports extends JFrame {
 		contentPane.add(CustomerReportBTN);
 		
 		SummaryReportBTN = new JRadioButton("Summary Report");
+		SummaryReportBTN.setBackground(new Color(192, 192, 192));
 		SummaryReportBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(SummaryReportBTN.isSelected()) {
@@ -126,6 +133,7 @@ public class Reports extends JFrame {
 		contentPane.add(SummaryReportBTN);
 		
 		PersonalReportBTN = new JRadioButton("individual Performance Report");
+		PersonalReportBTN.setBackground(new Color(192, 192, 192));
 		PersonalReportBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(PersonalReportBTN.isSelected()) {
@@ -147,6 +155,7 @@ public class Reports extends JFrame {
 		contentPane.add(PersonalReportBTN);
 		
 		JButton btnNewButton_1 = new JButton("New button");
+		btnNewButton_1.setBackground(new Color(0, 0, 255));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				report r =new report();
@@ -163,55 +172,67 @@ public class Reports extends JFrame {
 		contentPane.add(btnNewButton_1);
 		
 		CustIDField = new JTextField();
+		CustIDField.setBackground(new Color(192, 192, 192));
 		CustIDField.setBounds(312, 96, 56, 20);
 		contentPane.add(CustIDField);
 		CustIDField.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("Customer id");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_1.setBounds(216, 99, 74, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		lblNewLabel_2 = new JLabel("Start date");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_2.setBounds(216, 135, 74, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		lblNewLabel_3 = new JLabel("End date");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_3.setBounds(216, 169, 74, 14);
 		contentPane.add(lblNewLabel_3);
 		
 		lblNewLabel_4 = new JLabel("Start time");
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_4.setBounds(216, 194, 74, 14);
 		contentPane.add(lblNewLabel_4);
 		
 		lblNewLabel_5 = new JLabel("End Time");
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_5.setBounds(216, 227, 74, 14);
 		contentPane.add(lblNewLabel_5);
 		
 		lblNewLabel_6 = new JLabel("Staff Name");
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_6.setBounds(216, 254, 74, 14);
 		contentPane.add(lblNewLabel_6);
 		
 		StartDateField = new JTextField();
+		StartDateField.setBackground(new Color(192, 192, 192));
 		StartDateField.setBounds(312, 132, 127, 20);
 		contentPane.add(StartDateField);
 		StartDateField.setColumns(10);
 		
 		EndDateField = new JTextField();
+		EndDateField.setBackground(new Color(192, 192, 192));
 		EndDateField.setBounds(312, 166, 127, 20);
 		contentPane.add(EndDateField);
 		EndDateField.setColumns(10);
 		
 		StartTimeField = new JTextField();
+		StartTimeField.setBackground(new Color(192, 192, 192));
 		StartTimeField.setBounds(312, 194, 127, 20);
 		contentPane.add(StartTimeField);
 		StartTimeField.setColumns(10);
 		
 		EndTimeField = new JTextField();
+		EndTimeField.setBackground(new Color(192, 192, 192));
 		EndTimeField.setBounds(312, 224, 127, 20);
 		contentPane.add(EndTimeField);
 		EndTimeField.setColumns(10);
 		
 		StaffNameField = new JTextField();
+		StaffNameField.setBackground(new Color(192, 192, 192));
 		StaffNameField.setBounds(312, 251, 127, 20);
 		contentPane.add(StaffNameField);
 		StaffNameField.setColumns(10);

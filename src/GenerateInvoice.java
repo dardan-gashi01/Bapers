@@ -18,11 +18,13 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import java.awt.Color;
 
 public class GenerateInvoice extends JFrame {
 
@@ -54,30 +56,7 @@ public class GenerateInvoice extends JFrame {
 	}
 
 	
-	/*public void applyDiscount() {
-		connection = sqlConnection.getConnection();
-		try {
-			String query = "SELECT * FROM customer WHERE customer_id ='"+ customer_id +"'";
-			PreparedStatement pst = connection.prepareStatement(query);
-			ResultSet rs = pst.executeQuery();
-			while(rs.next()) {
-				discount = rs.getDouble("discount_rate");
-				discount_type = rs.getString("agreed_discount");
-				if(discount_type.equals("Fixed")){
-					discount_price = amount * ((100-discount)/100);
-				}else if(discount_type.equals("Variable")) {
-					
-				}else if(discount_type.equals("Flexible")) {
-					
-				}else {
-					discount_price = amount;
-				}
-			}	
-		}catch(Exception E) {
-			JOptionPane.showMessageDialog(null,E);
-		}
-	}
-	*/
+	
 	/**
 	 * Create the frame.
 	 */
@@ -90,6 +69,7 @@ public class GenerateInvoice extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 900, 400);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -111,6 +91,7 @@ public class GenerateInvoice extends JFrame {
 		
 		
 		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.setBackground(new Color(0, 0, 255));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Menu menuFrame = new Menu();
@@ -122,6 +103,7 @@ public class GenerateInvoice extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("All Jobs");
+		btnNewButton_1.setBackground(new Color(0, 0, 255));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -150,10 +132,12 @@ public class GenerateInvoice extends JFrame {
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Generate");
+		btnNewButton_2.setBackground(new Color(0, 0, 255));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
 				try {
+					DecimalFormat decimalformat = new DecimalFormat("0.00");
 					String sql = "SELECT * FROM customer WHERE customer_id ='"+ customer_id +"'";
 					PreparedStatement ps = connection.prepareStatement(sql);
 					ResultSet rs = ps.executeQuery();
@@ -175,12 +159,13 @@ public class GenerateInvoice extends JFrame {
 					}	
 					String query = "INSERT INTO `invoice`(`job_id` , `customer_id`,`amount`, `job_completed`, `invoice_date`, discountedPrice) VALUES (?, ?,?, ?, ?, ?)";
 					PreparedStatement pst = connection.prepareStatement(query);
+					double d = Double.parseDouble(decimalformat.format(discount_price));
 					pst.setString(1,job_id);
 					pst.setInt(2,customer_id);
 					pst.setFloat(3, amount);
 					pst.setString(4, job_completed);
 					pst.setString(5, sdf.format(cal.getTime()));
-					pst.setDouble(6, discount_price);
+					pst.setDouble(6, d);
 					pst.executeUpdate();
 					JOptionPane.showMessageDialog(null, "invoice Generated");
 					Menu menuFrame = new Menu();

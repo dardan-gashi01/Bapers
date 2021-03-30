@@ -20,6 +20,9 @@ import java.sql.ResultSet;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
+import java.awt.Color;
+import javax.swing.SwingConstants;
+import java.awt.Font;
 
 public class JobList extends JFrame {
 
@@ -56,15 +59,19 @@ public class JobList extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 798, 400);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Job List");
-		lblNewLabel.setBounds(314, 11, 46, 14);
+		lblNewLabel.setFont(new Font("Arial Black", Font.BOLD | Font.ITALIC, 12));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(10, 11, 762, 14);
 		contentPane.add(lblNewLabel);
 		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.setBackground(new Color(0, 0, 255));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Menu menuFrame = new Menu();
@@ -92,6 +99,7 @@ public class JobList extends JFrame {
 			));
 		//creating a button
 		JButton btnNewButton_2 = new JButton("Refresh");
+		btnNewButton_2.setBackground(new Color(0, 0, 255));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -107,6 +115,29 @@ public class JobList extends JFrame {
 		});
 		btnNewButton_2.setBounds(683, 327, 89, 23);
 		contentPane.add(btnNewButton_2);
+		
+		JButton btnNewButton_1 = new JButton("Delete");
+		btnNewButton_1.setBackground(new Color(0, 0, 255));
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				connection = sqlConnection.getConnection();
+				try {
+					DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
+		        	String tjobid = tblModel.getValueAt(table.getSelectedRow(), 0).toString();
+					String sql = "DELETE FROM `job` WHERE `job_id` = '" + tjobid + "'";
+					PreparedStatement pst = connection.prepareStatement(sql);
+					pst.execute();
+					JOptionPane.showMessageDialog(null, "Deleted");
+					JobList thisFrame = new JobList();
+					thisFrame.setVisible(true);
+					dispose();
+				}catch(Exception E) {
+					JOptionPane.showMessageDialog(null,E);
+				}
+			}
+		});
+		btnNewButton_1.setBounds(326, 327, 89, 23);
+		contentPane.add(btnNewButton_1);
 		
 	}
 }

@@ -32,6 +32,8 @@ import com.toedter.calendar.JDateChooser;
 import javax.swing.JRadioButton;
 import java.util.Calendar;
 import javax.swing.JComboBox;
+import java.awt.Color;
+import java.awt.Font;
 
 public class CustomerSearch extends JFrame {
 	java.util.Date date;
@@ -104,16 +106,19 @@ public class CustomerSearch extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1200, 400);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Customer Search");
+		lblNewLabel.setFont(new Font("Arial Black", Font.BOLD | Font.ITALIC, 12));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(10, 11, 664, 14);
+		lblNewLabel.setBounds(10, 11, 1164, 14);
 		contentPane.add(lblNewLabel);
 		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.setBackground(new Color(0, 0, 255));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Menu menuFrame = new Menu();
@@ -127,15 +132,18 @@ public class CustomerSearch extends JFrame {
 		
 		
 		JLabel lblNewLabel_1 = new JLabel("Name");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_1.setBounds(90, 75, 46, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		NameSearch = new JTextField();
+		NameSearch.setBackground(new Color(192, 192, 192));
 		NameSearch.setBounds(154, 72, 155, 20);
 		contentPane.add(NameSearch);
 		NameSearch.setColumns(10);
 		//creating a button
 		JButton btnNewButton_2 = new JButton("Search Customer");
+		btnNewButton_2.setBackground(new Color(0, 0, 255));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -150,7 +158,7 @@ public class CustomerSearch extends JFrame {
 				}
 			}
 		});
-		btnNewButton_2.setBounds(536, 71, 138, 23);
+		btnNewButton_2.setBounds(341, 71, 138, 23);
 		contentPane.add(btnNewButton_2);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -179,10 +187,12 @@ public class CustomerSearch extends JFrame {
 		contentPane.add(IDLabel);
 		
 		JLabel lblNewLabel_5 = new JLabel("Urgency");
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_5.setBounds(744, 140, 59, 14);
 		contentPane.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("Speical requests");
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_6.setBounds(744, 183, 108, 14);
 		contentPane.add(lblNewLabel_6);
 		
@@ -191,6 +201,7 @@ public class CustomerSearch extends JFrame {
 		//contentPane.add(Date);
 		//creating a button
 		Normal = new JRadioButton("Normal");
+		Normal.setBackground(new Color(192, 192, 192));
 		Normal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Normal.isSelected()) {
@@ -205,6 +216,7 @@ public class CustomerSearch extends JFrame {
 		contentPane.add(Normal);
 		//creating a button
 		Urgent = new JRadioButton("Urgent");
+		Urgent.setBackground(new Color(192, 192, 192));
 		Urgent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(Urgent.isSelected()) {
@@ -214,10 +226,11 @@ public class CustomerSearch extends JFrame {
 				}
 			}
 		});
-		Urgent.setBounds(918, 136, 109, 23);
+		Urgent.setBounds(926, 136, 109, 23);
 		contentPane.add(Urgent);
 		
 		SpecialInstruction = new JTextField();
+		SpecialInstruction.setBackground(new Color(192, 192, 192));
 		SpecialInstruction.setBounds(862, 180, 148, 20);
 		contentPane.add(SpecialInstruction);
 		SpecialInstruction.setColumns(10);
@@ -225,14 +238,14 @@ public class CustomerSearch extends JFrame {
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
 	        public void valueChanged(ListSelectionEvent event) {
 	        	DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
-	        
 				CustomerName = tblModel.getValueAt(table.getSelectedRow(), 1).toString();
-				CustomerID = (int) tblModel.getValueAt(table.getSelectedRow(), 0);
+				CustomerID =(int) tblModel.getValueAt(table.getSelectedRow(), 0);
 				IDLabel.setText(CustomerName);
 	        }
 	    });
 		//creating a button
 		JButton btnNewButton_3 = new JButton("CreateJob");
+		btnNewButton_3.setBackground(new Color(0, 0, 255));
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -265,6 +278,7 @@ public class CustomerSearch extends JFrame {
 		contentPane.add(btnNewButton_3);
 		
 		JButton btnNewButton_1 = new JButton("All Customers");
+		btnNewButton_1.setBackground(new Color(0, 0, 255));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();

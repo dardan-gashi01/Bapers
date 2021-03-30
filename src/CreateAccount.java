@@ -17,6 +17,8 @@ import java.sql.PreparedStatement;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
 import javax.swing.JPasswordField;
+import java.awt.Color;
+import java.awt.Font;
 
 public class CreateAccount extends JFrame {
 
@@ -60,20 +62,24 @@ public class CreateAccount extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 400);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Create Account");
+		lblNewLabel.setFont(new Font("Arial Black", Font.BOLD | Font.ITALIC, 12));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(10, 11, 664, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Name");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_1.setBounds(120, 70, 64, 14);
 		contentPane.add(lblNewLabel_1);
 		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.setBackground(new Color(0, 0, 255));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Menu menuFrame = new Menu();
@@ -85,6 +91,7 @@ public class CreateAccount extends JFrame {
 		contentPane.add(btnNewButton);
 		//creating a button
 		JButton btnNewButton_1 = new JButton("Confirm Details");
+		btnNewButton_1.setBackground(new Color(0, 0, 255));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -109,28 +116,34 @@ public class CreateAccount extends JFrame {
 		contentPane.add(btnNewButton_1);
 		
 		NameTextField = new JTextField();
+		NameTextField.setBackground(new Color(192, 192, 192));
 		NameTextField.setBounds(194, 66, 322, 23);
 		contentPane.add(NameTextField);
 		NameTextField.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("Email");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_2.setBounds(120, 127, 64, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		EmailTextField = new JTextField();
+		EmailTextField.setBackground(new Color(192, 192, 192));
 		EmailTextField.setBounds(194, 123, 322, 23);
 		contentPane.add(EmailTextField);
 		EmailTextField.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("Role");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_3.setBounds(120, 184, 64, 14);
 		contentPane.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Password");
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_4.setBounds(120, 246, 64, 14);
 		contentPane.add(lblNewLabel_4);
 		//creating a button
 		ReceptionistBTN = new JRadioButton("Receptionist");
+		ReceptionistBTN.setBackground(new Color(192, 192, 192));
 		ReceptionistBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(ReceptionistBTN.isSelected()) {
@@ -145,6 +158,7 @@ public class CreateAccount extends JFrame {
 		contentPane.add(ReceptionistBTN);
 		//creating a button
 		TechnicianBTN = new JRadioButton("Technician");
+		TechnicianBTN.setBackground(new Color(192, 192, 192));
 		TechnicianBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(TechnicianBTN.isSelected()) {
@@ -159,6 +173,7 @@ public class CreateAccount extends JFrame {
 		contentPane.add(TechnicianBTN);
 		//creating a button
 		ShiftManagerBTN = new JRadioButton("Shift Manager");
+		ShiftManagerBTN.setBackground(new Color(192, 192, 192));
 		ShiftManagerBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(ShiftManagerBTN.isSelected()) {
@@ -173,6 +188,7 @@ public class CreateAccount extends JFrame {
 		contentPane.add(ShiftManagerBTN);
 		//creating a button
 		OfficeManagerBTN = new JRadioButton("Office Manager");
+		OfficeManagerBTN.setBackground(new Color(192, 192, 192));
 		OfficeManagerBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(OfficeManagerBTN.isSelected()) {
@@ -187,6 +203,7 @@ public class CreateAccount extends JFrame {
 		contentPane.add(OfficeManagerBTN);
 		
 		passwordField = new JPasswordField();
+		passwordField.setBackground(new Color(192, 192, 192));
 		passwordField.setBounds(194, 243, 322, 20);
 		contentPane.add(passwordField);
 	}

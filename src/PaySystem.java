@@ -26,6 +26,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class PaySystem extends JFrame {
 
@@ -48,6 +51,7 @@ public class PaySystem extends JFrame {
 	private JLabel lblNewLabel_2;
 	private JTextField AmountField;
 	private JLabel lblNewLabel_3;
+	private JLabel lblNewLabel_4;
 
 	/**
 	 * Launch the application.
@@ -75,11 +79,13 @@ public class PaySystem extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 950, 400);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.setBackground(new Color(0, 0, 255));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Menu menuFrame = new Menu();
@@ -91,6 +97,7 @@ public class PaySystem extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("confirm Payment");
+		btnNewButton_1.setBackground(new Color(0, 0, 255));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -136,6 +143,7 @@ public class PaySystem extends JFrame {
 			));
 		
 		JButton btnNewButton_2 = new JButton("Show invoice");
+		btnNewButton_2.setBackground(new Color(0, 0, 255));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -153,6 +161,7 @@ public class PaySystem extends JFrame {
 		contentPane.add(btnNewButton_2);
 		
 		CashBTN = new JRadioButton("Cash");
+		CashBTN.setBackground(new Color(192, 192, 192));
 		CashBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(CashBTN.isSelected()) {
@@ -181,6 +190,7 @@ public class PaySystem extends JFrame {
 		contentPane.add(CashBTN);
 		
 		CardBTN = new JRadioButton("Card");
+		CardBTN.setBackground(new Color(192, 192, 192));
 		CardBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(CardBTN.isSelected()) {
@@ -204,6 +214,7 @@ public class PaySystem extends JFrame {
 		contentPane.add(CardBTN);
 		
 		DebitBTN = new JRadioButton("Debit");
+		DebitBTN.setBackground(new Color(192, 192, 192));
 		DebitBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(DebitBTN.isSelected()) {
@@ -216,6 +227,7 @@ public class PaySystem extends JFrame {
 		contentPane.add(DebitBTN);
 		
 		CreditBTN = new JRadioButton("Credit");
+		CreditBTN.setBackground(new Color(192, 192, 192));
 		CreditBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(CreditBTN.isSelected()) {
@@ -228,40 +240,54 @@ public class PaySystem extends JFrame {
 		contentPane.add(CreditBTN);
 		
 		CardNumberField = new JTextField();
+		CardNumberField.setBackground(new Color(192, 192, 192));
 		CardNumberField.setBounds(770, 111, 154, 20);
 		contentPane.add(CardNumberField);
 		CardNumberField.setColumns(10);
 		
 		CVCField = new JTextField();
+		CVCField.setBackground(new Color(192, 192, 192));
 		CVCField.setBounds(838, 142, 86, 20);
 		contentPane.add(CVCField);
 		CVCField.setColumns(10);
 		
 		lblNewLabel = new JLabel("Card Number");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel.setBounds(658, 114, 102, 14);
 		contentPane.add(lblNewLabel);
 		
 		lblNewLabel_1 = new JLabel("CVC");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_1.setBounds(714, 145, 117, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		DateField = new JTextField();
+		DateField.setBackground(new Color(192, 192, 192));
 		DateField.setBounds(838, 184, 86, 20);
 		contentPane.add(DateField);
 		DateField.setColumns(10);
 		
 		lblNewLabel_2 = new JLabel("Expiry Date");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_2.setBounds(714, 187, 117, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		AmountField = new JTextField();
+		AmountField.setBackground(new Color(192, 192, 192));
 		AmountField.setBounds(838, 227, 86, 20);
 		contentPane.add(AmountField);
 		AmountField.setColumns(10);
 		
 		lblNewLabel_3 = new JLabel("Amount paid in cash");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_3.setBounds(714, 230, 117, 14);
 		contentPane.add(lblNewLabel_3);
+		
+		lblNewLabel_4 = new JLabel("Make Payment");
+		lblNewLabel_4.setFont(new Font("Arial Black", Font.BOLD | Font.ITALIC, 12));
+		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_4.setBounds(10, 5, 914, 14);
+		contentPane.add(lblNewLabel_4);
 		
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
 	        public void valueChanged(ListSelectionEvent event) {

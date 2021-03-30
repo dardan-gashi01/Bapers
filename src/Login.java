@@ -20,6 +20,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class Login extends JFrame {
 
@@ -58,28 +61,34 @@ public class Login extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 400);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Username");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel.setBounds(195, 148, 73, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Password");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_1.setBounds(195, 179, 66, 17);
 		contentPane.add(lblNewLabel_1);
 		
 		username = new JTextField();
+		username.setBackground(new Color(192, 192, 192));
 		username.setBounds(298, 145, 136, 20);
 		contentPane.add(username);
 		username.setColumns(10);
 		
 		pin = new JPasswordField();
+		pin.setBackground(new Color(192, 192, 192));
 		pin.setBounds(298, 176, 136, 20);
 		contentPane.add(pin);
 		//creating a button that logs the user in and checks for their details in the database to check if it is correct
 		JButton btnNewButton = new JButton("Login");
+		btnNewButton.setBackground(new Color(0, 0, 255));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -124,6 +133,7 @@ public class Login extends JFrame {
 		contentPane.add(lblNewLabel_2_1);
 		//creating a button that closes the whole application
 		JButton btnNewButton_1 = new JButton("Close");
+		btnNewButton_1.setBackground(new Color(0, 0, 255));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
@@ -131,6 +141,12 @@ public class Login extends JFrame {
 		});
 		btnNewButton_1.setBounds(10, 327, 89, 23);
 		contentPane.add(btnNewButton_1);
+		
+		JLabel lblNewLabel_3 = new JLabel("Login");
+		lblNewLabel_3.setFont(new Font("Arial Black", Font.BOLD | Font.ITALIC, 12));
+		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_3.setBounds(10, 11, 664, 14);
+		contentPane.add(lblNewLabel_3);
 		
 	}
 }

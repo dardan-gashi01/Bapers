@@ -23,6 +23,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.Font;
 
 public class UpdateAccount extends JFrame {
 
@@ -64,16 +66,19 @@ public class UpdateAccount extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1000, 400);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Update Account Details");
+		lblNewLabel.setFont(new Font("Arial Black", Font.BOLD | Font.ITALIC, 12));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(10, 11, 964, 14);
 		contentPane.add(lblNewLabel);
 		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.setBackground(new Color(0, 0, 255));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Menu menuFrame = new Menu();
@@ -136,6 +141,7 @@ public class UpdateAccount extends JFrame {
 	    });
 		//creating a button
 		JButton btnNewButton_1 = new JButton("Refresh");
+		btnNewButton_1.setBackground(new Color(0, 0, 255));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -153,6 +159,7 @@ public class UpdateAccount extends JFrame {
 		contentPane.add(btnNewButton_1);
 		//creating a button
 		JButton UpdateDetailsBTN = new JButton("Update Details");
+		UpdateDetailsBTN.setBackground(new Color(0, 0, 255));
 		UpdateDetailsBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
@@ -176,24 +183,29 @@ public class UpdateAccount extends JFrame {
 		contentPane.add(UpdateDetailsBTN);
 		
 		JLabel lblNewLabel_1 = new JLabel("Name");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_1.setBounds(30, 65, 46, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		NameField = new JTextField();
+		NameField.setBackground(new Color(192, 192, 192));
 		NameField.setBounds(127, 62, 205, 20);
 		contentPane.add(NameField);
 		NameField.setColumns(10);
 		
 		EmailField = new JTextField();
+		EmailField.setBackground(new Color(192, 192, 192));
 		EmailField.setBounds(127, 110, 205, 20);
 		contentPane.add(EmailField);
 		EmailField.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("Email");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_2.setBounds(30, 113, 46, 14);
 		contentPane.add(lblNewLabel_2);
 		//creating a button
 		ReceptionistBTN = new JRadioButton("Receptionist");
+		ReceptionistBTN.setBackground(new Color(192, 192, 192));
 		ReceptionistBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(ReceptionistBTN.isSelected()) {
@@ -208,6 +220,7 @@ public class UpdateAccount extends JFrame {
 		contentPane.add(ReceptionistBTN);
 		//creating a button
 		TechnicianBTN = new JRadioButton("Technician");
+		TechnicianBTN.setBackground(new Color(192, 192, 192));
 		TechnicianBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(TechnicianBTN.isSelected()) {
@@ -222,6 +235,7 @@ public class UpdateAccount extends JFrame {
 		contentPane.add(TechnicianBTN);
 		//creating a button
 		OfficeManagerBTN = new JRadioButton("Office Manager");
+		OfficeManagerBTN.setBackground(new Color(192, 192, 192));
 		OfficeManagerBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(OfficeManagerBTN.isSelected()) {
@@ -236,6 +250,7 @@ public class UpdateAccount extends JFrame {
 		contentPane.add(OfficeManagerBTN);
 		//creating a button
 		ShiftManagerBTN = new JRadioButton("Shift Manager");
+		ShiftManagerBTN.setBackground(new Color(192, 192, 192));
 		ShiftManagerBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(ShiftManagerBTN.isSelected()) {
@@ -250,19 +265,23 @@ public class UpdateAccount extends JFrame {
 		contentPane.add(ShiftManagerBTN);
 		
 		PasswordField = new JTextField();
+		PasswordField.setBackground(new Color(192, 192, 192));
 		PasswordField.setBounds(127, 231, 205, 20);
 		contentPane.add(PasswordField);
 		PasswordField.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("New Password");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_3.setBounds(30, 234, 87, 14);
 		contentPane.add(lblNewLabel_3);
 		
 		lblNewLabel_4 = new JLabel("Role");
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_4.setBounds(30, 161, 46, 14);
 		contentPane.add(lblNewLabel_4);
 		//creating a button
 		DeleteBTN = new JButton("Delete User");
+		DeleteBTN.setBackground(new Color(0, 0, 255));
 		DeleteBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
