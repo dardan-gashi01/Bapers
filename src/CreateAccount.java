@@ -49,7 +49,6 @@ public class CreateAccount extends JFrame {
 			}
 		});
 	}
-
 	/**
 	 * Create the frame.
 	 */
@@ -77,7 +76,7 @@ public class CreateAccount extends JFrame {
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_1.setBounds(120, 70, 64, 14);
 		contentPane.add(lblNewLabel_1);
-		//creating a button
+		//creating a button that takes you back to the menu page
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
@@ -89,13 +88,16 @@ public class CreateAccount extends JFrame {
 		});
 		btnNewButton.setBounds(10, 327, 89, 23);
 		contentPane.add(btnNewButton);
-		//creating a button
+		//creating a button that adds the account to the account table
 		JButton btnNewButton_1 = new JButton("Confirm Details");
 		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
 				try {
+					/*
+					takes the info from the fields and adds tem to the DB table as the columns
+					 */
 					String query = "INSERT INTO `account`(`name`, `email`, `role`, `password`) VALUES (?,?,?,?)";
 					PreparedStatement pst = connection.prepareStatement(query);
 					pst.setString(1,NameTextField.getText());
@@ -141,11 +143,13 @@ public class CreateAccount extends JFrame {
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_4.setBounds(120, 246, 64, 14);
 		contentPane.add(lblNewLabel_4);
-		//creating a button
+		//creating a radio button to select the role of the person you are creating
 		ReceptionistBTN = new JRadioButton("Receptionist");
 		ReceptionistBTN.setBackground(new Color(192, 192, 192));
 		ReceptionistBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//this is so if one is selected the others are unselected and the String
+				// role is set to role to add to the DB easily
 				if(ReceptionistBTN.isSelected()) {
 					TechnicianBTN.setSelected(false);
 					ShiftManagerBTN.setSelected(false);
@@ -156,7 +160,7 @@ public class CreateAccount extends JFrame {
 		});
 		ReceptionistBTN.setBounds(194, 180, 109, 23);
 		contentPane.add(ReceptionistBTN);
-		//creating a button
+		//same as above
 		TechnicianBTN = new JRadioButton("Technician");
 		TechnicianBTN.setBackground(new Color(192, 192, 192));
 		TechnicianBTN.addActionListener(new ActionListener() {
@@ -171,7 +175,7 @@ public class CreateAccount extends JFrame {
 		});
 		TechnicianBTN.setBounds(305, 180, 94, 23);
 		contentPane.add(TechnicianBTN);
-		//creating a button
+		//same as above
 		ShiftManagerBTN = new JRadioButton("Shift Manager");
 		ShiftManagerBTN.setBackground(new Color(192, 192, 192));
 		ShiftManagerBTN.addActionListener(new ActionListener() {
@@ -186,7 +190,7 @@ public class CreateAccount extends JFrame {
 		});
 		ShiftManagerBTN.setBounds(407, 180, 109, 23);
 		contentPane.add(ShiftManagerBTN);
-		//creating a button
+		//same as above
 		OfficeManagerBTN = new JRadioButton("Office Manager");
 		OfficeManagerBTN.setBackground(new Color(192, 192, 192));
 		OfficeManagerBTN.addActionListener(new ActionListener() {
@@ -201,7 +205,7 @@ public class CreateAccount extends JFrame {
 		});
 		OfficeManagerBTN.setBounds(518, 180, 125, 23);
 		contentPane.add(OfficeManagerBTN);
-		
+		//password field that blocks the password for security reasons
 		passwordField = new JPasswordField();
 		passwordField.setBackground(new Color(192, 192, 192));
 		passwordField.setBounds(194, 243, 322, 20);

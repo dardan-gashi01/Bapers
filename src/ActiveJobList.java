@@ -55,10 +55,12 @@ public class ActiveJobList extends JFrame {
 	 * Create the frame.
 	 */
 	public ActiveJobList() {
+		//this allows me to set the screen straight in the middle when opened rather than the top left
 		Toolkit toolkit = getToolkit();
 		Dimension size = toolkit.getScreenSize();
 		setLocation(size.width/2-getWidth()/2, size.height/2 - getHeight()/2);
-		
+
+		//just setting the window size with the colours
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1100, 400);
 		contentPane = new JPanel();
@@ -66,15 +68,18 @@ public class ActiveJobList extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
+		//standard label
 		JLabel lblNewLabel = new JLabel("Active Jobs List");
 		lblNewLabel.setFont(new Font("Arial Black", Font.BOLD | Font.ITALIC, 12));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(10, 11, 1064, 14);
 		contentPane.add(lblNewLabel);
-		//creating a button
+
+		//creating a button that cancels the page and goes back to menu to make it interactive
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.setBackground(new Color(192, 192, 192));
+		//action listener for when the button is clicked it goes to the menu so it loads the Menu frame
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Menu menuFrame = new Menu();
@@ -85,13 +90,18 @@ public class ActiveJobList extends JFrame {
 		btnNewButton.setBounds(10, 327, 89, 23);
 		contentPane.add(btnNewButton);
 		
-		//creating a button
+		//creating a button that updates the job status
 		JButton btnNewButton_1 = new JButton("Update Job Status");
 		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//connecting to the DB
 				connection = sqlConnection.getConnection();
 				try {
+					/*
+					updating the values in the table from progress to complete depending on the one you click
+					using the tblModel and DefaultTableModel and then loads the same frame to reset things
+					 */
 					DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
 					String JobID = tblModel.getValueAt(table.getSelectedRow(), 0).toString();
 					String Status = "Complete";
@@ -109,11 +119,15 @@ public class ActiveJobList extends JFrame {
 		});
 		btnNewButton_1.setBounds(911, 327, 163, 23);
 		contentPane.add(btnNewButton_1);
-		//creating a button
+
+		//creating a button that refreshes the table to show what is in the DB for that table
 		JButton RefreshJobs = new JButton("RefreshJobs");
 		RefreshJobs.setBackground(new Color(192, 192, 192));
 		RefreshJobs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				/*
+				this populates the table with the data in the DB using the query SELECT * ...
+				 */
 				connection = sqlConnection.getConnection();
 				try {
 					String query = "SELECT * FROM job WHERE status = 'Progress'";
@@ -131,7 +145,10 @@ public class ActiveJobList extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 55, 1064, 261);
 		contentPane.add(scrollPane);
-		
+
+		/*
+		fixing the table columns and creating it
+		 */
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(
@@ -141,7 +158,8 @@ public class ActiveJobList extends JFrame {
 					"job_id", "customer_id", "payment_id", "date_created", "deadline", "urgency", "status", "special_instructions"
 				}
 			));
-		//creating a button
+
+		//creating a button that when you click new job it takes you to the frame to create a job
 		JButton btnNewButton_2 = new JButton("New Job");
 		btnNewButton_2.setBackground(new Color(192, 192, 192));
 		btnNewButton_2.addActionListener(new ActionListener() {

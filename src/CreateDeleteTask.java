@@ -86,7 +86,7 @@ public class CreateDeleteTask extends JFrame {
 				pst.setString(2, Department.getText());
 				pst.setString(3, DurationField.getText());
 				pst.executeUpdate();
-				JOptionPane.showMessageDialog(null, "Customer registered");
+				JOptionPane.showMessageDialog(null, "new Task created");
 				CreateDeleteTask thisFrame = new CreateDeleteTask();
 				thisFrame.setVisible(true);
 				dispose();
@@ -110,7 +110,7 @@ public class CreateDeleteTask extends JFrame {
 					String sql = "DELETE FROM `task` WHERE `task_id` = '" + tjobid + "'";
 					PreparedStatement pst = connection.prepareStatement(sql);
 					pst.execute();
-					JOptionPane.showMessageDialog(null, "Deleted");
+					JOptionPane.showMessageDialog(null, "Task Deleted");
 					CreateDeleteTask thisFrame = new CreateDeleteTask();
 					thisFrame.setVisible(true);
 					dispose();

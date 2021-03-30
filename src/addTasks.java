@@ -57,7 +57,9 @@ public class addTasks extends JFrame {
 		});
 	}
 
-	
+	/*
+	this method fills the drag down box with the tasks in the table task
+	 */
 	private void Fillcombo() {
 		connection = sqlConnection.getConnection();
 		try {
@@ -89,7 +91,7 @@ public class addTasks extends JFrame {
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(40, 60, 894, 249);
 		contentPane.add(scrollPane);
-		
+		//creating a table with the columns labelled
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(
@@ -99,16 +101,14 @@ public class addTasks extends JFrame {
 					"job_id","customer_id","urgency","status","special_instructions", "date_created", "deadline"
 				}
 			));
-		
+		//selection model is so I can select rows and get values from each column for example hre I got the job_id in the first column
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
 	        public void valueChanged(ListSelectionEvent event) {
 	        	DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
-	        
 				job_id = tblModel.getValueAt(table.getSelectedRow(), 0).toString();
-				
 	        }
 	    });
-		
+		//text fields to populate with text I will use a lot in this project
 		jobidField = new JTextField();
 		jobidField.setBounds(144, 29, 86, 20);
 		contentPane.add(jobidField);
@@ -133,15 +133,20 @@ public class addTasks extends JFrame {
 		comboBox.setBackground(new Color(0, 0, 255));
 		comboBox.setBounds(944, 63, 80, 22);
 		contentPane.add(comboBox);
-		
+
+		//button that searches the table for a specific column and filter by job_id
 		JButton btnNewButton = new JButton("search job_id");
 		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				/*
+				so it takes the text from the field and uses it for the search in the query named
+				name and populates the table with all jobs with the job id name
+				 */
 				connection = sqlConnection.getConnection();
 				try {
 					String name = jobidField.getText();
-					String query = "SELECT * FROM job WHERE `job_id` = '" +name + "'";
+					String query = "SELECT * FROM job WHERE `job_id` = '" + name + "'";
 					PreparedStatement pst = connection.prepareStatement(query);
 					ResultSet rs = pst.executeQuery();
 					table.setModel(DbUtils.resultSetToTableModel(rs));
@@ -152,7 +157,8 @@ public class addTasks extends JFrame {
 		});
 		btnNewButton.setBounds(240, 28, 124, 23);
 		contentPane.add(btnNewButton);
-		
+
+		//button that searches by customer_ID like the one above but this way its for the customer_id instead of job_id if you want to filter for specific customer
 		JButton btnNewButton_1 = new JButton("search cutomer_id");
 		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -171,7 +177,7 @@ public class addTasks extends JFrame {
 		});
 		btnNewButton_1.setBounds(635, 28, 140, 23);
 		contentPane.add(btnNewButton_1);
-		
+		// this is a button that just shows all of the jobs in the DB
 		alljobs = new JButton("All jobs");
 		alljobs.setBackground(new Color(192, 192, 192));
 		alljobs.addActionListener(new ActionListener() {
@@ -189,7 +195,7 @@ public class addTasks extends JFrame {
 		});
 		alljobs.setBounds(686, 327, 89, 23);
 		contentPane.add(alljobs);
-		
+		// this button means that you are done adding tasks to a specific job and then it takes you to the menu frame again
 		btnNewButton_2 = new JButton("finish");
 		btnNewButton_2.setBackground(new Color(192, 192, 192));
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -201,13 +207,14 @@ public class addTasks extends JFrame {
 		});
 		btnNewButton_2.setBounds(10, 327, 89, 23);
 		contentPane.add(btnNewButton_2);
-		
+		//this button adds tasks to a specific job
 		btnNewButton_3 = new JButton("Add Task");
 		btnNewButton_3.setBackground(new Color(192, 192, 192));
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
 				try {
+					// getting the specific columns from specific row and stores them to use later
 					DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
 					String tprice = tblModel.getValueAt(table.getSelectedRow(), 7).toString();
 		        	float Price = Float.parseFloat(tprice);
@@ -215,6 +222,7 @@ public class addTasks extends JFrame {
 					int taskID = Integer.parseInt(myString);
 					String tJobId = tblModel.getValueAt(table.getSelectedRow(), 0).toString();
 		        	int JobID = Integer.parseInt(tJobId);
+		        	//these are if else statment that give add a price due to the task you add
 					if(taskID == 1) {
 						Price += 19;
 					}else if(taskID == 2) {
@@ -230,6 +238,9 @@ public class addTasks extends JFrame {
 					}else if(taskID == 7) {
 						Price += 55.50;
 					}
+					/* adds the task and status into the table task_job and another that just updates
+					the job price to give a total price at the end
+					 */
 					String query = "INSERT INTO `task_job`(`job_id`, `task_id`, `status`) VALUES (?,?,?)";
 					String query2 = "UPDATE job SET Price = '" + Price + "' WHERE job_id = '" + JobID +"'";
 					PreparedStatement pst = connection.prepareStatement(query);

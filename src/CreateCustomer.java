@@ -60,11 +60,7 @@ public class CreateCustomer extends JFrame {
 			}
 		});
 	}
-	
-	
-		
-		
-	
+
 	public CreateCustomer() {
 		
 		Toolkit toolkit = getToolkit();
@@ -84,7 +80,7 @@ public class CreateCustomer extends JFrame {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(10, 11, 664, 14);
 		contentPane.add(lblNewLabel);
-		//creating a button
+		//creating a button that takes you back to the menu
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
@@ -96,13 +92,16 @@ public class CreateCustomer extends JFrame {
 		});
 		btnNewButton.setBounds(10, 327, 89, 23);
 		contentPane.add(btnNewButton);
-		//creating a button
+		//creating a button that adds the account to the customer table
 		JButton btnNewButton_1 = new JButton("Confirm Details");
 		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
 				try {
+					/*
+					takes the info from the fields and adds tem to the DB table as the columns
+					 */
 					String query = "INSERT INTO `customer`(`customer_name`, `contact_name`, `phone`, `address`, `status`, `agreed_discount`, `discount_rate`) VALUES (?, ?, ?, ?, ?, ?, ?)";
 					PreparedStatement pst = connection.prepareStatement(query);
 					pst.setString(1,name.getText());
@@ -185,11 +184,15 @@ public class CreateCustomer extends JFrame {
 		phone.setBounds(230, 157, 194, 20);
 		contentPane.add(phone);
 		phone.setColumns(10);
-		//creating a button
+		//jbuttons to select the type of customer
 		regularCustomer = new JRadioButton("Regular");
 		regularCustomer.setBackground(new Color(192, 192, 192));
 		regularCustomer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				/*
+				if one is clicked the others are false and for this one if regular is clicked then you
+				cannot have discounts and discount rates so they disappear and are set to null
+				 */
 				if(regularCustomer.isSelected()) {
 					valuedCustomer.setSelected(false);
 					flexibleDiscount.setVisible(false);
@@ -208,7 +211,8 @@ public class CreateCustomer extends JFrame {
 		});
 		regularCustomer.setBounds(229, 186, 109, 23);
 		contentPane.add(regularCustomer);
-		//creating a button
+		//similar to above but opposite because now they show the buttons for discount
+		//so they can add discounts to the specific customer if they are valued
 		valuedCustomer = new JRadioButton("Valued");
 		valuedCustomer.setBackground(new Color(192, 192, 192));
 		valuedCustomer.addActionListener(new ActionListener() {
@@ -227,11 +231,12 @@ public class CreateCustomer extends JFrame {
 		});
 		valuedCustomer.setBounds(362, 186, 109, 23);
 		contentPane.add(valuedCustomer);
-		//creating a button
+		//creating a jbutton for discounts
 		flexibleDiscount = new JRadioButton("Flexible");
 		flexibleDiscount.setBackground(new Color(192, 192, 192));
 		flexibleDiscount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//if one is clicked then the others are unselected
 				if(flexibleDiscount.isSelected()) {
 					fixedDiscount.setSelected(false);
 					variableDiscount.setSelected(false);
