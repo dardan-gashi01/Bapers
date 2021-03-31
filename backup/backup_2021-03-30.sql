@@ -37,7 +37,7 @@ CREATE TABLE `account` (
   `role` varchar(20) NOT NULL,
   `password` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`account_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,7 +46,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES (6,'John Smith','John.Smith@outlook.com','Office Manager','12345'),(7,'Jane Doe','Jane.Doe@outlook.com','Shift Manager','12345'),(8,'Alan Smith','Alan.Smith@outlook.com','Technician','12345'),(9,'Jessie','Jessie@outlook.com','Receptionist','12345'),(11,'Dardan Gashi','Dardan.Gashi@City.ac.uk','Technician','12345');
+INSERT INTO `account` VALUES (6,'John Smith','John.Smith@outlook.com','Office Manager','12345'),(7,'Jane Doe','Jane.Doe@outlook.com','Shift Manager','12345'),(8,'Alan Smith','Alan.Smith@outlook.com','Technician','12345'),(9,'Jessie','Jessie@outlook.com','Receptionist','12345');
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -67,7 +67,7 @@ CREATE TABLE `customer` (
   `agreed_discount` varchar(50) DEFAULT NULL,
   `discount_rate` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -76,7 +76,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES (10,'City, University of London','Prof David Rhind','02070408000','Northampton Square, London EC1V 0HB','Valued','Fixed','3'),(11,'Ms Eva Bauyer','Ms Eva Bauyer','02085558989','1, Liverpool street, London EC2V 8NS','Valued','Fixed','2'),(12,'Hello Magazine','Ms Sarah Brocklehurst','02034567809','12 Charter Street, London W1 8NS','Regular','null','');
+INSERT INTO `customer` VALUES (10,'City, University of London','Prof David Rhind','02070408000','Northampton Square, London EC1V 0HB','Valued','Fixed','3'),(11,'Ms Eva Bauyer','Ms Eva Bauyer','02085558989','1, Liverpool street, London EC2V 8NS','Valued','Fixed','3'),(12,'Hello Magazine','Ms Sarah Brocklehurst','02034567809','12 Charter Street, London W1 8NS','Regular','null',''),(14,'Dardan','Gashi','123456789','adofuhasdiohfask;dfughd','Valued','Fixed','3');
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -96,7 +96,7 @@ CREATE TABLE `invoice` (
   `invoice_date` datetime DEFAULT NULL,
   `discountedPrice` double DEFAULT NULL,
   PRIMARY KEY (`invoice_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -105,6 +105,7 @@ CREATE TABLE `invoice` (
 
 LOCK TABLES `invoice` WRITE;
 /*!40000 ALTER TABLE `invoice` DISABLE KEYS */;
+INSERT INTO `invoice` VALUES (22,'30032',11,55.5,'2021-03-31 12:22:38','2021-03-30 12:23:14',53.835),(23,'30033',12,110.3,'2021-03-31 12:38:21','2021-03-30 12:38:52',110.30000305175781),(24,'30033',12,110.3,'2021-03-31 12:38:21','2021-03-30 12:54:15',110.3),(25,'30034',14,75.5,'2021-03-31 17:34:51','2021-03-30 17:36:03',73.23);
 /*!40000 ALTER TABLE `invoice` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -133,7 +134,7 @@ CREATE TABLE `job` (
 
 LOCK TABLES `job` WRITE;
 /*!40000 ALTER TABLE `job` DISABLE KEYS */;
-INSERT INTO `job` VALUES ('25031',10,'normal','Complete','No requests','2021-03-25 17:04:49','2021-03-26 17:02:06',57.8),('25031',10,'normal','Complete','No requests','2021-03-26 17:04:49','2021-03-27 17:02:06',57.8),('25032',11,'normal','Complete','N/A','2021-03-26 17:04:52','2021-03-27 17:03:17',105),('25033',12,'normal','Complete','N/A','2021-03-26 17:04:56','2021-03-27 17:04:17',20),('28035',13,'normal','Complete','','2021-03-28 11:20:38','2021-03-29 12:19:35',28.3);
+INSERT INTO `job` VALUES ('30031',11,'normal','Complete','','2021-03-30 11:21:47','2021-03-31 12:21:11',55.5),('30032',11,'normal','Complete','','2021-03-30 11:23:11','2021-03-31 12:22:38',55.5),('30033',12,'normal','Complete','','2021-03-30 11:38:48','2021-03-31 12:38:21',110.3),('30034',14,'normal','Complete','N/A','2021-03-30 16:35:54','2021-03-31 17:34:51',75.5);
 /*!40000 ALTER TABLE `job` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -154,7 +155,7 @@ CREATE TABLE `payment` (
   `CardNumber` varchar(255) DEFAULT NULL,
   `CVC` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`payment_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1023 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=1025 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -163,6 +164,7 @@ CREATE TABLE `payment` (
 
 LOCK TABLES `payment` WRITE;
 /*!40000 ALTER TABLE `payment` DISABLE KEYS */;
+INSERT INTO `payment` VALUES (1023,22,'Card',53.835,'Credit','03/2023','123456789','888'),(1024,25,'Card',73.23,'Credit','01/2023','123456789','888');
 /*!40000 ALTER TABLE `payment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -208,7 +210,7 @@ CREATE TABLE `task_job` (
   `time_taken` int(11) DEFAULT NULL,
   `completed_by` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`task_jobID`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -217,6 +219,7 @@ CREATE TABLE `task_job` (
 
 LOCK TABLES `task_job` WRITE;
 /*!40000 ALTER TABLE `task_job` DISABLE KEYS */;
+INSERT INTO `task_job` VALUES (10,'30031',7,'Complete','2021-03-30','12:21:28',45,'Dardan Gashi'),(11,'30032',7,'Complete','2021-03-30','12:22:55',45,'Dardan Gashi'),(12,'30033',5,'Complete','2021-03-30','12:38:38',180,''),(13,'30034',3,'Complete','2021-03-30','17:35:37',30,'John Smith'),(14,'30034',7,'Complete','2021-03-30','17:35:25',45,'John Smith');
 /*!40000 ALTER TABLE `task_job` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -286,7 +289,7 @@ USE `bapersdb`;
 /*!50001 SET collation_connection      = utf8mb4_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `view1` AS select `tj`.`completed_by` AS `completed_by`,`t`.`task_id` AS `task_id`,`t`.`department` AS `department`,`tj`.`task_date` AS `task_date`,`tj`.`start_time` AS `start_time`,`tj`.`time_taken` AS `time_taken` from (`task` `t` join `task_job` `tj`) where `t`.`task_id` = `tj`.`task_id` and `tj`.`completed_by` = 'Dardan' and `tj`.`task_date` = '2021-03-28' order by `tj`.`completed_by` */;
+/*!50001 VIEW `view1` AS select `tj`.`completed_by` AS `completed_by`,`t`.`task_id` AS `task_id`,`t`.`department` AS `department`,`tj`.`task_date` AS `task_date`,`tj`.`start_time` AS `start_time`,`tj`.`time_taken` AS `time_taken` from (`task` `t` join `task_job` `tj`) where `t`.`task_id` = `tj`.`task_id` and `tj`.`completed_by` = 'Dardan Gashi' and `tj`.`task_date` = '2021-03-30' order by `tj`.`completed_by` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -338,4 +341,4 @@ USE `bapersdb`;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-03-30 11:36:17
+-- Dump completed on 2021-03-30 17:36:50

@@ -11,7 +11,7 @@ public class sqlConnection {
 			Class.forName("com.mysql.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bapersdb", "root", "");
 	 		}
-		//this is the exception for if the connection fails it will show me the error to ddebug 
+		//this is the exception for if the connection fails it will show me the error to debug 
 		catch(Exception e){
 			JOptionPane.showMessageDialog(null,e);
 		}
