@@ -73,7 +73,7 @@ public class CreateDeleteTask extends JFrame {
 		});
 		btnNewButton.setBounds(10, 327, 89, 23);
 		contentPane.add(btnNewButton);
-		//creating a button
+		//creating a button that creates a new task that Bapers can do for clients it is like the other ones where they take the information from the textfields
 		JButton btnNewButton_1 = new JButton("Create new Task");
 		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -98,7 +98,7 @@ public class CreateDeleteTask extends JFrame {
 		});
 		btnNewButton_1.setBounds(275, 327, 151, 23);
 		contentPane.add(btnNewButton_1);
-		//creating a button
+		//creating a button that deletes the task that Bapers no longer does for clients and it is just click on the row and then it selects it and when the button is pressed it confirms
 		JButton btnNewButton_2 = new JButton("Delete Task");
 		btnNewButton_2.setBackground(new Color(192, 192, 192));
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -125,7 +125,7 @@ public class CreateDeleteTask extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(375, 30, 584, 286);
 		contentPane.add(scrollPane);
-		
+		//creates a table for the tasks with the columns as specified below
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(
@@ -135,6 +135,7 @@ public class CreateDeleteTask extends JFrame {
 					"task_id", "price", "department", "duration"
 				}
 			));
+		//this is so when I click a row it populates the textfields to make it easier to make changes for
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
 	        public void valueChanged(ListSelectionEvent event) {
 	        	DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
@@ -146,7 +147,7 @@ public class CreateDeleteTask extends JFrame {
 				DurationField.setText(TDuration);
 	        }
 	    });
-		//creating a button
+		//creating a button that loads the table in from the DB
 		JButton btnNewButton_3 = new JButton("Refresh");
 		btnNewButton_3.setBackground(new Color(192, 192, 192));
 		btnNewButton_3.addActionListener(new ActionListener() {
@@ -201,7 +202,7 @@ public class CreateDeleteTask extends JFrame {
 		JLabel lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setBounds(109, 11, 46, 14);
 		contentPane.add(lblNewLabel_3);
-		//creating a button
+		//creating a button that the changes you made in the textfields it updates it in the db for that specific row
 		JButton btnNewButton_4 = new JButton("Update Task");
 		btnNewButton_4.setBackground(new Color(192, 192, 192));
 		btnNewButton_4.addActionListener(new ActionListener() {

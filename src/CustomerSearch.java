@@ -70,7 +70,7 @@ public class CustomerSearch extends JFrame {
 			}
 		});
 	}
-	
+	//this method generates a job number and makes sure it is unique
 	public void generateJobno(String passQuery) {
 		connection = sqlConnection.getConnection();
 		try {
@@ -95,7 +95,7 @@ public class CustomerSearch extends JFrame {
 	 * Create the frame.
 	 */
 	public CustomerSearch() {
-		
+		//calender library so when the job is made it notes the time it is recorded and when the deadline is by the exact second
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Calendar cal = Calendar.getInstance(); // creates calendar
 	    cal.setTime(new Date());               // sets calendar time/date
@@ -117,7 +117,7 @@ public class CustomerSearch extends JFrame {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(10, 11, 1164, 14);
 		contentPane.add(lblNewLabel);
-		//creating a button
+		//creating a button that goes back to menu
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
@@ -142,7 +142,7 @@ public class CustomerSearch extends JFrame {
 		NameSearch.setBounds(154, 72, 155, 20);
 		contentPane.add(NameSearch);
 		NameSearch.setColumns(10);
-		//creating a button
+		//creating a button that populates the table and you can filter the search to a name so you don't have to scroll through the whole table
 		JButton btnNewButton_2 = new JButton("Search Customer");
 		btnNewButton_2.setBackground(new Color(192, 192, 192));
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -165,7 +165,7 @@ public class CustomerSearch extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 110, 724, 206);
 		contentPane.add(scrollPane);
-		
+		//creating a table customer
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(
@@ -175,9 +175,6 @@ public class CustomerSearch extends JFrame {
 					"Customer_id", "customer_name", "contact_name", "phone", "address", "status", "agreed_discount", "discount_rate"
 				}
 			));
-		
-		
-		
 		
 		JLabel lblNewLabel_2 = new JLabel("Customer_ID");
 		lblNewLabel_2.setBounds(744, 75, 76, 14);
@@ -197,10 +194,7 @@ public class CustomerSearch extends JFrame {
 		lblNewLabel_6.setBounds(744, 183, 108, 14);
 		contentPane.add(lblNewLabel_6);
 		
-		//Date = new JDateChooser();
-		//Date.setBounds(813, 111, 96, 20);
-		//contentPane.add(Date);
-		//creating a button
+		//Jbutton to select the type of urgency and it sets the time for example with this one is sets deadline to 24hours later
 		Normal = new JRadioButton("Normal");
 		Normal.setBackground(new Color(192, 192, 192));
 		Normal.addActionListener(new ActionListener() {
@@ -215,7 +209,7 @@ public class CustomerSearch extends JFrame {
 		});
 		Normal.setBounds(809, 136, 109, 23);
 		contentPane.add(Normal);
-		//creating a button
+		//creating a button that is for urgent and the deadline is in 6 hours
 		Urgent = new JRadioButton("Urgent");
 		Urgent.setBackground(new Color(192, 192, 192));
 		Urgent.addActionListener(new ActionListener() {
@@ -235,7 +229,7 @@ public class CustomerSearch extends JFrame {
 		SpecialInstruction.setBounds(862, 180, 148, 20);
 		contentPane.add(SpecialInstruction);
 		SpecialInstruction.setColumns(10);
-		
+		//sets the variables name and id to row and column selected by clicking on it
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
 	        public void valueChanged(ListSelectionEvent event) {
 	        	DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
@@ -244,7 +238,7 @@ public class CustomerSearch extends JFrame {
 				IDLabel.setText(CustomerName);
 	        }
 	    });
-		//creating a button
+		//creating a button that creates the actual job for the specific customer 
 		JButton btnNewButton_3 = new JButton("CreateJob");
 		btnNewButton_3.setBackground(new Color(192, 192, 192));
 		btnNewButton_3.addActionListener(new ActionListener() {
@@ -253,7 +247,9 @@ public class CustomerSearch extends JFrame {
 				//java.sql.Date date = (java.sql.Date) cal.getTime();
 				
 				try {
+					//converting a String to an integer
 					int Number = Integer.parseInt(NumberField.getText());
+					//method for the job number
 					generateJobno("SELECT COUNT(`job_id`)+1 FROM `job`");
 					String JNumber = new SimpleDateFormat("ddMM").format(new Date())+getValue;
 					String query = "INSERT INTO `job`(`job_id` , `customer_id`,`deadline`, `urgency`, `status`, `special_instructions`, `Price`, `number`) VALUES (?, ?,?, ?, ?,?,?,?)";
@@ -279,7 +275,7 @@ public class CustomerSearch extends JFrame {
 		});
 		btnNewButton_3.setBounds(1059, 327, 115, 23);
 		contentPane.add(btnNewButton_3);
-		
+		//this loads the table with all customers rather than filtering by name 
 		JButton btnNewButton_1 = new JButton("All Customers");
 		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {

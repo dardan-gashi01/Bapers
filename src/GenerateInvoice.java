@@ -62,6 +62,7 @@ public class GenerateInvoice extends JFrame {
 	 */
 	//this is for test purposes 
 	public GenerateInvoice() {
+		//date format that suits the DB
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Calendar cal = Calendar.getInstance(); // creates calendar
 	    cal.setTime(new Date());
@@ -89,7 +90,7 @@ public class GenerateInvoice extends JFrame {
 			));
 		
 		
-		
+		//takes you to menu
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
@@ -101,7 +102,7 @@ public class GenerateInvoice extends JFrame {
 		});
 		btnNewButton.setBounds(10, 327, 89, 23);
 		contentPane.add(btnNewButton);
-		
+		//loads all jobs in the DB to select 
 		JButton btnNewButton_1 = new JButton("All Jobs");
 		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -117,7 +118,7 @@ public class GenerateInvoice extends JFrame {
 				}
 			}
 		});
-		
+		//sets values for some variables depending on the column selected
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
 	        public void valueChanged(ListSelectionEvent event) {
 	        	DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
@@ -130,13 +131,14 @@ public class GenerateInvoice extends JFrame {
 	    });
 		btnNewButton_1.setBounds(539, 326, 89, 23);
 		contentPane.add(btnNewButton_1);
-		
+		//this generates the invoice into the table invoice
 		JButton btnNewButton_2 = new JButton("Generate");
 		btnNewButton_2.setBackground(new Color(192, 192, 192));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
 				try {
+					//this is for the values so they are to 2dp and no more because it is money
 					DecimalFormat decimalformat = new DecimalFormat("0.00");
 					String sql = "SELECT * FROM customer WHERE customer_id ='"+ customer_id +"'";
 					PreparedStatement ps = connection.prepareStatement(sql);
