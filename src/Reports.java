@@ -12,6 +12,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -154,21 +155,36 @@ public class Reports extends JFrame {
 		PersonalReportBTN.setBounds(450, 32, 204, 23);
 		contentPane.add(PersonalReportBTN);
 		
-		JButton btnNewButton_1 = new JButton("New button");
+		JButton btnNewButton_1 = new JButton("Generate report");
 		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				report r =new report();
 				if(CustomerReportBTN.isSelected()) {
-					r.CustomerReport(CustIDField.getText(),StartDateField.getText(), EndDateField.getText() );
+					try {
+						r.CustomerReport(CustIDField.getText(),StartDateField.getText(), EndDateField.getText() );
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}else if(SummaryReportBTN.isSelected()) {
-					r.SummaryReport(StartTimeField.getText(), EndTimeField.getText(), StartDateField.getText(), EndDateField.getText());
+					try {
+						r.SummaryReport(StartTimeField.getText(), EndTimeField.getText(), StartDateField.getText(), EndDateField.getText());
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}else if (PersonalReportBTN.isSelected()) {
-					r.individualReport(StaffNameField.getText(), EndDateField.getText());
+					try {
+						r.individualReport(StaffNameField.getText(), EndDateField.getText());
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
 			}
 		});
-		btnNewButton_1.setBounds(585, 327, 89, 23);
+		btnNewButton_1.setBounds(556, 327, 118, 23);
 		contentPane.add(btnNewButton_1);
 		
 		CustIDField = new JTextField();

@@ -21,16 +21,13 @@ public class Menu extends JFrame {
 	private JButton PlaceJobBTN;
 	private JButton TakePaymentBTN;
 	private JButton CreateCustBTN;
-	private JButton UpdateCustBTN;
 	private JButton viewActiveJobBTN;
 	private JButton viewAllJobsBTN;
-	private JButton UpdateJobStatusBTN;
 	private JButton ReportsBTN;
 	private JButton CreateAccountBTN;
 	private JButton UpdateAccountBTN;
 	private JButton ManageCustomersBTN;
 	private JButton CreateBackupBTN;
-	private JButton RestoreDatabaseBTN;
 	private JButton EditTasksBTN;
 	private JButton UpdateTasksBTN;
 	private JButton btnNewButton_1;
@@ -58,27 +55,29 @@ public class Menu extends JFrame {
 			UpdateAccountBTN.setVisible(false);
 			ManageCustomersBTN.setVisible(false);
 			CreateBackupBTN.setVisible(false);
-			RestoreDatabaseBTN.setVisible(false);
 			ReportsBTN.setVisible(false);
 			viewActiveJobBTN.setVisible(false);
 			viewAllJobsBTN.setVisible(false);
-			UpdateJobStatusBTN.setVisible(false);
+			//UpdateJobStatusBTN.setVisible(false);
 			EditTasksBTN.setVisible(false);
 			UpdateTasksBTN.setVisible(false);
 		}else if(role.equals("Shift Manager")) {
 			CreateAccountBTN.setVisible(false);
 			UpdateAccountBTN.setVisible(false);
 			CreateBackupBTN.setVisible(false);
-			RestoreDatabaseBTN.setVisible(false);
+			ManageCustomersBTN.setVisible(false);
 		}
 		else if(role.equals("Technician")) {
 			CreateAccountBTN.setVisible(false);
 			UpdateAccountBTN.setVisible(false);
 			CreateBackupBTN.setVisible(false);
-			RestoreDatabaseBTN.setVisible(false);
 			ManageCustomersBTN.setVisible(false);
 			ReportsBTN.setVisible(false);
 			EditTasksBTN.setVisible(false);
+			PlaceJobBTN.setVisible(false);
+			TakePaymentBTN.setVisible(false);
+			CreateCustBTN.setVisible(false);
+			btnNewButton_1.setVisible(false);
 		}
 	}
 	
@@ -263,30 +262,6 @@ public class Menu extends JFrame {
 		CreateBackupBTN.setBounds(10, 232, 151, 23);
 		contentPane.add(CreateBackupBTN);
 		//creating a button
-		RestoreDatabaseBTN = new JButton("Restore Database");
-		RestoreDatabaseBTN.setBackground(new Color(192, 192, 192));
-		RestoreDatabaseBTN.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//Restore restoreFrame = new Restore();
-				//restoreFrame.setVisible(true);
-				dispose();
-			}
-		});
-		RestoreDatabaseBTN.setBounds(10, 278, 151, 23);
-		contentPane.add(RestoreDatabaseBTN);
-		//creating a button
-		UpdateCustBTN = new JButton("Update Customer Account");
-		UpdateCustBTN.setBackground(new Color(192, 192, 192));
-		UpdateCustBTN.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				UpdateCustomer updateCustomerFrame = new UpdateCustomer();
-				updateCustomerFrame.setVisible(true);
-				dispose();
-			}
-		});
-		UpdateCustBTN.setBounds(505, 232, 187, 23);
-		contentPane.add(UpdateCustBTN);
-		//creating a button
 		EditTasksBTN = new JButton("Edit Tasks");
 		EditTasksBTN.setBackground(new Color(192, 192, 192));
 		EditTasksBTN.addActionListener(new ActionListener() {
@@ -320,7 +295,7 @@ public class Menu extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_1.setBounds(505, 278, 187, 23);
+		btnNewButton_1.setBounds(505, 232, 187, 23);
 		contentPane.add(btnNewButton_1);
 	}
 }

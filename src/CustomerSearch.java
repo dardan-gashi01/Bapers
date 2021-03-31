@@ -52,6 +52,7 @@ public class CustomerSearch extends JFrame {
 	Connection connection = null;
 	int getValue;
 	private JComboBox comboBox;
+	private JTextField NumberField;
 	
 	/**
 	 * Launch the application.
@@ -252,9 +253,10 @@ public class CustomerSearch extends JFrame {
 				//java.sql.Date date = (java.sql.Date) cal.getTime();
 				
 				try {
+					int Number = Integer.parseInt(NumberField.getText());
 					generateJobno("SELECT COUNT(`job_id`)+1 FROM `job`");
 					String JNumber = new SimpleDateFormat("ddMM").format(new Date())+getValue;
-					String query = "INSERT INTO `job`(`job_id` , `customer_id`,`deadline`, `urgency`, `status`, `special_instructions`, `Price`) VALUES (?, ?,?, ?, ?,?,?)";
+					String query = "INSERT INTO `job`(`job_id` , `customer_id`,`deadline`, `urgency`, `status`, `special_instructions`, `Price`, `number`) VALUES (?, ?,?, ?, ?,?,?,?)";
 					PreparedStatement pst = connection.prepareStatement(query);
 					pst.setString(1,JNumber);
 					pst.setInt(2,CustomerID);
@@ -263,6 +265,7 @@ public class CustomerSearch extends JFrame {
 					pst.setString(5, Status);
 					pst.setString(6,SpecialInstruction.getText());
 					pst.setFloat(7, 0);
+					pst.setInt(8, Number);
 					pst.executeUpdate();
 					JOptionPane.showMessageDialog(null, "Job Created");
 					addTasks tasksFrame = new addTasks();
@@ -294,6 +297,17 @@ public class CustomerSearch extends JFrame {
 		});
 		btnNewButton_1.setBounds(585, 327, 149, 23);
 		contentPane.add(btnNewButton_1);
+		
+		NumberField = new JTextField();
+		NumberField.setBackground(new Color(192, 192, 192));
+		NumberField.setBounds(863, 224, 86, 20);
+		contentPane.add(NumberField);
+		NumberField.setColumns(10);
+		
+		JLabel lblNewLabel_3 = new JLabel("Number Of Jobs");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_3.setBounds(744, 227, 108, 14);
+		contentPane.add(lblNewLabel_3);
 		
 		
 		

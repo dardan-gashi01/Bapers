@@ -174,6 +174,9 @@ public class UpdateAccount extends JFrame {
 					PreparedStatement pst = connection.prepareStatement(sql);
 					pst.execute();
 					JOptionPane.showMessageDialog(null, "Updated");
+					UpdateAccount thisFrame = new UpdateAccount();
+					thisFrame.setVisible(true);
+					dispose();
 				}catch(Exception E) {
 					JOptionPane.showMessageDialog(null,E);
 				}

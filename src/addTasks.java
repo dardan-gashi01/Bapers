@@ -130,7 +130,7 @@ public class addTasks extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		comboBox = new JComboBox();
-		comboBox.setBackground(new Color(0, 0, 255));
+		comboBox.setBackground(new Color(192, 192, 192));
 		comboBox.setBounds(944, 63, 80, 22);
 		contentPane.add(comboBox);
 
@@ -222,21 +222,23 @@ public class addTasks extends JFrame {
 					int taskID = Integer.parseInt(myString);
 					String tJobId = tblModel.getValueAt(table.getSelectedRow(), 0).toString();
 		        	int JobID = Integer.parseInt(tJobId);
+		        	String No = tblModel.getValueAt(table.getSelectedRow(), 8).toString();
+		        	int number = Integer.parseInt(No);
 		        	//these are if else statment that give add a price due to the task you add
 					if(taskID == 1) {
-						Price += 19;
+						Price += (19*number);
 					}else if(taskID == 2) {
-						Price += 49.5;
+						Price += (49.5*number);
 					}else if(taskID == 3) {
-						Price += 20;
+						Price += (20*number);
 					}else if(taskID == 4) {
-						Price += 80;
+						Price += (80*number);
 					}else if(taskID == 5) {
-						Price += 110.30;
+						Price += (110.30*number);
 					}else if(taskID == 6) {
-						Price += 8.30;
+						Price += (8.30*number);
 					}else if(taskID == 7) {
-						Price += 55.50;
+						Price += (55.50*number);
 					}
 					/* adds the task and status into the table task_job and another that just updates
 					the job price to give a total price at the end
