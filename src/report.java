@@ -14,8 +14,9 @@ public class report {
     Statement s = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
-    
+    //method to write to a txt file
     public static void write(String s, File f) throws IOException{
+        //this makes it so we can append and not have to overwrite every time
     	FileWriter fw = new FileWriter(f, true);
     	fw.write(s);
     	fw.close();
@@ -23,6 +24,11 @@ public class report {
 	
     public void CustomerReport(String custID, String StartDate, String EndDate) throws IOException {
     	try {
+    	    /*
+    	    //for testing this needs to be changed!!!!!!!!!!!!!
+    	    */
+
+    	    //setting the path for the txt file to be saves
     		File file1 = new File("C:\\Users\\HP User\\Documents\\GitHub\\Bapers\\reports\\Customer"+custID+".txt");
     		
     		 // connect to the database
@@ -69,7 +75,7 @@ public class report {
                 String start_time1 = rs.getString("Start time");
                 String time_taken1 = rs.getString("Time taken (min)");
                 String completed_by1 = rs.getString("Completed by");
-                // display values
+                // writing to txt file
                 write("\nCustomer: " + id1 + "\n", file1);
                 write("Job: " + job1 + "\n", file1);
                 write("Task: " + task1 + "\n", file1);
@@ -79,7 +85,7 @@ public class report {
                 write("Start time: " + start_time1 + "\n", file1);
                 write("Time taken (min): " + time_taken1 + "\n", file1);
                 write("Completed by: " + completed_by1 + "\n\n", file1);
-                
+                /*
                 System.out.println("\nCustomer: " + id1);
                 System.out.println("Job: " + job1);
                 System.out.println("Task: " + task1);
@@ -89,6 +95,8 @@ public class report {
                 System.out.println("Start time: " + start_time1);
                 System.out.println("Time taken (min): " + time_taken1);
                 System.out.println("Completed by: " + completed_by1);
+                */
+
             }
     	}catch (SQLException se) {
             // handle errors for JDBC
@@ -163,7 +171,7 @@ public class report {
                 String time_taken2 = rs.getString("Time taken (min)");
                 String total_time2 = rs.getString("Total time");
                 String total_effort2 = rs.getString("Total effort");
-                // display values
+                // writing to txt file
                 write("\nName: " + completed_by2 + "\n", file1);
                 write("Task IDs: " + task_id2 + "\n", file1);
                 write("Department: " + department2 + "\n", file1);
@@ -172,7 +180,7 @@ public class report {
                 write("Time taken (min): " + time_taken2 + "\n", file1);
                 write("Total time: " + total_time2 + "\n", file1);
                 write("Total effort: " + total_effort2 + "\n", file1);
-                
+                /*
                 System.out.println("\nName: " + completed_by2);
                 System.out.println("Task IDs: " + task_id2);
                 System.out.println("Department: " + department2);
@@ -181,6 +189,8 @@ public class report {
                 System.out.println("Time taken (min): " + time_taken2);
                 System.out.println("Total time: " + total_time2);
                 System.out.println("Total effort: " + total_effort2);
+
+                 */
             }
 
     	}catch (SQLException se) {
@@ -221,14 +231,16 @@ public class report {
                 String date3 = rs.getString("Date");
                 String department3 = rs.getString("Department");
                 String time_taken3 = rs.getString("Time taken");
-                // display values
+                // writing to txt file
                 write("\nDate: " + date3 + "\n", file1);
                 write("Department: " + department3 + "\n", file1);
                 write("Time taken: " + time_taken3 + "\n", file1);
-                
+                /*
                 System.out.println("\nDate: " + date3 + "\n");
                 System.out.println("Department: " + department3 + "\n");
                 System.out.println("Time taken: " + time_taken3 + "\n");
+
+                 */
             }
     	}catch (SQLException se) {
             // handle errors for JDBC

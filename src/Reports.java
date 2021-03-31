@@ -75,7 +75,7 @@ public class Reports extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		//creating a button
+		//creating a button ta sends you to the menu
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
@@ -93,7 +93,7 @@ public class Reports extends JFrame {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(10, 11, 664, 14);
 		contentPane.add(lblNewLabel);
-		
+		//select the type of report needed
 		CustomerReportBTN = new JRadioButton("Customer Report");
 		CustomerReportBTN.setBackground(new Color(192, 192, 192));
 		CustomerReportBTN.addActionListener(new ActionListener() {
@@ -159,9 +159,11 @@ public class Reports extends JFrame {
 		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//object of report to call the methods
 				report r =new report();
 				if(CustomerReportBTN.isSelected()) {
 					try {
+						//calling the method with the parameters filled out
 						r.CustomerReport(CustIDField.getText(),StartDateField.getText(), EndDateField.getText() );
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
@@ -169,6 +171,7 @@ public class Reports extends JFrame {
 					}
 				}else if(SummaryReportBTN.isSelected()) {
 					try {
+						//calling the method with the parameters filled out
 						r.SummaryReport(StartTimeField.getText(), EndTimeField.getText(), StartDateField.getText(), EndDateField.getText());
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
@@ -176,6 +179,7 @@ public class Reports extends JFrame {
 					}
 				}else if (PersonalReportBTN.isSelected()) {
 					try {
+						//calling the method with the parameters filled out
 						r.individualReport(StaffNameField.getText(), EndDateField.getText());
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block

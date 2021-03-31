@@ -116,7 +116,7 @@ public class UpdateCustomer extends JFrame {
 				"Customer_id", "customer_name", "contact_name", "phone", "address", "status", "agreed_discount", "discount_rate"
 			}
 		));
-		
+		//same as updateAccount it fills the fields with values from the row you selected
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
 	        public void valueChanged(ListSelectionEvent event) {
 	        	DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
@@ -141,7 +141,7 @@ public class UpdateCustomer extends JFrame {
 	        }
 	    });
 		
-		//creating a button
+		//creating a button that populates the table from the db
 		JButton btnNewButton_2 = new JButton("Refresh");
 		btnNewButton_2.setBackground(new Color(192, 192, 192));
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -224,7 +224,7 @@ public class UpdateCustomer extends JFrame {
 		discountField.setBounds(140, 267, 86, 20);
 		contentPane.add(discountField);
 		discountField.setColumns(10);
-		//creating a button
+		//creating a button where depending on regular or valued you get different fields to fill out for discount and stuff
 		RegularButton = new JRadioButton("Regular");
 		RegularButton.setBackground(new Color(192, 192, 192));
 		RegularButton.addActionListener(new ActionListener() {
@@ -308,7 +308,7 @@ public class UpdateCustomer extends JFrame {
 		});
 		VariableButton.setBounds(319, 226, 69, 23);
 		contentPane.add(VariableButton);
-		//creating a button
+		//creating a button that takes the new values from the fields and then updates the db with it
 		JButton btnNewButton_3 = new JButton("Update Details");
 		btnNewButton_3.setBackground(new Color(192, 192, 192));
 		btnNewButton_3.addActionListener(new ActionListener() {
@@ -316,6 +316,7 @@ public class UpdateCustomer extends JFrame {
 				connection = sqlConnection.getConnection();
 			try {
 				DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
+				//selecting the customerID so it knows which row to update in the db using SQL
 	        	CustomerID = tblModel.getValueAt(table.getSelectedRow(), 0).toString();
 				String custName = customerNameField.getText();
 				String contactName = contactNameField.getText();

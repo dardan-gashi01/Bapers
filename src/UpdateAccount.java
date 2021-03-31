@@ -76,7 +76,7 @@ public class UpdateAccount extends JFrame {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(10, 11, 964, 14);
 		contentPane.add(lblNewLabel);
-		//creating a button
+		//creating a button that takes you back to the menu
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
@@ -102,6 +102,7 @@ public class UpdateAccount extends JFrame {
 					"account_id", "name", "email", "role", "password"
 				}
 			));
+		//this fills the text fields with data picked to make it easy to edit
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
 	        public void valueChanged(ListSelectionEvent event) {
 	        	DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
@@ -139,7 +140,7 @@ public class UpdateAccount extends JFrame {
 				
 	        }
 	    });
-		//creating a button
+		//creating a button that populates the table with the values in the db
 		JButton btnNewButton_1 = new JButton("Refresh");
 		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -157,7 +158,7 @@ public class UpdateAccount extends JFrame {
 		});
 		btnNewButton_1.setBounds(398, 327, 89, 23);
 		contentPane.add(btnNewButton_1);
-		//creating a button
+		//creating a button that updates the row selected with the new values in the text fields
 		JButton UpdateDetailsBTN = new JButton("Update Details");
 		UpdateDetailsBTN.setBackground(new Color(192, 192, 192));
 		UpdateDetailsBTN.addActionListener(new ActionListener() {
@@ -282,7 +283,7 @@ public class UpdateAccount extends JFrame {
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_4.setBounds(30, 161, 46, 14);
 		contentPane.add(lblNewLabel_4);
-		//creating a button
+		//creating a button that deletes the user selected in the table
 		DeleteBTN = new JButton("Delete User");
 		DeleteBTN.setBackground(new Color(192, 192, 192));
 		DeleteBTN.addActionListener(new ActionListener() {

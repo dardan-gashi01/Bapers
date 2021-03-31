@@ -63,6 +63,7 @@ public class UpdateTask extends JFrame {
 	 * Create the frame.
 	 */
 	public UpdateTask() {
+		//date format so the user system fixes the correct dates for start and finish
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm:ss");
 		SimpleDateFormat sdf3 = new SimpleDateFormat("yyyy-MM-dd");
@@ -101,7 +102,7 @@ public class UpdateTask extends JFrame {
 				
 	        }
 	    });
-		
+		//takes you back to menu
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
@@ -113,7 +114,7 @@ public class UpdateTask extends JFrame {
 		});
 		btnNewButton.setBounds(10, 327, 89, 23);
 		contentPane.add(btnNewButton);
-		
+		//this one is so the task you pick it makes it so you start and then it shows the expected finish
 		JButton btnNewButton_1 = new JButton("Start Task");
 		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -127,7 +128,7 @@ public class UpdateTask extends JFrame {
 		        	int JobID = Integer.parseInt(tJobId);
 		        	String tTaskId = tblModel.getValueAt(table.getSelectedRow(), 2).toString();
 		        	int TaskID = Integer.parseInt(tTaskId);
-		        	
+		        	//switch statement to add time to the deadline depending on how long each task takes
 		        	switch(TaskID) {
 		        	case 1:
 		        		cal.add(Calendar.MINUTE, 120);
@@ -182,7 +183,7 @@ public class UpdateTask extends JFrame {
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel.setBounds(30, 29, 86, 14);
 		contentPane.add(lblNewLabel);
-		
+		//search tasks using job_id to filter
 		JButton btnNewButton_2 = new JButton("Search");
 		btnNewButton_2.setBackground(new Color(192, 192, 192));
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -201,7 +202,7 @@ public class UpdateTask extends JFrame {
 		});
 		btnNewButton_2.setBounds(242, 23, 89, 23);
 		contentPane.add(btnNewButton_2);
-		
+		//shows all tasks
 		JButton btnNewButton_3 = new JButton("All jobs");
 		btnNewButton_3.setBackground(new Color(192, 192, 192));
 		btnNewButton_3.addActionListener(new ActionListener() {
@@ -220,7 +221,7 @@ public class UpdateTask extends JFrame {
 		});
 		btnNewButton_3.setBounds(567, 327, 89, 23);
 		contentPane.add(btnNewButton_3);
-		
+		//shows only the tasks that have incomplete so they know they are yet to be done
 		JButton btnNewButton_4 = new JButton("active tasks left");
 		btnNewButton_4.setBackground(new Color(192, 192, 192));
 		btnNewButton_4.addActionListener(new ActionListener() {

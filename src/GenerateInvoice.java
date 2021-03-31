@@ -147,7 +147,9 @@ public class GenerateInvoice extends JFrame {
 						discount = rs.getDouble("discount_rate");
 						discount_type = rs.getString("agreed_discount");
 						String customerT = rs.getString("status");
+						//this checks if they are values to see if they need discounts
 						if(customerT.equals("Valued")) {
+							//applies fixed discount but couldn't complete the rest
 							if(discount_type.equals("Fixed")){
 								discount_price = amount * ((100-discount)/100);
 							}else if(discount_type.equals("Variable")) {
@@ -161,6 +163,7 @@ public class GenerateInvoice extends JFrame {
 					}	
 					String query = "INSERT INTO `invoice`(`job_id` , `customer_id`,`amount`, `job_completed`, `invoice_date`, discountedPrice) VALUES (?, ?,?, ?, ?, ?)";
 					PreparedStatement pst = connection.prepareStatement(query);
+					//formats the final price to 2dp
 					double d = Double.parseDouble(decimalformat.format(discount_price));
 					pst.setString(1,job_id);
 					pst.setInt(2,customer_id);

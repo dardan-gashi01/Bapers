@@ -86,23 +86,21 @@ public class Login extends JFrame {
 		pin.setBackground(new Color(192, 192, 192));
 		pin.setBounds(298, 176, 136, 20);
 		contentPane.add(pin);
-		//creating a button that logs the user in and checks for their details in the database to check if it is correct
+		//creating a button that logs the user in and checks for their details in the database to
+		// check if it is in the database
 		JButton btnNewButton = new JButton("Login");
 		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
 				try {
+					//this takes the values from the textfields and then runs them in the query
 					String sql = "Select role from account where name=? and password=?";
 					PreparedStatement pst = connection.prepareStatement(sql);
 					pst.setString(1, username.getText());
 					pst.setString(2, pin.getText());
 					ResultSet rs = pst.executeQuery();
-					
-					
-					//PreparedStatement pst2 = con.prepareStatement(role);
-					//ResultSet rs2 = pst.executeQuery();
-					
+					//checks if the value is in the db and if so it takes you to the menu
 					if(rs.next()) {
 						Menu menuFrame = new Menu();
 						menuFrame.setVisible(true);
@@ -110,7 +108,8 @@ public class Login extends JFrame {
 						menuFrame.AssignMenu(rs.getString(1));
 					}
 					else {
-						JOptionPane.showMessageDialog(null, "Username and Pin dont match");
+						//else foe if the name or password is not in the db
+						JOptionPane.showMessageDialog(null, "Username and Password dont match");
 						username.setText("");
 						pin.setText("");
 					}

@@ -74,8 +74,7 @@ public class PaySystem extends JFrame {
 	 * Create the frame.
 	 */
 	public PaySystem() {
-		
-		
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 950, 400);
 		contentPane = new JPanel();
@@ -83,7 +82,7 @@ public class PaySystem extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+		//takes you back to the menu
 		JButton btnNewButton = new JButton("Cancel");
 		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
@@ -102,6 +101,7 @@ public class PaySystem extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				connection = sqlConnection.getConnection();
 				try {
+					//inserts the payment info into the db for payment
 					String query = "INSERT INTO `payment`(`invoice_id`,`type`, `amount`, `card_type`,`expiry_date`, `CardNumber`,`CVC` ) VALUES (?, ?,?, ?,?, ?,?)";
 					PreparedStatement pst = connection.prepareStatement(query);
 					pst.setString(1,invoice_id);
@@ -113,6 +113,7 @@ public class PaySystem extends JFrame {
 					pst.setString(7, CVCField.getText());
 					pst.executeUpdate();
 					JOptionPane.showMessageDialog(null, "Payment Success");
+					//this is for if it is cash to output to the system the change needed to get a quick calculation
 					if(type.equals("Cash")) {
 						String paid = AmountField.getText();
 						double d = Double.valueOf(paid);
@@ -141,7 +142,7 @@ public class PaySystem extends JFrame {
 					"invoice_id", "job_id", "customer_id", "amount", "job_completed","invoice_date","discountedPrice"
 				}
 			));
-		
+		//this loads the invoices to pick which one to pay for
 		JButton btnNewButton_2 = new JButton("Show invoice");
 		btnNewButton_2.setBackground(new Color(192, 192, 192));
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -159,7 +160,7 @@ public class PaySystem extends JFrame {
 		});
 		btnNewButton_2.setBounds(444, 327, 154, 23);
 		contentPane.add(btnNewButton_2);
-		
+		//select cash or card and depending on the one picked it shows different things to fill out
 		CashBTN = new JRadioButton("Cash");
 		CashBTN.setBackground(new Color(192, 192, 192));
 		CashBTN.addActionListener(new ActionListener() {
@@ -288,7 +289,7 @@ public class PaySystem extends JFrame {
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_4.setBounds(10, 5, 914, 14);
 		contentPane.add(lblNewLabel_4);
-		
+		//selects the amount due and displays it for the person working
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
 	        public void valueChanged(ListSelectionEvent event) {
 	        	DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
