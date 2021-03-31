@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
 import javax.swing.JPasswordField;
@@ -32,6 +33,8 @@ public class CreateAccount extends JFrame {
 	String role;
 	private JPasswordField passwordField;
 	Connection connection = null;
+	String password;
+	private JPasswordField confirmField;
 
 	/**
 	 * Launch the application.
@@ -74,7 +77,7 @@ public class CreateAccount extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("Name");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_1.setBounds(120, 70, 64, 14);
+		lblNewLabel_1.setBounds(75, 70, 109, 14);
 		contentPane.add(lblNewLabel_1);
 		//creating a button that takes you back to the menu page
 		JButton btnNewButton = new JButton("Cancel");
@@ -96,7 +99,7 @@ public class CreateAccount extends JFrame {
 				connection = sqlConnection.getConnection();
 				try {
 					/*
-					takes the info from the fields and adds tem to the DB table as the columns
+					takes the info from the fields and adds them to the DB table as the columns
 					 */
 					String query = "INSERT INTO `account`(`name`, `email`, `role`, `password`) VALUES (?,?,?,?)";
 					PreparedStatement pst = connection.prepareStatement(query);
@@ -125,7 +128,7 @@ public class CreateAccount extends JFrame {
 		
 		JLabel lblNewLabel_2 = new JLabel("Email");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_2.setBounds(120, 127, 64, 14);
+		lblNewLabel_2.setBounds(75, 127, 109, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		EmailTextField = new JTextField();
@@ -136,12 +139,12 @@ public class CreateAccount extends JFrame {
 		
 		JLabel lblNewLabel_3 = new JLabel("Role");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_3.setBounds(120, 184, 64, 14);
+		lblNewLabel_3.setBounds(75, 184, 109, 14);
 		contentPane.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Password");
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_4.setBounds(120, 246, 64, 14);
+		lblNewLabel_4.setBounds(75, 246, 109, 14);
 		contentPane.add(lblNewLabel_4);
 		//creating a radio button to select the role of the person you are creating
 		ReceptionistBTN = new JRadioButton("Receptionist");
@@ -210,5 +213,15 @@ public class CreateAccount extends JFrame {
 		passwordField.setBackground(new Color(192, 192, 192));
 		passwordField.setBounds(194, 243, 322, 20);
 		contentPane.add(passwordField);
+		
+		JLabel lblNewLabel_5 = new JLabel("Confirm Password");
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_5.setBounds(75, 289, 109, 14);
+		contentPane.add(lblNewLabel_5);
+		
+		confirmField = new JPasswordField();
+		confirmField.setBackground(new Color(192, 192, 192));
+		confirmField.setBounds(194, 286, 322, 20);
+		contentPane.add(confirmField);
 	}
 }

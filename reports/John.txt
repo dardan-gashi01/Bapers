@@ -1,0 +1,18 @@
+
+Name: John
+Task IDs: 6
+Department: Copy Room
+Task date: 2021-03-31
+Start time: 13:33:44
+Time taken (min): 75
+Total time: 02:00:00
+Total effort: 02:00:00
+
+Name: John
+Task IDs: 7
+Department: Finishing Room
+Task date: 2021-03-31
+Start time: 13:33:29
+Time taken (min): 45
+Total time: 02:00:00
+Total effort: 02:00:00

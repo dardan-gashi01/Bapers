@@ -14,12 +14,17 @@ public class report {
     Statement s = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
+    
+    public static void write(String s, File f) throws IOException{
+    	FileWriter fw = new FileWriter(f, true);
+    	fw.write(s);
+    	fw.close();
+    }
 	
     public void CustomerReport(String custID, String StartDate, String EndDate) throws IOException {
     	try {
-    		File file1 = new File("Customer"+custID+".txt");
-    		FileWriter fw = new FileWriter(file1);
-    		PrintWriter pw = new PrintWriter(fw);
+    		File file1 = new File("C:\\Users\\HP User\\Documents\\GitHub\\Bapers\\reports\\Customer"+custID+".txt");
+    		
     		 // connect to the database
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bapersdb", "root", "");
             System.out.println("Connection established.");
@@ -65,16 +70,16 @@ public class report {
                 String time_taken1 = rs.getString("Time taken (min)");
                 String completed_by1 = rs.getString("Completed by");
                 // display values
-                pw.write("\nCustomer: " + id1 + "\n");
-                pw.write("Job: " + job1 + "\n");
-                pw.write("Task: " + task1 + "\n");
-                pw.write("Price: " + price1 + "\n");
-                pw.write("Department: " + department1 + "\n");
-                pw.write("Task date: " + task_date1 + "\n");
-                pw.write("Start time: " + start_time1 + "\n");
-                pw.write("Time taken (min): " + time_taken1 + "\n");
-                pw.write("Completed by: " + completed_by1 + "\n");
-                pw.close();
+                write("\nCustomer: " + id1 + "\n", file1);
+                write("Job: " + job1 + "\n", file1);
+                write("Task: " + task1 + "\n", file1);
+                write("Price: " + price1 + "\n", file1);
+                write("Department: " + department1 + "\n", file1);
+                write("Task date: " + task_date1 + "\n", file1);
+                write("Start time: " + start_time1 + "\n", file1);
+                write("Time taken (min): " + time_taken1 + "\n", file1);
+                write("Completed by: " + completed_by1 + "\n\n", file1);
+                
                 System.out.println("\nCustomer: " + id1);
                 System.out.println("Job: " + job1);
                 System.out.println("Task: " + task1);
@@ -94,9 +99,8 @@ public class report {
     
     public void individualReport(String Name, String Date) throws IOException {
     	try {
-    		File file1 = new File(Name + ".txt");
-    		FileWriter fw = new FileWriter(file1);
-    		PrintWriter pw = new PrintWriter(fw);
+    		File file1 = new File("C:\\Users\\HP User\\Documents\\GitHub\\Bapers\\reports\\"+ Name + ".txt");
+    		
     		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bapersdb", "root", "");
     		// individual performance report
             // prepare statement
@@ -160,15 +164,15 @@ public class report {
                 String total_time2 = rs.getString("Total time");
                 String total_effort2 = rs.getString("Total effort");
                 // display values
-                pw.write("\nName: " + completed_by2 + "\n");
-                pw.write("Task IDs: " + task_id2 + "\n");
-                pw.write("Department: " + department2 + "\n");
-                pw.write("Task date: " + task_date2 + "\n");
-                pw.write("Start time: " + start_time2 + "\n");
-                pw.write("Time taken (min): " + time_taken2 + "\n");
-                pw.write("Total time: " + total_time2 + "\n");
-                pw.write("Total effort: " + total_effort2 + "\n");
-                pw.close();
+                write("\nName: " + completed_by2 + "\n", file1);
+                write("Task IDs: " + task_id2 + "\n", file1);
+                write("Department: " + department2 + "\n", file1);
+                write("Task date: " + task_date2 + "\n", file1);
+                write("Start time: " + start_time2 + "\n", file1);
+                write("Time taken (min): " + time_taken2 + "\n", file1);
+                write("Total time: " + total_time2 + "\n", file1);
+                write("Total effort: " + total_effort2 + "\n", file1);
+                
                 System.out.println("\nName: " + completed_by2);
                 System.out.println("Task IDs: " + task_id2);
                 System.out.println("Department: " + department2);
@@ -189,9 +193,8 @@ public class report {
     public void SummaryReport(String startTime, String endTime, String startDate, String endDate) throws IOException {
     	try {
     		
-    		File file1 = new File("\\reports\\Summary.txt");
-    		FileWriter fw = new FileWriter(file1);
-    		PrintWriter pw = new PrintWriter(fw);
+    		File file1 = new File("C:\\Users\\HP User\\Documents\\GitHub\\Bapers\\reports\\Summary.txt");
+    		
     		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bapersdb", "root", "");
     		 // summary performance report
             //prepare statement
@@ -219,10 +222,10 @@ public class report {
                 String department3 = rs.getString("Department");
                 String time_taken3 = rs.getString("Time taken");
                 // display values
-                pw.write("\nDate: " + date3 + "\n");
-                pw.write("Department: " + department3 + "\n");
-                pw.write("Time taken: " + time_taken3 + "\n");
-                pw.close();
+                write("\nDate: " + date3 + "\n", file1);
+                write("Department: " + department3 + "\n", file1);
+                write("Time taken: " + time_taken3 + "\n", file1);
+                
                 System.out.println("\nDate: " + date3 + "\n");
                 System.out.println("Department: " + department3 + "\n");
                 System.out.println("Time taken: " + time_taken3 + "\n");

@@ -1,0 +1,9 @@
+
+Name: John
+Task IDs: 2
+Department: Development area
+Task date: 2021-03-31
+Start time: 13:33:36
+Time taken (min): 60
+Total time: 03:00:00
+Total effort: 03:00:00
