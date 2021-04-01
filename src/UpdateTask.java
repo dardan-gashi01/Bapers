@@ -104,6 +104,7 @@ public class UpdateTask extends JFrame {
 	    });
 		//takes you back to menu
 		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.setForeground(Color.BLUE);
 		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -116,6 +117,7 @@ public class UpdateTask extends JFrame {
 		contentPane.add(btnNewButton);
 		//this one is so the task you pick it makes it so you start and then it shows the expected finish
 		JButton btnNewButton_1 = new JButton("Start Task");
+		btnNewButton_1.setForeground(Color.BLUE);
 		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -185,6 +187,7 @@ public class UpdateTask extends JFrame {
 		contentPane.add(lblNewLabel);
 		//search tasks using job_id to filter
 		JButton btnNewButton_2 = new JButton("Search");
+		btnNewButton_2.setForeground(Color.BLUE);
 		btnNewButton_2.setBackground(new Color(192, 192, 192));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -204,6 +207,7 @@ public class UpdateTask extends JFrame {
 		contentPane.add(btnNewButton_2);
 		//shows all tasks
 		JButton btnNewButton_3 = new JButton("All jobs");
+		btnNewButton_3.setForeground(Color.BLUE);
 		btnNewButton_3.setBackground(new Color(192, 192, 192));
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -223,6 +227,7 @@ public class UpdateTask extends JFrame {
 		contentPane.add(btnNewButton_3);
 		//shows only the tasks that have incomplete so they know they are yet to be done
 		JButton btnNewButton_4 = new JButton("active tasks left");
+		btnNewButton_4.setForeground(Color.BLUE);
 		btnNewButton_4.setBackground(new Color(192, 192, 192));
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

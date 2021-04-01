@@ -86,6 +86,7 @@ public class UpdateCustomer extends JFrame {
 		contentPane.setLayout(null);
 		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.setForeground(Color.BLUE);
 		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -143,6 +144,7 @@ public class UpdateCustomer extends JFrame {
 		
 		//creating a button that populates the table from the db
 		JButton btnNewButton_2 = new JButton("Refresh");
+		btnNewButton_2.setForeground(Color.BLUE);
 		btnNewButton_2.setBackground(new Color(192, 192, 192));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -310,6 +312,7 @@ public class UpdateCustomer extends JFrame {
 		contentPane.add(VariableButton);
 		//creating a button that takes the new values from the fields and then updates the db with it
 		JButton btnNewButton_3 = new JButton("Update Details");
+		btnNewButton_3.setForeground(Color.BLUE);
 		btnNewButton_3.setBackground(new Color(192, 192, 192));
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

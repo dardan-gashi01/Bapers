@@ -133,6 +133,7 @@ public class Menu extends JFrame {
 		contentPane.add(lblNewLabel_4);
 		//creating a button this one takes them back to login
 		JButton btnNewButton = new JButton("Logout");
+		btnNewButton.setForeground(Color.BLUE);
 		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -145,6 +146,7 @@ public class Menu extends JFrame {
 		contentPane.add(btnNewButton);
 		//creating a button that takes you to the Place job frame
 		PlaceJobBTN = new JButton("Place Job");
+		PlaceJobBTN.setForeground(Color.BLUE);
 		PlaceJobBTN.setBackground(new Color(192, 192, 192));
 		PlaceJobBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -157,6 +159,7 @@ public class Menu extends JFrame {
 		contentPane.add(PlaceJobBTN);
 		//takes you to a specific frame like the ones above
 		TakePaymentBTN = new JButton("Take Payment");
+		TakePaymentBTN.setForeground(Color.BLUE);
 		TakePaymentBTN.setBackground(new Color(192, 192, 192));
 		TakePaymentBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -169,6 +172,7 @@ public class Menu extends JFrame {
 		contentPane.add(TakePaymentBTN);
 		//takes you to a specific frame like the ones above
 		CreateCustBTN = new JButton("Create Customer");
+		CreateCustBTN.setForeground(Color.BLUE);
 		CreateCustBTN.setBackground(new Color(192, 192, 192));
 		CreateCustBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -181,6 +185,7 @@ public class Menu extends JFrame {
 		contentPane.add(CreateCustBTN);
 		//takes you to a specific frame like the ones above
 		ReportsBTN = new JButton("Reports");
+		ReportsBTN.setForeground(Color.BLUE);
 		ReportsBTN.setBackground(new Color(192, 192, 192));
 		ReportsBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -193,6 +198,7 @@ public class Menu extends JFrame {
 		contentPane.add(ReportsBTN);
 		//takes you to a specific frame like the ones above
 		viewActiveJobBTN = new JButton("View Active Jobs");
+		viewActiveJobBTN.setForeground(Color.BLUE);
 		viewActiveJobBTN.setBackground(new Color(192, 192, 192));
 		viewActiveJobBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -205,6 +211,7 @@ public class Menu extends JFrame {
 		contentPane.add(viewActiveJobBTN);
 		//takes you to a specific frame like the ones above
 		CreateAccountBTN = new JButton("Create Account");
+		CreateAccountBTN.setForeground(Color.BLUE);
 		CreateAccountBTN.setBackground(new Color(192, 192, 192));
 		CreateAccountBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -217,6 +224,7 @@ public class Menu extends JFrame {
 		contentPane.add(CreateAccountBTN);
 		//takes you to a specific frame like the ones above
 		UpdateAccountBTN = new JButton("Update Account");
+		UpdateAccountBTN.setForeground(Color.BLUE);
 		UpdateAccountBTN.setBackground(new Color(192, 192, 192));
 		UpdateAccountBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -229,6 +237,7 @@ public class Menu extends JFrame {
 		contentPane.add(UpdateAccountBTN);
 		//takes you to a specific frame like the ones above
 		ManageCustomersBTN = new JButton("Manage Customers");
+		ManageCustomersBTN.setForeground(Color.BLUE);
 		ManageCustomersBTN.setBackground(new Color(192, 192, 192));
 		ManageCustomersBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -241,6 +250,7 @@ public class Menu extends JFrame {
 		contentPane.add(ManageCustomersBTN);
 		//takes you to a specific frame like the ones above
 		viewAllJobsBTN = new JButton("View All Jobs");
+		viewAllJobsBTN.setForeground(Color.BLUE);
 		viewAllJobsBTN.setBackground(new Color(192, 192, 192));
 		viewAllJobsBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -253,6 +263,7 @@ public class Menu extends JFrame {
 		contentPane.add(viewAllJobsBTN);
 		//takes you to a specific frame like the ones above
 		CreateBackupBTN = new JButton("Create Backup");
+		CreateBackupBTN.setForeground(Color.BLUE);
 		CreateBackupBTN.setBackground(new Color(192, 192, 192));
 		CreateBackupBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -264,6 +275,7 @@ public class Menu extends JFrame {
 		contentPane.add(CreateBackupBTN);
 		//takes you to a specific frame like the ones above
 		EditTasksBTN = new JButton("Edit Tasks");
+		EditTasksBTN.setForeground(Color.BLUE);
 		EditTasksBTN.setBackground(new Color(192, 192, 192));
 		EditTasksBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -276,6 +288,7 @@ public class Menu extends JFrame {
 		contentPane.add(EditTasksBTN);
 		//takes you to a specific frame like the ones above
 		UpdateTasksBTN = new JButton("Update Tasks");
+		UpdateTasksBTN.setForeground(Color.BLUE);
 		UpdateTasksBTN.setBackground(new Color(192, 192, 192));
 		UpdateTasksBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -288,6 +301,7 @@ public class Menu extends JFrame {
 		contentPane.add(UpdateTasksBTN);
 		//takes you to a specific frame like the ones above
 		btnNewButton_1 = new JButton("Generate Invoice");
+		btnNewButton_1.setForeground(Color.BLUE);
 		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

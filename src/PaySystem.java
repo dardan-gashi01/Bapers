@@ -84,6 +84,7 @@ public class PaySystem extends JFrame {
 		contentPane.setLayout(null);
 		//takes you back to the menu
 		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.setForeground(Color.BLUE);
 		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -96,6 +97,7 @@ public class PaySystem extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("confirm Payment");
+		btnNewButton_1.setForeground(Color.BLUE);
 		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -144,6 +146,7 @@ public class PaySystem extends JFrame {
 			));
 		//this loads the invoices to pick which one to pay for
 		JButton btnNewButton_2 = new JButton("Show invoice");
+		btnNewButton_2.setForeground(Color.BLUE);
 		btnNewButton_2.setBackground(new Color(192, 192, 192));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

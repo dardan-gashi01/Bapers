@@ -82,6 +82,7 @@ public class CreateCustomer extends JFrame {
 		contentPane.add(lblNewLabel);
 		//creating a button that takes you back to the menu
 		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.setForeground(Color.BLUE);
 		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -94,6 +95,7 @@ public class CreateCustomer extends JFrame {
 		contentPane.add(btnNewButton);
 		//creating a button that adds the account to the customer table
 		JButton btnNewButton_1 = new JButton("Confirm Details");
+		btnNewButton_1.setForeground(Color.BLUE);
 		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

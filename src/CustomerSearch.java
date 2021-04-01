@@ -119,6 +119,7 @@ public class CustomerSearch extends JFrame {
 		contentPane.add(lblNewLabel);
 		//creating a button that goes back to menu
 		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.setForeground(Color.BLUE);
 		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -144,6 +145,7 @@ public class CustomerSearch extends JFrame {
 		NameSearch.setColumns(10);
 		//creating a button that populates the table and you can filter the search to a name so you don't have to scroll through the whole table
 		JButton btnNewButton_2 = new JButton("Search Customer");
+		btnNewButton_2.setForeground(Color.BLUE);
 		btnNewButton_2.setBackground(new Color(192, 192, 192));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -240,6 +242,7 @@ public class CustomerSearch extends JFrame {
 	    });
 		//creating a button that creates the actual job for the specific customer 
 		JButton btnNewButton_3 = new JButton("CreateJob");
+		btnNewButton_3.setForeground(Color.BLUE);
 		btnNewButton_3.setBackground(new Color(192, 192, 192));
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -277,6 +280,7 @@ public class CustomerSearch extends JFrame {
 		contentPane.add(btnNewButton_3);
 		//this loads the table with all customers rather than filtering by name 
 		JButton btnNewButton_1 = new JButton("All Customers");
+		btnNewButton_1.setForeground(Color.BLUE);
 		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

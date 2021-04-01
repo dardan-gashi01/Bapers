@@ -71,6 +71,7 @@ public class JobList extends JFrame {
 		contentPane.add(lblNewLabel);
 		//creating a button that takes you to the menu
 		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.setForeground(Color.BLUE);
 		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -99,6 +100,7 @@ public class JobList extends JFrame {
 			));
 		//creating a button that loads the data into the table from the DB for the jobs
 		JButton btnNewButton_2 = new JButton("Refresh");
+		btnNewButton_2.setForeground(Color.BLUE);
 		btnNewButton_2.setBackground(new Color(192, 192, 192));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -118,6 +120,7 @@ public class JobList extends JFrame {
 		//allows me to delete jobs that are not needed anymore or that may be errors from
 		//clicking on the specific row to delete
 		JButton btnNewButton_1 = new JButton("Delete");
+		btnNewButton_1.setForeground(Color.BLUE);
 		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

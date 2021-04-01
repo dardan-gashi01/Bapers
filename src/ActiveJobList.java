@@ -78,6 +78,7 @@ public class ActiveJobList extends JFrame {
 
 		//creating a button that cancels the page and goes back to menu to make it interactive
 		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.setForeground(Color.BLUE);
 		btnNewButton.setBackground(new Color(192, 192, 192));
 		//action listener for when the button is clicked it goes to the menu so it loads the Menu frame
 		btnNewButton.addActionListener(new ActionListener() {
@@ -92,6 +93,7 @@ public class ActiveJobList extends JFrame {
 		
 		//creating a button that updates the job status
 		JButton btnNewButton_1 = new JButton("Update Job Status");
+		btnNewButton_1.setForeground(Color.BLUE);
 		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -122,6 +124,7 @@ public class ActiveJobList extends JFrame {
 
 		//creating a button that refreshes the table to show what is in the DB for that table
 		JButton RefreshJobs = new JButton("RefreshJobs");
+		RefreshJobs.setForeground(Color.BLUE);
 		RefreshJobs.setBackground(new Color(192, 192, 192));
 		RefreshJobs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -161,6 +164,7 @@ public class ActiveJobList extends JFrame {
 
 		//creating a button that when you click new job it takes you to the frame to create a job
 		JButton btnNewButton_2 = new JButton("New Job");
+		btnNewButton_2.setForeground(Color.BLUE);
 		btnNewButton_2.setBackground(new Color(192, 192, 192));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

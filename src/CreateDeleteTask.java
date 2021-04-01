@@ -63,6 +63,7 @@ public class CreateDeleteTask extends JFrame {
 		contentPane.setLayout(null);
 		//creating a button
 		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.setForeground(Color.BLUE);
 		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -75,6 +76,7 @@ public class CreateDeleteTask extends JFrame {
 		contentPane.add(btnNewButton);
 		//creating a button that creates a new task that Bapers can do for clients it is like the other ones where they take the information from the textfields
 		JButton btnNewButton_1 = new JButton("Create new Task");
+		btnNewButton_1.setForeground(Color.BLUE);
 		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -100,6 +102,7 @@ public class CreateDeleteTask extends JFrame {
 		contentPane.add(btnNewButton_1);
 		//creating a button that deletes the task that Bapers no longer does for clients and it is just click on the row and then it selects it and when the button is pressed it confirms
 		JButton btnNewButton_2 = new JButton("Delete Task");
+		btnNewButton_2.setForeground(Color.BLUE);
 		btnNewButton_2.setBackground(new Color(192, 192, 192));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -149,6 +152,7 @@ public class CreateDeleteTask extends JFrame {
 	    });
 		//creating a button that loads the table in from the DB
 		JButton btnNewButton_3 = new JButton("Refresh");
+		btnNewButton_3.setForeground(Color.BLUE);
 		btnNewButton_3.setBackground(new Color(192, 192, 192));
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -204,6 +208,7 @@ public class CreateDeleteTask extends JFrame {
 		contentPane.add(lblNewLabel_3);
 		//creating a button that the changes you made in the textfields it updates it in the db for that specific row
 		JButton btnNewButton_4 = new JButton("Update Task");
+		btnNewButton_4.setForeground(Color.BLUE);
 		btnNewButton_4.setBackground(new Color(192, 192, 192));
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

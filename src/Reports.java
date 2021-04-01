@@ -77,6 +77,7 @@ public class Reports extends JFrame {
 		contentPane.setLayout(null);
 		//creating a button ta sends you to the menu
 		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.setForeground(Color.BLUE);
 		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -156,6 +157,7 @@ public class Reports extends JFrame {
 		contentPane.add(PersonalReportBTN);
 		
 		JButton btnNewButton_1 = new JButton("Generate report");
+		btnNewButton_1.setForeground(Color.BLUE);
 		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -188,7 +190,7 @@ public class Reports extends JFrame {
 				}
 			}
 		});
-		btnNewButton_1.setBounds(556, 327, 118, 23);
+		btnNewButton_1.setBounds(531, 327, 143, 23);
 		contentPane.add(btnNewButton_1);
 		
 		CustIDField = new JTextField();

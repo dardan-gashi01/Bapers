@@ -92,6 +92,7 @@ public class GenerateInvoice extends JFrame {
 		
 		//takes you to menu
 		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.setForeground(Color.BLUE);
 		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -104,6 +105,7 @@ public class GenerateInvoice extends JFrame {
 		contentPane.add(btnNewButton);
 		//loads all jobs in the DB to select 
 		JButton btnNewButton_1 = new JButton("All Jobs");
+		btnNewButton_1.setForeground(Color.BLUE);
 		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -133,6 +135,7 @@ public class GenerateInvoice extends JFrame {
 		contentPane.add(btnNewButton_1);
 		//this generates the invoice into the table invoice
 		JButton btnNewButton_2 = new JButton("Generate");
+		btnNewButton_2.setForeground(Color.BLUE);
 		btnNewButton_2.setBackground(new Color(192, 192, 192));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
