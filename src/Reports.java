@@ -128,6 +128,7 @@ public class Reports extends JFrame {
 					CustIDField.setVisible(false);
 					StartTimeField.setVisible(true);
 					EndTimeField.setVisible(true);
+					StartTimeField.setVisible(true);
 				}
 			}
 		});

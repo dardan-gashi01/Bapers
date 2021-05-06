@@ -253,18 +253,18 @@ public class CustomerSearch extends JFrame {
 					//converting a String to an integer
 					int Number = Integer.parseInt(NumberField.getText());
 					//method for the job number
-					generateJobno("SELECT COUNT(`job_id`)+1 FROM `job`");
-					String JNumber = new SimpleDateFormat("ddMM").format(new Date())+getValue;
-					String query = "INSERT INTO `job`(`job_id` , `customer_id`,`deadline`, `urgency`, `status`, `special_instructions`, `Price`, `number`) VALUES (?, ?,?, ?, ?,?,?,?)";
+					//generateJobno("SELECT COUNT(`job_id`)+1 FROM `job`");
+					//String JNumber = new SimpleDateFormat("ddMM").format(new Date())+getValue;
+					String query = "INSERT INTO `job`(`customer_id`,`deadline`, `urgency`, `status`, `special_instructions`, `Price`, `number`) VALUES (?,?, ?, ?,?,?,?)";
 					PreparedStatement pst = connection.prepareStatement(query);
-					pst.setString(1,JNumber);
-					pst.setInt(2,CustomerID);
-					pst.setString(3, sdf.format(cal.getTime()));
-					pst.setString(4, urgency);
-					pst.setString(5, Status);
-					pst.setString(6,SpecialInstruction.getText());
-					pst.setFloat(7, 0);
-					pst.setInt(8, Number);
+					//pst.setString(1,JNumber);
+					pst.setInt(1,CustomerID);
+					pst.setString(2, sdf.format(cal.getTime()));
+					pst.setString(3, urgency);
+					pst.setString(4, Status);
+					pst.setString(5,SpecialInstruction.getText());
+					pst.setFloat(6, 0);
+					pst.setInt(7, Number);
 					pst.executeUpdate();
 					JOptionPane.showMessageDialog(null, "Job Created");
 					addTasks tasksFrame = new addTasks();

@@ -1,0 +1,54 @@
+
+Name: Finish
+Task IDs: 3
+Department: Packing Department
+Task date: 2021-04-01
+Start time: 16:38:07
+Time taken (min): 30
+Total time: 08:30:00
+Total effort: 08:30:00
+
+Name: Finish
+Task IDs: 6
+Department: Copy Room
+Task date: 2021-04-01
+Start time: 16:46:34
+Time taken (min): 75
+Total time: 08:30:00
+Total effort: 08:30:00
+
+Name: Finish
+Task IDs: 4
+Department: Development area
+Task date: 2021-04-01
+Start time: 16:40:10
+Time taken (min): 90
+Total time: 08:30:00
+Total effort: 08:30:00
+
+Name: Finish
+Task IDs: 7
+Department: Finishing Room
+Task date: 2021-04-01
+Start time: 16:46:41
+Time taken (min): 45
+Total time: 08:30:00
+Total effort: 08:30:00
+
+Name: Finish
+Task IDs: 5
+Department: Development area
+Task date: 2021-04-01
+Start time: 16:50:42
+Time taken (min): 180
+Total time: 08:30:00
+Total effort: 08:30:00
+
+Name: Finish
+Task IDs: 4
+Department: Development area
+Task date: 2021-04-01
+Start time: 16:50:48
+Time taken (min): 90
+Total time: 08:30:00
+Total effort: 08:30:00

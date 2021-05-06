@@ -1,0 +1,40 @@
+
+Date: 2021-04-01
+Department: Copy Room
+Time taken: 01:15:00
+
+Date: 2021-04-01
+Department: Development area
+Time taken: 03:00:00
+
+Date: 2021-04-01
+Department: Development area
+Time taken: 03:00:00
+
+Date: 2021-04-01
+Department: Finishing Room
+Time taken: 00:45:00
+
+Date: 2021-04-01
+Department: Packing Department
+Time taken: 00:30:00
+
+Date: 2021-04-01
+Department: Copy Room
+Time taken: 01:15:00
+
+Date: 2021-04-01
+Department: Development area
+Time taken: 03:00:00
+
+Date: 2021-04-01
+Department: Development area
+Time taken: 03:00:00
+
+Date: 2021-04-01
+Department: Finishing Room
+Time taken: 00:45:00
+
+Date: 2021-04-01
+Department: Packing Department
+Time taken: 00:30:00

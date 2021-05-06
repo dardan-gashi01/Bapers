@@ -1,0 +1,44 @@
+
+Customer: 10
+Job: 1045
+Task: 3
+Price: 20.0
+Department: Packing Department
+Task date: 2021-04-01
+Start time: 16:38:07
+Time taken (min): 30
+Completed by: Finish
+
+
+Customer: 10
+Job: 1045
+Task: 4
+Price: 80.0
+Department: Development area
+Task date: 2021-04-01
+Start time: 16:40:10
+Time taken (min): 90
+Completed by: Finish
+
+
+Customer: 10
+Job: 1047
+Task: 5
+Price: 110.3
+Department: Development area
+Task date: 2021-04-01
+Start time: 16:50:42
+Time taken (min): 180
+Completed by: Finish
+
+
+Customer: 10
+Job: 1047
+Task: 4
+Price: 80.0
+Department: Development area
+Task date: 2021-04-01
+Start time: 16:50:48
+Time taken (min): 90
+Completed by: Finish
+

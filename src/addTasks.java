@@ -225,8 +225,8 @@ public class addTasks extends JFrame {
 		        	float Price = Float.parseFloat(tprice);
 					String myString = comboBox.getSelectedItem().toString();
 					int taskID = Integer.parseInt(myString);
-					String tJobId = tblModel.getValueAt(table.getSelectedRow(), 0).toString();
-		        	int JobID = Integer.parseInt(tJobId);
+					int tJobId = (int) tblModel.getValueAt(table.getSelectedRow(), 0);
+		        	
 		        	String No = tblModel.getValueAt(table.getSelectedRow(), 8).toString();
 		        	int number = Integer.parseInt(No);
 		        	//these are if else statment that give add a price due to the task you add
@@ -249,9 +249,9 @@ public class addTasks extends JFrame {
 					the job price to give a total price at the end
 					 */
 					String query = "INSERT INTO `task_job`(`job_id`, `task_id`, `status`) VALUES (?,?,?)";
-					String query2 = "UPDATE job SET Price = '" + Price + "' WHERE job_id = '" + JobID +"'";
+					String query2 = "UPDATE job SET Price = '" + Price + "' WHERE job_id = '" + tJobId +"'";
 					PreparedStatement pst = connection.prepareStatement(query);
-					pst.setString(1, job_id);
+					pst.setInt(1, tJobId);
 					pst.setInt(2, taskID);
 					pst.setString(3, status);
 					PreparedStatement pst2 = connection.prepareStatement(query2);
